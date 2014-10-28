@@ -50,12 +50,24 @@ class User < ActiveRecord::Base
     end
   end
 
+  def breeds
+    BREEDS
+  end
+
+  def countries
+    COUNTRIES
+  end
+
   def breed_name
     BREEDS[self.breed]
   end
 
   def gender_name
     GENDERS[self.gender]
+  end
+
+  def owner_gender_name
+    GENDERS[self.owner_gender]
   end
 
   def country_name

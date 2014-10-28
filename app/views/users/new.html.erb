@@ -12,19 +12,18 @@
   <br>
   <label for="breed">Breed</label>
   <select id="breed" name="user[breed]">
-    <option value="1">Poodle</option>
-    <option value="2">Corgi</option>
-    <option value="3">Husky</option>
-    <option value="4">Bulldog</option>
+    <% @user.breeds.each do |breed_id, breed_name| %>
+      <option value="<%= breed_id %>" <%= "selected" if @user.breed == breed_id %>><%= breed_name %></option>
+    <% end %>
   </select>
 
   <br>
   <br>
   <label for="country">Country</label>
   <select id="country" name="user[country]">
-    <option value="1">USA</option>
-    <option value="2">Afghanistan</option>
-    <option value="3">Russia</option>
+    <% @user.countries.each do |country_id, country_name| %>
+      <option value="<%= country_id %>" <%= "selected" if @user.country == country_id %>><%= country_name %></option>
+    <% end %>
   </select>
 
   <br>

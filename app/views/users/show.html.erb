@@ -1,5 +1,3 @@
-
-
 <nav class="signed-in"></nav>
 
 <section class="content">
@@ -20,6 +18,7 @@
         <li class="breed"><%= @user.breed_name %></li>
         <li class="gender"><%= @user.gender_name %></li>
         <li class="location"><%= @user.zip %></li>
+        <li class="country"><%= @user.country_name %></li>
       </ul>
     </div>
 
@@ -52,9 +51,9 @@
 
           </figure>
         </li>
-        <li>Name</li>
-        <age>31</age>
-        <sex>F</sex>
+        <li><%= @user.owner_name %></li>
+        <age><%= @user.owner_age %></age>
+        <sex><%= @user.owner_gender_name %></sex>
       </ul>
     </div>
 
