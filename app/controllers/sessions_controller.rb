@@ -8,10 +8,10 @@ class SessionsController < ApplicationController
     @user = User.find_by_credentials(user_params)
     if @user
       session[:token] = @user.reset_session_token!
-      flash[:notice] = "Successfully logged in"
+      flash[:notice] = ["Successfully logged in"]
       redirect_to root_url
     else
-      flash[:errors] = "Incorrect username or password."
+      flash.now[:errors] = ["Incorrect username or password."]
       render :new
     end
   end
@@ -20,6 +20,12 @@ class SessionsController < ApplicationController
     current_user.reset_session_token!
     session[:token] = nil
     redirect_to new_session_url
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:username, :password, :breed, :country, :zip, :email)
   end
 
 end
