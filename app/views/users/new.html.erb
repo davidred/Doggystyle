@@ -2,10 +2,55 @@
 
 <form action="<%= users_url %>" method="POST">
   <%= form_auth %>
-  <label for="username">Username</label>
+  <label for="gender">Gender</label>
+  <select name="user[gender]" id="gender">
+    <option value="1">Male</option>
+    <option value="2">Felmale</option>
+  </select>
+
+  <br>
+  <br>
+  <label for="breed">Breed</label>
+  <select id="breed" name="user[breed]">
+    <option value="1">Poodle</option>
+    <option value="2">Corgi</option>
+    <option value="3">Husky</option>
+    <option value="4">Bulldog</option>
+  </select>
+
+  <br>
+  <br>
+  <label for="country">Country</label>
+  <select id="country" name="user[country]">
+    <option value="1">USA</option>
+    <option value="2">Afghanistan</option>
+    <option value="3">Russia</option>
+  </select>
+
+  <br>
+  <br>
+  <label for="zip">Zip Code</label>
   <input type="text"
-         id="username"
-         name="user[username]">
+         id="zip"
+         name="user[zip]"
+         value="<%= @user.zip %>">
+
+  <br>
+  <br>
+  <label for="email">Email</label>
+  <input type="text"
+         id="email"
+         name="user[email]"
+         value="<%= @user.email %>">
+
+   <br>
+   <br>
+   <label for="username">Username</label>
+   <input type="text"
+          id="username"
+          name="user[username]"
+          value="<%= @user.username %>">
+
   <br>
   <br>
   <label for="password">Password</label>
