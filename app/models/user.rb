@@ -2,17 +2,32 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  username        :string(255)      not null
-#  password_digest :string(255)      not null
-#  session_token   :string(255)
-#  created_at      :datetime
-#  updated_at      :datetime
-#  gender          :integer          not null
-#  breed           :integer          not null
-#  email           :string(255)      not null
-#  country         :string(255)      not null
-#  zip             :integer          not null
+#  id                   :integer          not null, primary key
+#  username             :string(255)      not null
+#  password_digest      :string(255)      not null
+#  session_token        :string(255)
+#  created_at           :datetime
+#  updated_at           :datetime
+#  gender               :integer          not null
+#  breed                :integer          not null
+#  email                :string(255)      not null
+#  country              :string(255)      not null
+#  zip                  :integer          not null
+#  summary              :text
+#  photo                :string(255)
+#  age                  :integer
+#  size                 :integer
+#  play_style           :integer
+#  energy_level         :integer
+#  looking_for_size     :integer
+#  looking_for_breed    :integer
+#  looking_for_gender   :integer
+#  looking_for_distance :integer
+#  looking_for_location :integer
+#  owner_name           :string(255)
+#  owner_photo          :string(255)
+#  owner_gender         :integer
+#  owner_age            :integer
 #
 
 class User < ActiveRecord::Base
@@ -24,11 +39,27 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
+  BREEDS = {1 => :Corgi, 2 => :Poodle, 3 => :Husky, 4 => :Boxer}
+  COUNTRIES = {1 => :USA, 2 => :Afghanistan, 3 => :Russia}
+  GENDERS = {1 => :male, 2 => :female}
+
   def self.find_by_credentials(creds)
     user = User.find_by_username(creds[:username])
     if user
       user.isPassword?(creds[:password]) ? user : nil
     end
+  end
+
+  def breed_name
+    BREEDS[self.breed]
+  end
+
+  def gender_name
+    GENDERS[self.gender]
+  end
+
+  def country_name
+    COUNTRIES[self.country]
   end
 
   def password=(password)

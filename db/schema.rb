@@ -11,24 +11,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141028152339) do
+ActiveRecord::Schema.define(version: 20141028180740) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "users", force: true do |t|
-    t.string   "username",        null: false
-    t.string   "password_digest", null: false
+    t.string   "username",             null: false
+    t.string   "password_digest",      null: false
     t.string   "session_token"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "gender",          null: false
-    t.integer  "breed",           null: false
-    t.string   "email",           null: false
-    t.string   "country",         null: false
-    t.integer  "zip",             null: false
+    t.integer  "gender",               null: false
+    t.integer  "breed",                null: false
+    t.string   "email",                null: false
+    t.string   "country",              null: false
+    t.integer  "zip",                  null: false
+    t.text     "summary"
+    t.string   "photo"
+    t.integer  "age"
+    t.integer  "size"
+    t.integer  "play_style"
+    t.integer  "energy_level"
+    t.integer  "looking_for_size"
+    t.integer  "looking_for_breed"
+    t.integer  "looking_for_gender"
+    t.integer  "looking_for_distance"
+    t.integer  "looking_for_location"
+    t.string   "owner_name"
+    t.string   "owner_photo"
+    t.integer  "owner_gender"
+    t.integer  "owner_age"
   end
 
+  add_index "users", ["breed"], name: "index_users_on_breed", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
+  add_index "users", ["gender"], name: "index_users_on_gender", using: :btree
+  add_index "users", ["size"], name: "index_users_on_size", using: :btree
 
 end

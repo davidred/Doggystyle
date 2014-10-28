@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by_credentials(user_params)
     if @user
-      session[:token] = @user.reset_session_token!
+      sign_in!(@user)
       flash[:notice] = ["Successfully logged in"]
       redirect_to root_url
     else
@@ -17,8 +17,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    current_user.reset_session_token!
-    session[:token] = nil
+    sign_out
     redirect_to new_session_url
   end
 

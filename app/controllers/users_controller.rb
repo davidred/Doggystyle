@@ -9,7 +9,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:notice] = ["Successfully created account!"]
-      redirect_to root_url
+      sign_in!(@user)
+      redirect_to user_url(@user)
     else
       flash[:errors] = @user.errors.full_messages
       render :new
@@ -17,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.nfind(params[:id])
+    @user = User.find(params[:id])
     render :edit
   end
 
@@ -25,7 +26,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.save
       flash[:notice] = ["Successfully updated profile"]
-      redirect_to :show
+      redirect_to user_url(@user)
     else
       flash.now[:errors] = @user.errors.full_messages
       render :edit
@@ -34,6 +35,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    render :show
   end
 
   private

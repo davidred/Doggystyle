@@ -1,0 +1,66 @@
+
+
+<nav class="signed-in"></nav>
+
+<section class="content">
+  <nav class="sidebar">
+    <ul>
+      <li>Browse Matches</li>
+      <li>Messages</li>
+      <li>Visitors</li>
+    </ul>
+  </nav>
+  <section class="profile">
+    <div class="preview">
+      <figure>
+
+      </figure>
+      <h2 class="username"><%= @user.username %></h2>
+      <ul class="basic-info">
+        <li class="breed"><%= @user.breed_name %></li>
+        <li class="gender"><%= @user.gender_name %></li>
+        <li class="location"><%= @user.zip %></li>
+      </ul>
+    </div>
+
+    <nav class="content-nav"></nav>
+    <div class="detailed-info">
+      <h3>My Self Summary</h3>
+      <p><%= @user.summary %></p>
+      <h3>Age</h3>
+      <p><%= @user.age %></p>
+      <h3>Size</h3>
+      <p><%= @user.size %></p>
+      <h3>Play Style</h3>
+      <p><%= @user.play_style %></p>
+      <h3>Energy Level</h3>
+      <p><%= @user.energy_level %></p>
+    </div>
+    <div class="looking-for">
+      <h3>Looking For</h3>
+        <ul>
+          <li>Small males</li>
+          <li>Playmates</li>
+          <li>Near me</li>
+        </ul>
+    </div>
+    <div class="owner-info">
+      <h3>My Person</h3>
+      <ul>
+        <li>
+          <figure>
+
+          </figure>
+        </li>
+        <li>Name</li>
+        <age>31</age>
+        <sex>F</sex>
+      </ul>
+    </div>
+
+  </section>
+</section>
+
+</content>
+
+<footer><h1>&ltFooter&gt</h1></footer>
