@@ -1,8 +1,17 @@
 class UsersController < ApplicationController
 
   def new
-    @user = User.new
-    render :new
+    if request.method == "GET"
+      @user = User.new
+      session[:user] = Hash.new()
+      render :sign_up_1
+    else
+      @user = User.new(user_params)
+      session[:user][:breed] = user_params["breed"]
+      session[:user][:gender] = user_params["gender"]
+      fail
+      render :sign_up_2
+    end
   end
 
   def create

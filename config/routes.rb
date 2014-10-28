@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   root to: 'sessions#new'
 
+  post '/users/new', to: 'users#new'
   resources :users
   resource :session, only: [:new, :create, :destroy]
 

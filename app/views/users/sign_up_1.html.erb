@@ -1,0 +1,25 @@
+<h1>Sign Up 1</h1>
+
+<form action="<%= new_user_url %>" method="POST">
+  <%= form_auth %>
+
+  <label for="gender">Gender</label>
+  <select name="user[gender]" id="gender">
+    <option value="1">Male</option>
+    <option value="2">Female</option>
+  </select>
+
+  <br>
+  <br>
+  <label for="breed">Breed</label>
+  <select id="breed" name="user[breed]">
+    <% @user.breeds.each do |breed_id, breed_name| %>
+      <option value="<%= breed_id %>" <%= "selected" if @user.breed == breed_id %>><%= breed_name %></option>
+    <% end %>
+  </select>
+
+  <br>
+  <br>
+  <input type="submit" value="Continue">
+
+</form>
