@@ -29,5 +29,19 @@ module UsersHelper
     validate
   end
 
+  def update_preferences
+    # {"tiny"=>"size", "small"=>"size", "medium"=>"size", "large"=>"size", "friendship"=>"looking_for", "casual_play"=>"looking_for", "breed_partner"=>"looking_for", "male"=>"gender", "female"=>"gender", "near_me"=>"near_me"}
+    @user.preferences.destroy_all
+    preference_params.each do |val, pref_attr|
+      int_val = (pref_attr == "near_me") ? true : convert_to_integer(val, pref_attr)
+      @user.preferences.create(preference_attribute: pref_attr, value: int_val)
+    end
+    fail
+  end
+
+  def convert_to_integer(val, pref_attr)
+    @user.send(pref_attr.pluralize).key(val.to_sym)
+  end
+
 
 end

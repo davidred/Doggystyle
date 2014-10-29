@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     if request.method == "GET"
       @user = User.new
       session[:user] = {}
-      render :sign_up_1
+      render :sign_up_1, layout: "sign_in"
     else
       #merge cookie with user_params hash
       session[:user].merge!(user_params)
@@ -14,11 +14,11 @@ class UsersController < ApplicationController
       @user = User.new(session[:user])
       case get_step
       when 1
-        render :sign_up_1
+        render :sign_up_1, layout: "sign_in"
       when 2
-        render :sign_up_2
+        render :sign_up_2, layout: "sign_in"
       when 3
-        render :sign_up_3
+        render :sign_up_3, layout: "sign_in"
       end
     end
   end
@@ -31,29 +31,34 @@ class UsersController < ApplicationController
       redirect_to user_url(@user)
     else
       flash[:errors] = @user.errors.full_messages
-      render :sign_up_3
+      render :sign_up_3, layout: "sign_in"
     end
   end
 
   def edit
     @user = User.find(params[:id])
-    render :edit
+    render :edit, layout: "sign_in"
   end
 
   def update
     @user = User.find(params[:id])
+
     if @user.update(user_params)
       flash[:notice] = ["Successfully updated profile"]
-      redirect_to user_url(@user)
+      if update_preferences
+        redirect_to user_url(@user)
+      else
+        render :edit, layout: "signed_in"
+      end
     else
       flash.now[:errors] = @user.errors.full_messages
-      render :edit
+      render :edit, layout: "signed_in"
     end
   end
 
   def show
     @user = User.find(params[:id])
-    render :show
+    render :show, layout: "signed_in"
   end
 
   private
@@ -71,15 +76,22 @@ class UsersController < ApplicationController
                                  :size,
                                  :play_style,
                                  :energy_level,
-                                 :looking_for_size,
-                                 :looking_for_breed,
-                                 :looking_for_gender,
-                                 :looking_for_location,
-                                 :looking_for_distance,
                                  :owner_age,
                                  :owner_photo,
-                                 :owner_gender,
-                                )
+                                 :owner_gender)
   end
 
+  def preference_params
+    params.require(:user).permit(:Tiny,
+                                 :Small,
+                                 :Medium,
+                                 :Large,
+                                 :Friendship,
+                                 :"Casual Play",
+                                 :"Breeding Partner",
+                                 :Male,
+                                 :Female,
+                                 :near_me)
+
+  end
 end

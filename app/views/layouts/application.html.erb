@@ -6,7 +6,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<nav class="main-nav">
 <%= render "shared/errors" %>
 <%= render "shared/notices" %>
 
@@ -17,7 +17,7 @@
   <%= link_to "Sign In", new_session_url %>
   <%= link_to "Sign Up", new_user_url %>
 <% end %>
-
+</nav>
 <%= yield %>
 
 </body>

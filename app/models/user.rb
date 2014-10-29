@@ -2,33 +2,28 @@
 #
 # Table name: users
 #
-#  id                   :integer          not null, primary key
-#  username             :string(255)      not null
-#  password_digest      :string(255)      not null
-#  omniauthid           :string(255)
-#  session_token        :string(255)
-#  created_at           :datetime
-#  updated_at           :datetime
-#  gender               :integer          not null
-#  breed                :integer          not null
-#  email                :string(255)      not null
-#  country              :integer          not null
-#  zip                  :integer          not null
-#  summary              :text
-#  photo                :string(255)
-#  age                  :integer
-#  size                 :integer
-#  play_style           :integer
-#  energy_level         :integer
-#  looking_for_size     :integer
-#  looking_for_breed    :integer
-#  looking_for_gender   :integer
-#  looking_for_distance :integer
-#  looking_for_location :integer
-#  owner_name           :string(255)
-#  owner_photo          :string(255)
-#  owner_gender         :integer
-#  owner_age            :integer
+#  id              :integer          not null, primary key
+#  username        :string(255)      not null
+#  password_digest :string(255)      not null
+#  omniauthid      :string(255)
+#  session_token   :string(255)
+#  created_at      :datetime
+#  updated_at      :datetime
+#  gender          :integer          not null
+#  breed           :integer          not null
+#  email           :string(255)      not null
+#  country         :integer          not null
+#  zip             :integer          not null
+#  summary         :text
+#  photo           :string(255)
+#  age             :integer
+#  size            :integer
+#  play_style      :integer
+#  energy_level    :integer
+#  owner_name      :string(255)
+#  owner_photo     :string(255)
+#  owner_gender    :integer
+#  owner_age       :integer
 #
 
 class User < ActiveRecord::Base
@@ -40,12 +35,15 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
+  has_many :preferences
+
   BREEDS = {1 => :Corgi, 2 => :Poodle, 3 => :Husky, 4 => :Boxer}
   COUNTRIES = {1 => :USA, 2 => :Afghanistan, 3 => :Russia}
-  GENDERS = {1 => :male, 2 => :female}
-  SIZES = {1 => :tiny, 2 => :small, 3 => :medium, 4 => :large}
-  PLAY_STYLES = {1 => :chaser, 2 => :tugger, 3 => :wrestler, 4 => :tackler, 5 => :not_sure}
-  ENERGY_LEVELS = {1 => "Super Chill", 2 => "Tame", 3 => "Likes to party", 4 => "Wild Beast"}
+  GENDERS = {1 => :Male, 2 => :Female}
+  SIZES = {1 => :Tiny, 2 => :Small, 3 => :Medium, 4 => :Large}
+  PLAY_STYLES = {1 => :Chaser, 2 => :Tugger, 3 => :Wrestler, 4 => :Tackler, 5 => :"Not Sure"}
+  ENERGY_LEVELS = {1 => :"Super Chill", 2 => :Tame, 3 => :"Likes to party", 4 => :"Wild Beast"}
+  LOOKING_FORS = {1 => :Friendship, 2 => :"Casual Play", 3 => :"Breeding Partner"}
 
   def self.find_by_credentials(creds)
     user = User.find_by_username(creds[:username])
@@ -64,6 +62,10 @@ class User < ActiveRecord::Base
     BREEDS
   end
 
+  def genders
+    GENDERS
+  end
+
   def countries
     COUNTRIES
   end
@@ -78,6 +80,10 @@ class User < ActiveRecord::Base
 
   def energy_levels
     ENERGY_LEVELS
+  end
+
+  def looking_fors
+    LOOKING_FORS
   end
 
   def breed_name

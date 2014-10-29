@@ -107,9 +107,34 @@
           Within
           Location
           <ul>
-            <li>Small males</li>
-            <li>Playmates</li>
-            <li>Near me</li>
+            <!--I want size, gender, breed -->
+            <!--ages: x to y -->
+            <!--location: near me -->
+            <!--for: friendship, casual play, breed partner -->
+            <li>
+              <label for="I_want">I want</label><br>
+              <% @user.sizes.each do |id, name| %>
+                <input type="checkbox" name="user[<%= name %>]" value="size"><%= name %><br>
+              <% end %>
+            </li>
+            <li>
+              <br><label for="looking_for">Looking For</label><br>
+              <input type="checkbox" name="user[Friendship]" value="looking_for">Friendship<br>
+              <input type="checkbox" name="user[Casual Play]" value="looking_for">Casual Play<br>
+              <input type="checkbox" name="user[Breeding Partner]" value="looking_for">Breeding Partner<br>
+            </li>
+            <li>
+              <br><label for="with">With</label><br>
+              <input type="checkbox"
+                     name="user[Male]"
+                     id="with"
+                     value="gender">Male<br>
+              <input type="checkbox" name="user[Female]" value="gender">Female<br>
+            </li>
+            <li>
+              <br><label for="near_me">Near me</label>
+              <input type="checkbox" name="user[near_me]" id="new_me" value="near_me">
+            </li>
           </ul>
       </div>
       <div class="owner-info">

@@ -9,12 +9,13 @@ Usernames = ['Fancy Fancy', 'Sennacy', 'Pit Bull', 'Kesha']
 Breeds = [1, 2, 3, 4]
 Countries = [1, 1, 2, 3 ]
 Genders = [1, 2, 1, 2]
-Summaries = ["I'm a fancy poodle", "", "I'm Mr. Worldwide", "We are who we are"]
+Summaries = ["I'm a fancy poodle", "I'm a cat. I hate dogs.", "I'm Mr. Worldwide", "We are who we are"]
 Photos = ["corgi", "poodle", "husky", "boxer"]
 Ages = [1, 2, 3, 1]
 Sizes = [1, 1, 3, 2]
 Playstyles = [1, 1, 2, 3]
 Energylevels = [1, 1, 2, 3]
+PreferenceAttrs = [:breed, :size, :gender]
 
 
 
@@ -32,13 +33,16 @@ Usernames.each_with_index do |username, index|
                    size: Sizes[index],
                    play_style: Playstyles[index],
                    energy_level: Energylevels[index],
-                   looking_for_size: 0,
-                   looking_for_breed: 0,
-                   looking_for_distance: 5,
-                   looking_for_location: 12345,
                    owner_name: Photos[index] + 'owner',
                    owner_photo: Photos[index] + 'owner',
                    owner_gender: Genders[index],
                    owner_age: 25,
                     )
+  # rand(2).times do
+  p1 = u1.preferences.create(preference_attribute: PreferenceAttrs[0], value: Breeds[rand(Breeds.length + 1)])
+ #  # end
+ #
+  p2 = u1.preferences.create(preference_attribute: PreferenceAttrs[1], value: Sizes[rand(Sizes.length + 1)])
+  p3 = u1.preferences.create(preference_attribute: PreferenceAttrs[2], value:rand(2))
+
 end
