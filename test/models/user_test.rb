@@ -11,8 +11,9 @@
 #  gender               :integer          not null
 #  breed                :integer          not null
 #  email                :string(255)      not null
-#  country              :string(255)      not null
-#  zip                  :integer          not null
+#  country              :integer
+#  zip                  :integer
+#  location             :string(255)      not null
 #  summary              :text
 #  photo                :string(255)
 #  age                  :integer

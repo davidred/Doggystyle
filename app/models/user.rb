@@ -11,8 +11,9 @@
 #  gender               :integer          not null
 #  breed                :integer          not null
 #  email                :string(255)      not null
-#  country              :string(255)      not null
-#  zip                  :integer          not null
+#  country              :integer
+#  zip                  :integer
+#  location             :string(255)      not null
 #  summary              :text
 #  photo                :string(255)
 #  age                  :integer
@@ -34,7 +35,7 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
-  validates :username, :password_digest, :gender, :breed, :email, :country, :zip, presence: true
+  validates :username, :password_digest, :gender, :breed, :email, :location, presence: true
   validates :password, length: { minimum: 6, allow_nil: true}
 
   after_initialize :ensure_session_token

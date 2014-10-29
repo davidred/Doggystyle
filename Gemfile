@@ -35,7 +35,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
+gem 'omniauth-facebook'
+gem 'figaro'
 group :development do
   gem 'annotate'
   gem 'byebug'

@@ -25,8 +25,9 @@ ActiveRecord::Schema.define(version: 20141028180740) do
     t.integer  "gender",               null: false
     t.integer  "breed",                null: false
     t.string   "email",                null: false
-    t.integer  "country",              null: false
-    t.integer  "zip",                  null: false
+    t.integer  "country"
+    t.integer  "zip"
+    t.string   "location",             null: false
     t.text     "summary"
     t.string   "photo"
     t.integer  "age"
