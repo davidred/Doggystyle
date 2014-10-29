@@ -1,28 +1,37 @@
 class UsersController < ApplicationController
 
+  include UsersHelper
+
   def new
     if request.method == "GET"
       @user = User.new
-      session[:user] = Hash.new()
+      session[:user] = {}
       render :sign_up_1
     else
-      @user = User.new(user_params)
-      session[:user][:breed] = user_params["breed"]
-      session[:user][:gender] = user_params["gender"]
-      fail
-      render :sign_up_2
+      #merge cookie with user_params hash
+      session[:user].merge!(user_params)
+      #check cookie to determine step
+      @user = User.new(session[:user])
+      case get_step
+      when 1
+        render :sign_up_1
+      when 2
+        render :sign_up_2
+      when 3
+        render :sign_up_3
+      end
     end
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(session[:user].merge!(user_params))
     if @user.save
       flash[:notice] = ["Successfully created account!"]
       sign_in!(@user)
       redirect_to user_url(@user)
     else
       flash[:errors] = @user.errors.full_messages
-      render :new
+      render :sign_up_3
     end
   end
 
