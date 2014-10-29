@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     if request.method == "GET"
       @user = User.new
       session[:user] = {}
-      render :sign_up_1, layout: "sign_in"
+      render :sign_up_1, layout: "sign_up"
     else
       #merge cookie with user_params hash
       session[:user].merge!(user_params)
@@ -14,11 +14,11 @@ class UsersController < ApplicationController
       @user = User.new(session[:user])
       case get_step
       when 1
-        render :sign_up_1, layout: "sign_in"
+        render :sign_up_1, layout: "sign_up"
       when 2
-        render :sign_up_2, layout: "sign_in"
+        render :sign_up_2, layout: "sign_up"
       when 3
-        render :sign_up_3, layout: "sign_in"
+        render :sign_up_3, layout: "sign_up"
       end
     end
   end
@@ -31,13 +31,13 @@ class UsersController < ApplicationController
       redirect_to user_url(@user)
     else
       flash[:errors] = @user.errors.full_messages
-      render :sign_up_3, layout: "sign_in"
+      render :sign_up_3, layout: "sign_up"
     end
   end
 
   def edit
     @user = User.find(params[:id])
-    render :edit, layout: "sign_in"
+    render :edit, layout: "sign_up"
   end
 
   def update

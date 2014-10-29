@@ -29,3 +29,41 @@ ul {
 body {
   font-family: sans-serif;
 }
+
+html, body {
+  height: 100%;
+  background: purple;
+}
+
+/*Sign up*/
+.sign-up {
+  min-width: 1140px;
+  min-height: 181px;
+  width: 100%;
+  background: yellow;
+}
+
+nav.sign-up-nav {
+  background: red;
+  position: relative;
+  height: 181px;
+  font-family: sans-serif;
+  width: 1140px;
+  margin: 0 auto;
+}
+
+.sign-up > section.sign-up-content {
+  background: green;
+  height: 300px;
+  width: 1140px;
+  margin: 0 auto;
+}
+
+footer.sign-up-footer {
+  position: relative;
+  height: 181px;
+  width: 1140px;
+  margin: 0 auto;
+  background: blue;
+
+}
