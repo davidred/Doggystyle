@@ -5,15 +5,15 @@
 #  id                   :integer          not null, primary key
 #  username             :string(255)      not null
 #  password_digest      :string(255)      not null
+#  omniauthid           :string(255)
 #  session_token        :string(255)
 #  created_at           :datetime
 #  updated_at           :datetime
 #  gender               :integer          not null
 #  breed                :integer          not null
 #  email                :string(255)      not null
-#  country              :integer
-#  zip                  :integer
-#  location             :string(255)      not null
+#  country              :integer          not null
+#  zip                  :integer          not null
 #  summary              :text
 #  photo                :string(255)
 #  age                  :integer
@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
-  validates :username, :password_digest, :gender, :breed, :email, :location, presence: true
+  validates :username, :password_digest, :gender, :breed, :email, :country, :zip, presence: true
   validates :password, length: { minimum: 6, allow_nil: true}
 
   after_initialize :ensure_session_token
@@ -49,6 +49,12 @@ class User < ActiveRecord::Base
     if user
       user.isPassword?(creds[:password]) ? user : nil
     end
+  end
+
+  def self.find_by_fb_auth_hash(omniauth)
+    omniauthid = omniauth['uid'] + omniauth['provider']
+    user = User.find_by_omniauthid(omniauthid)
+    user ? user : nil
   end
 
   def breeds

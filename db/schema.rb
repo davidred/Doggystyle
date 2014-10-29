@@ -19,15 +19,15 @@ ActiveRecord::Schema.define(version: 20141028180740) do
   create_table "users", force: true do |t|
     t.string   "username",             null: false
     t.string   "password_digest",      null: false
+    t.string   "omniauthid"
     t.string   "session_token"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "gender",               null: false
     t.integer  "breed",                null: false
     t.string   "email",                null: false
-    t.integer  "country"
-    t.integer  "zip"
-    t.string   "location",             null: false
+    t.integer  "country",              null: false
+    t.integer  "zip",                  null: false
     t.text     "summary"
     t.string   "photo"
     t.integer  "age"

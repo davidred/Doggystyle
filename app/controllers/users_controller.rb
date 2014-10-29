@@ -24,7 +24,6 @@ class UsersController < ApplicationController
   end
 
   def create
-    session[:user]["location"] = session[:user]["country"] if session[:user]["location"].empty? #until I implement geocoder
     @user = User.new(session[:user].merge!(user_params))
     if @user.save
       flash[:notice] = ["Successfully created account!"]

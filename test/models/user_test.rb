@@ -5,15 +5,15 @@
 #  id                   :integer          not null, primary key
 #  username             :string(255)      not null
 #  password_digest      :string(255)      not null
+#  omniauthid           :string(255)
 #  session_token        :string(255)
 #  created_at           :datetime
 #  updated_at           :datetime
 #  gender               :integer          not null
 #  breed                :integer          not null
 #  email                :string(255)      not null
-#  country              :integer
-#  zip                  :integer
-#  location             :string(255)      not null
+#  country              :integer          not null
+#  zip                  :integer          not null
 #  summary              :text
 #  photo                :string(255)
 #  age                  :integer

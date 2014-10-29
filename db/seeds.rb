@@ -8,7 +8,6 @@
 Usernames = ['Fancy Fancy', 'Sennacy', 'Pit Bull', 'Kesha']
 Breeds = [1, 2, 3, 4]
 Countries = [1, 1, 2, 3 ]
-Locations = ['New York, New York', 'Boston, Massachussetts', 'New York, New York', 'Cleveland, Ohio']
 Genders = [1, 2, 1, 2]
 Summaries = ["I'm a fancy poodle", "", "I'm Mr. Worldwide", "We are who we are"]
 Photos = ["corgi", "poodle", "husky", "boxer"]
@@ -25,8 +24,7 @@ Usernames.each_with_index do |username, index|
                    email: username + '@aol.com',
                    breed: Breeds[index],
                    gender: Genders[index],
-                   location: Locations[index],
-                   zip: 12345,
+                   zip: 11229,
                    country: Countries[index],
                    summary: Summaries[index],
                    photo: Photos[index],
