@@ -29,11 +29,11 @@
       <h3>Age</h3>
       <p><%= @user.age %></p>
       <h3>Size</h3>
-      <p><%= @user.size %></p>
+      <p><%= @user.size_name %></p>
       <h3>Play Style</h3>
-      <p><%= @user.play_style %></p>
+      <p><%= @user.play_style_name %></p>
       <h3>Energy Level</h3>
-      <p><%= @user.energy_level %></p>
+      <p><%= @user.energy_level_name %></p>
     </div>
     <div class="looking-for">
       <h3>Looking For</h3>
@@ -59,7 +59,7 @@
 
   </section>
 </section>
-
+<%= link_to "Edit Profile", edit_user_url(@user) %>
 </content>
 
 <footer><h1>&ltFooter&gt</h1></footer>

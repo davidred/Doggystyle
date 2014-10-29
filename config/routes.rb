@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   post '/users/new', to: 'users#new'
   get '/auth/facebook/callback', to: 'oauth_callbacks#facebook'
- 
+
   resources :users
   resource :session, only: [:new, :create, :destroy]
 

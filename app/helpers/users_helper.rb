@@ -10,15 +10,15 @@ module UsersHelper
       else
         return 2
       end
-    else
+    elsif keys == []
       return 1
     end
   end
-  
+
   def validate_sign_up_2
     validate = true
     flash.now[:errors] = []
-    if session[:user]["zip"].empty? 
+    if session[:user]["zip"].empty?
       flash.now[:errors] << "zip cannot be blank"
       validate = false
     end
@@ -28,6 +28,6 @@ module UsersHelper
     end
     validate
   end
-  
-  
+
+
 end

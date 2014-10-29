@@ -1,0 +1,157 @@
+<nav class="signed-in"></nav>
+
+<section class="content">
+  <nav class="sidebar">
+    <ul>
+      <li>Browse Matches</li>
+      <li>Messages</li>
+      <li>Visitors</li>
+    </ul>
+  </nav>
+  <section class="profile">
+    <form action="<%= user_url(@user) %>" method="POST">
+      <%= form_auth %>
+      <input type="hidden" name="_method" value="patch">
+      <div class="preview">
+        <figure>
+
+        </figure>
+
+        <ul class="basic-info">
+          <h3>Basic Info</h3>
+          <li class="breed">
+            <br>
+            <br>
+            <label for="breed">Breed</label>
+            <select id="breed" name="user[breed]">
+              <% @user.breeds.each do |breed_id, breed_name| %>
+                <option value="<%= breed_id %>" <%= "selected" if @user.breed == breed_id %>><%= breed_name %></option>
+              <% end %>
+            </select>
+          </li>
+          <li class="gender">
+            <label for="gender">Gender</label>
+            <select name="user[gender]" id="gender">
+              <option value="1">Male</option>
+              <option value="2">Female</option>
+            </select>
+          </li>
+          <li class="zip">
+            <br>
+            <br>
+            <label for="zip">Zip Code</label>
+            <input type="text"
+                   id="zip"
+                   name="user[zip]"
+                   value="<%= @user.zip %>">
+          </li>
+          <li class="country">
+            <br>
+            <br>
+            <label for="country">Country</label>
+            <select id="country" name="user[country]">
+              <% @user.countries.each do |country_id, country_name| %>
+                <option value="<%= country_id %>" <%= "selected" if @user.country == country_id %>><%= country_name %></option>
+              <% end %>
+            </select>
+          </li>
+        </ul>
+      </div>
+
+      <nav class="content-nav"></nav>
+      <div class="detailed-info">
+        <h3>Details</h3>
+        <br>
+        <br>
+        <label for="summary">Self Summary</label>
+        <textarea id="summary"
+                  name="user[summary]"><%= @user.summary %></textarea>
+        <br>
+        <br>
+        <label for="age">Age</label>
+        <input type="text"
+               id="age"
+               name="user[age]"
+               value="<%= @user.age %>">
+        <br>
+        <br>
+        <label for="size">Size</label>
+        <select name="user[size]" id="size">
+          <% @user.sizes.each do |id, name| %>
+            <option value="<%= id %>" <%= "selected" if @user.size == id %>><%= name %></option>
+          <% end %>
+        </select>
+
+        <br>
+        <br>
+        <label for="play_style">Play Style</label>
+        <select name="user[play_style]" id="play_style">
+          <% @user.play_styles.each do |id, name| %>
+            <option value="<%= id %>" <%= "selected" if @user.play_style == id %>><%= name %></option>
+          <% end %>
+        </select>
+        <br>
+        <br>
+        <label for="energy_level">Energy Level</label>
+        <select name="user[energy_level]" id="energy_level">
+          <% @user.energy_levels.each do |id, name| %>
+            <option value="<%= id %>" <%= "selected" if @user.energy_level == id %>><%= name %></option>
+          <% end %>
+        </select>
+      </div>
+      <div class="looking-for">
+        <h3>Looking For</h3>
+          Size
+          Gender
+          Looking For
+          Within
+          Location
+          <ul>
+            <li>Small males</li>
+            <li>Playmates</li>
+            <li>Near me</li>
+          </ul>
+      </div>
+      <div class="owner-info">
+        <h3>My Person</h3>
+        <ul>
+          <li>
+            <figure>
+
+            </figure>
+          </li>
+          <li>
+           <br>
+           <br>
+           <label for="owner_name">Owner Name</label>
+           <input type="text"
+                  id="owner_name"
+                  name="user[owner_name]"
+                  value="<%= @user.owner_name %>">
+          </li>
+          <li>
+            <label for="owner_age">Owner Age</label>
+            <input type="owner_age"
+                   id="owner_age"
+                   name="user[owner_age]"
+                   value="<%= @user.owner_age %>">
+          </li>
+          <li>
+            <label for="owner_gender">Owner Gender</label>
+            <select name="user[owner_gender]" id="owner_gender">
+              <option value="1">Male</option>
+              <option value="2">Female</option>
+            </select>
+          </li>
+        </ul>
+      </div>
+
+      <input type="submit" value="Save Updates">
+
+    </form>
+  </section>
+</section>
+
+</content>
+
+<footer><h1>&ltFooter&gt</h1></footer>
