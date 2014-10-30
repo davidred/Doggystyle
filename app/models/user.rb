@@ -46,6 +46,20 @@ class User < ActiveRecord::Base
   class_name: "Message",
   foreign_key: :to,
   primary_key: :id
+  
+  has_many :visits,
+  class_name: "Visit",
+  foreign_key: :visited,
+  primary_key: :id
+  
+  #has_many :visitors, through: :visits, source: :visitor
+  
+  has_many :visited,
+  class_name: "Visit",
+  foreign_key: :visitor,
+  primary_key: :id
+  
+  
 
   BREEDS = {1 => :Corgi, 2 => :Poodle, 3 => :Husky, 4 => :Boxer}
   COUNTRIES = {1 => :USA, 2 => :Afghanistan, 3 => :Russia}
