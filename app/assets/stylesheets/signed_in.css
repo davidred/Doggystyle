@@ -25,6 +25,7 @@ body {
 html, body {
   height: 100%;
   background: #2855A0;
+  color: #474d59;
 }
 
 .group:after {
@@ -140,7 +141,6 @@ main {
 
 .profile-basic-info:hover {
   background: white;
-
 }
 
 .profile-basic-info > h1 {
@@ -190,17 +190,27 @@ main {
 }
 
 .profile-content {
+  margin-top: 10px;
+}
 
+.profile-content h3 {
+  margin-bottom: 5px;
+}
+
+.profile-content p {
+  font-size: 13px;
+}
+
+.profile-content li {
+  font-size: 13px;
 }
 
 .profile-content-left {
-  background: red;
   width: 500px;
   float: left;
 }
 
 .detailed-info {
-  background: white;
 }
 
 .detailed-info > div {
@@ -208,39 +218,44 @@ main {
 }
 
 .user-age-size {
-
+  margin-bottom: 10px;
 }
 
 .user-age {
-
+  float: left;
+  width: 150px;
 }
 
 .user-size {
-
+  float: left;
+  width: 150px;
 }
 
 .user-play_style-energy_level {
-
 }
 
 .user-play_style {
-
+  float: left;
+  width: 150px;
 }
 
 .user-energy_level {
-
+  float: left;
+  width: 150px;
 }
 
 .profile-content-right {
-  background: blue;
   width: 300px;
   float: left;
 }
 
+.profile-content-right h3 {
+  border-bottom: 1px solid #AFB4B4;
+}
+
 .looking-for {
-  background: yellow;
 }
 
 .owner-info {
-  background: orange;
+  margin-top: 10px;
 }
