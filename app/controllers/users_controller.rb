@@ -71,6 +71,11 @@ class UsersController < ApplicationController
     render :inbox
   end
 
+  def outbox
+    @messagees = current_user.messagees.distinct
+    render :outbox
+  end
+
   private
 
   def user_params

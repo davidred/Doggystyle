@@ -31,11 +31,15 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :messages, only: [:new, :create, :index, :conversation]
+    resources :visits, only: [:create]
   end
 
   resources :messages, only: [:destroy, :show, :index]
   get '/inbox', to: 'users#inbox'
+  get '/outbox', to: 'users#outbox'
   get '/users/:user_id/conversation', to: 'messages#conversation', as: 'convo'
+
+  resources :visits, only: [:index]
 
   resource :session, only: [:new, :create, :destroy]
 

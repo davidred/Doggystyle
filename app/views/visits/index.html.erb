@@ -1,0 +1,9 @@
+<h1><%= current_user.username %>'s Visitors</h1>
+
+<ul>
+  <% @visitors.each do |visitor| %>
+    <li>
+      <%= link_to visitor.username, user_url(visitor) %>
+    </li>
+  <% end %>
+</ul>

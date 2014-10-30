@@ -1,0 +1,10 @@
+<h1><%= current_user.username %>'s Outbox</h1>
+
+<ul>
+  <% @messagees.each do |messagee| %>
+    <li>
+      <%= link_to messagee.username, convo_url(user_id: messagee.id) %>
+    </li>
+  <% end %>
+</ul>
+

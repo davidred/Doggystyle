@@ -56,14 +56,14 @@ class User < ActiveRecord::Base
   foreign_key: :visited,
   primary_key: :id
 
-  #has_many :visitors, through: :visits, source: :visitor
+  has_many :visitors, through: :visits, source: :visiting_user
 
   has_many :visited,
   class_name: "Visit",
   foreign_key: :visitor,
   primary_key: :id
 
-
+  has_many :visited_profiles, through: :visited, source: :visited_user
 
   BREEDS = {1 => :Corgi, 2 => :Poodle, 3 => :Husky, 4 => :Boxer}
   COUNTRIES = {1 => :USA, 2 => :Afghanistan, 3 => :Russia}
