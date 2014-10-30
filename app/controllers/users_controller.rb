@@ -61,6 +61,11 @@ class UsersController < ApplicationController
     render :show, layout: "signed_in"
   end
 
+  def index
+    @users = User.all
+    render :index, layout: "signed_in"
+  end
+
   private
 
   def user_params

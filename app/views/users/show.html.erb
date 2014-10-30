@@ -3,8 +3,8 @@
 <section class="content">
   <nav class="sidebar">
     <ul>
-      <li>Browse Matches</li>
-      <li>Messages</li>
+      <li><%= link_to "Browse Matches", users_url %></li>
+      <li><%= link_to "Messages", messages_url %></li>
       <li>Visitors</li>
     </ul>
   </nav>
@@ -20,6 +20,9 @@
         <li class="location"><%= @user.zip %></li>
         <li class="country"><%= @user.country_name %></li>
       </ul>
+      <% if @user != current_user %>
+        <div><%= link_to "Send Message", new_user_message_url(@user) %></div>
+      <% end %>
     </div>
 
     <nav class="content-nav"></nav>
@@ -59,7 +62,9 @@
 
   </section>
 </section>
-<%= link_to "Edit Profile", edit_user_url(@user) %>
+  <% if current_user == @user %>
+    <%= link_to "Edit Profile", edit_user_url(@user) %>
+  <% end %>
 </main>
 
 <footer><h1>&ltFooter&gt</h1></footer>

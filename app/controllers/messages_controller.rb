@@ -2,11 +2,13 @@ class MessagesController < ApplicationController
 
   def new
     @message = current_user.sent_messages.new
+    @user = User.find(params[:user_id])
     render :new
   end
 
   def create
     @message = current_user.sent_messages.new(message_params)
+    @message.to = params[:user_id]
     if @message.save
       flash[:notice] = ["Message successfully created"]
       redirect_to message_url(@message)

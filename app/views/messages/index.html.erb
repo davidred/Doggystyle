@@ -1,5 +1,7 @@
 <h1>Messages</h1>
 
 <% @messages.each do |message| %>
-  <p>message.body</p>
+  <p>Message from <%= User.find(message.from).username %></p>
+  <p><%= message.body %></p>
+  <%= button_to "Delete", message_url(message), method: :delete %>
 <% end %>
