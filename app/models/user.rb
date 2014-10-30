@@ -36,30 +36,34 @@ class User < ActiveRecord::Base
   after_initialize :ensure_session_token
 
   has_many :preferences
-  
+
   has_many :sent_messages,
   class_name: "Message",
   foreign_key: :from,
   primary_key: :id
-  
+
+  has_many :messagees, through: :sent_messages, source: :receiver
+
   has_many :received_messages,
   class_name: "Message",
   foreign_key: :to,
   primary_key: :id
-  
+
+  has_many :messagers, through: :received_messages, source: :sender
+
   has_many :visits,
   class_name: "Visit",
   foreign_key: :visited,
   primary_key: :id
-  
+
   #has_many :visitors, through: :visits, source: :visitor
-  
+
   has_many :visited,
   class_name: "Visit",
   foreign_key: :visitor,
   primary_key: :id
-  
-  
+
+
 
   BREEDS = {1 => :Corgi, 2 => :Poodle, 3 => :Husky, 4 => :Boxer}
   COUNTRIES = {1 => :USA, 2 => :Afghanistan, 3 => :Russia}

@@ -1,0 +1,8 @@
+<h1>Conversation with <%= @user.username %></h1>
+<ul>
+  <% @messages.each do |message| %>
+    <li><%= message.body %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Back to Messages", inbox_url %>

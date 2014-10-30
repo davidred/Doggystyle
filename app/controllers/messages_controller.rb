@@ -29,6 +29,12 @@ class MessagesController < ApplicationController
     render :index
   end
 
+  def conversation
+    @user = User.find(params[:user_id])
+    @messages = Message.where(from: [@user.id, current_user.id], to: [@user.id, current_user.id])
+    render :conversation
+  end
+
   def show
     @message = Message.find(params[:id])
     render :show

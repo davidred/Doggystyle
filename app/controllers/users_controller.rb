@@ -66,6 +66,11 @@ class UsersController < ApplicationController
     render :index, layout: "signed_in"
   end
 
+  def inbox
+    @messagers = current_user.messagers.distinct
+    render :inbox
+  end
+
   private
 
   def user_params

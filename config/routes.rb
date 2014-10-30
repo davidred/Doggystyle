@@ -30,10 +30,12 @@ Rails.application.routes.draw do
   get '/auth/facebook/callback', to: 'oauth_callbacks#facebook'
 
   resources :users do
-    resources :messages, only: [:new, :create, :index]
+    resources :messages, only: [:new, :create, :index, :conversation]
   end
 
   resources :messages, only: [:destroy, :show, :index]
+  get '/inbox', to: 'users#inbox'
+  get '/users/:user_id/conversation', to: 'messages#conversation', as: 'convo'
 
   resource :session, only: [:new, :create, :destroy]
 

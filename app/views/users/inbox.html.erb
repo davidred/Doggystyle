@@ -1,0 +1,10 @@
+<h1><%= current_user.username %>'s Inbox</h1>
+
+<ul>
+  <% @messagers.each do |messager| %>
+    <li>
+      <%= link_to messager.username, convo_url(user_id: messager.id) %>
+    </li>
+  <% end %>
+</ul>
+
