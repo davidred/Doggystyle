@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    render :edit, layout: "sign_up"
+    render :edit, layout: "signed_in"
   end
 
   def update
