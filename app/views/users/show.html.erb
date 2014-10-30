@@ -1,70 +1,98 @@
-<nav class="signed-in"></nav>
-<main>
-<section class="content">
-  <nav class="sidebar">
-    <ul>
-      <li><%= link_to "Browse Matches", users_url %></li>
-      <li><%= link_to "Messages", inbox_url %></li>
-      <li><%= link_to "Visitors", visits_url %></li>
-    </ul>
-  </nav>
-  <section class="profile">
-    <div class="preview">
-      <figure>
 
-      </figure>
-      <h2 class="username"><%= @user.username %></h2>
-      <ul class="basic-info">
-        <li class="breed"><%= @user.breed_name %></li>
-        <li class="gender"><%= @user.gender_name %></li>
-        <li class="location"><%= @user.zip %></li>
-        <li class="country"><%= @user.country_name %></li>
+<header class="profile-header">
+
+  <div class="profile-basic-group group">
+    <figure class="profile-picture">
+      <img src="<%= asset_path 'puppy.jpg' %>">
+    </figure>
+    <div class="profile-basic-info">
+      <h1><%= @user.username %></h1>
+      <ul class="profile-basic-info-list group">
+        <li><%= @user.breed_name %></li>
+        <li>&#8226</li>
+        <li><%= @user.gender_name %></li>
+        <li>&#8226</li>
+        <li><%= @user.country_name %></li> <!--Change to geocoded location -->
       </ul>
-      <% if @user != current_user %>
-        <div><%= link_to "Send Message", new_user_message_url(@user) %></div>
-      <% end %>
     </div>
+  </div>
+  <% if @user != current_user %>
+  <div><%= link_to "Send Message", new_user_message_url(@user) %>
+  </div>
+  <% end %>
+</header>
 
-    <nav class="content-nav"></nav>
-    <div class="detailed-info">
-      <h3>My Self Summary</h3>
-      <p><%= @user.summary %></p>
-      <h3>Age</h3>
-      <p><%= @user.age %></p>
-      <h3>Size</h3>
-      <p><%= @user.size_name %></p>
-      <h3>Play Style</h3>
-      <p><%= @user.play_style_name %></p>
-      <h3>Energy Level</h3>
-      <p><%= @user.energy_level_name %></p>
-    </div>
-    <div class="looking-for">
+<nav class="content-nav profile-nav">
+  <ul class="content-nav-list group">
+    <li><a href='#'>About</a></li>
+    <li><a href='#'>Photos</a></li>
+  </ul>
+</nav>
+
+<section class="profile-content group">
+
+  <section class="profile-content-left">
+
+    <section class="detailed-info">
+
+      <div class="user-summary">
+        <h3>My Self Summary</h3>
+        <p><%= @user.summary %></p>
+      </div>
+
+      <div class="user-age-size">
+        <div class="user-age">
+          <h3>Age</h3>
+          <p><%= @user.age %></p>
+        </div>
+        <div class="user-size">
+          <h3>Size</h3>
+          <p><%= @user.size_name %></p>
+        </div>
+      </div>
+
+      <div class="user-play_style-energy_level">
+        <div class="user-play_style">
+          <h3>Play Style</h3>
+          <p><%= @user.play_style_name %></p>
+        </div>
+        <div class="user-energy_level">
+          <h3>Energy Level</h3>
+          <p><%= @user.energy_level_name %></p>
+        </div>
+      </div>
+
+    </section>
+  </section>
+
+  <section class="profile-content-right">
+
+    <section class="looking-for">
       <h3>Looking For</h3>
-        <ul>
-          <li>Small males</li>
-          <li>Playmates</li>
-          <li>Near me</li>
-        </ul>
-    </div>
-    <div class="owner-info">
+      <ul>
+        <li>Small males</li>
+        <li>Playmates</li>
+        <li>Near me</li>
+      </ul>
+    </section>
+
+    <section class="owner-info">
       <h3>My Person</h3>
       <ul>
         <li>
-          <figure>
+          <figure class="owner-photo">
 
           </figure>
         </li>
         <li><%= @user.owner_name %></li>
-        <age><%= @user.owner_age %></age>
-        <sex><%= @user.owner_gender_name %></sex>
+        <li><%= @user.owner_age %></li>
+        <li><%= @user.owner_gender_name %></li>
       </ul>
-    </div>
+    </section>
 
   </section>
+
 </section>
   <% if current_user == @user %>
     <%= link_to "Edit Profile", edit_user_url(@user) %>
   <% end %>
-</main>
-
-<footer><h1>&ltFooter&gt</h1></footer>
