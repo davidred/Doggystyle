@@ -32,7 +32,16 @@ body {
 
 html, body {
   height: 100%;
-  background: purple;
+
+}
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: "";
+	clear: both;
+	height: 0;
 }
 
 /*Sign up*/
@@ -40,23 +49,75 @@ html, body {
   min-width: 1140px;
   min-height: 181px;
   width: 100%;
-  background: yellow;
+  background: #104da1;
 }
 
 nav.sign-up-nav {
-  background: red;
   position: relative;
   height: 181px;
   font-family: sans-serif;
   width: 1140px;
   margin: 0 auto;
+	border: 2px solid red;
 }
 
 .sign-up > section.sign-up-content {
-  background: green;
+	border: 2px solid black;
   height: 300px;
   width: 1140px;
   margin: 0 auto;
+}
+
+.sign-up-heading {
+	border: 2px solid orange;
+	text-align: center;
+	font-size: 32px;
+	line-height: 32px;
+	font-weight: 300;
+	font-family: 'Open Sans', sans-serif;
+	color: white;
+}
+
+.sign-up-form {
+	border: 2px solid yellow;
+	text-align: center;
+}
+
+.sign-up-1 {
+	text-align: center;
+	padding: 50px 0;
+}
+
+.sign-up-1-list {
+	border: 2px solid green;
+	margin: auto auto;
+	width: 450px;
+}
+
+.sign-up-1-list li.form-input {
+	float: left;
+	border: 1px solid pink;
+	width: 100px;
+	padding-left: 10px;
+}
+
+.prefix {
+	height: 35px;
+	margin-top: 15px;
+	padding: 0 0;
+	color: white;
+}
+
+.continue {
+	height: 50px;
+	width: 100px;
+	background: red;
+}
+
+.dropdown > select {
+	height: 50px;
+	width: 100px;
+	background: yellow;
 }
 
 footer.sign-up-footer {
@@ -64,6 +125,6 @@ footer.sign-up-footer {
   height: 181px;
   width: 1140px;
   margin: 0 auto;
-  background: blue;
+	border: 2px solid black;
 
 }
