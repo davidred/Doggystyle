@@ -1,13 +1,13 @@
 <div class="sign-up-heading">
-	<h1>Sign Up 1</h1>	
+	<h1>Join the best doggy dating site on Earth.</h1>	
 </div>
 
-<div class="sign-up-form">
-	<form class="sign-up-1 clearfix" action="<%= new_user_url %>" method="POST">
+<div class="sign-up-content">
+	<form class="sign-up-1" action="<%= new_user_url %>" method="POST">
 	  <%= form_auth %>
 
-	<ul class="sign-up-1-list clearfix">
-			<li class="form-input">
+	<ul class="sign-up-content-list group">
+			<li>
 			  <div class="prefix">
 					I am a
 			  </div>
@@ -22,7 +22,7 @@
 				</div>
 		  </li>
 
-			<li class="form-input">
+			<li>
 				<div class="dropdown">
 				  <select id="breed" name="user[breed]">
 				    <% @user.breeds.each do |breed_id, breed_name| %>
@@ -32,8 +32,8 @@
 				</div>
 			</li>
 
-			<li class="form-input">
-				<input type="submit" class="continue" value="Continue">			
+			<li>
+				<button type="submit" class="continue">Continue</button> 
 			</li>
 		</ul>
 

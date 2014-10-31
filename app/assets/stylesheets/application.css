@@ -13,8 +13,7 @@
  *= require_tree .
  *= require_self
  */
-
-html, body, section, nav, div, figure, ul, li, h1, h2, h3, p, footer {
+html, body, section, nav, div, figure, ul, li, h1, h2, h3, p, a, footer, button, input {
   padding: 0;
   margin: 0;
   border: 0;
@@ -26,16 +25,30 @@ ul {
   list-style: none;
 }
 
+input {
+  background-color: inherit;
+}
+
+button {
+  background-color: inherit``;
+}
+
+a {
+  text-decoration: none;
+}
+
 body {
   font-family: sans-serif;
+  color: #96B4FA;
 }
 
 html, body {
   height: 100%;
-
+  background: #2855A0;
+	min-height: 1000px;
 }
 
-.clearfix:after {
+.group:after {
 	visibility: hidden;
 	display: block;
 	font-size: 0;
@@ -45,86 +58,119 @@ html, body {
 }
 
 /*Sign up*/
-.sign-up {
-  min-width: 1140px;
-  min-height: 181px;
-  width: 100%;
-  background: #104da1;
+
+.sign-up-nav {
+	min-width: 750px;
+	height: 200px;
 }
 
-nav.sign-up-nav {
-  position: relative;
-  height: 181px;
-  font-family: sans-serif;
-  width: 1140px;
-  margin: 0 auto;
-	border: 2px solid red;
+.main-logo {
+	height: 200px;
+	width: 360px;
+	margin: 0 auto;
+	
 }
 
-.sign-up > section.sign-up-content {
-	border: 2px solid black;
-  height: 300px;
-  width: 1140px;
-  margin: 0 auto;
+.main-logo > img {
+	height: 100%;
+	width: auto;
+}
+
+.sign-in-link {
+	position: absolute;
+	font-size: 12px;
+	top: 30px;
+	right: 30px;
+	float: right;
+	padding: 5px 10px;
+	border: 1px solid #96B4FA;
+}
+
+.sign-in-link:hover {
+/*	background: #1E57A3;*/
+	background: red;
 }
 
 .sign-up-heading {
-	border: 2px solid orange;
 	text-align: center;
-	font-size: 32px;
-	line-height: 32px;
-	font-weight: 300;
+	padding: 20px 0;
+}
+
+.sign-up-heading > h1 {
+	font-size: 25px;
+	font-weight: 100;
 	font-family: 'Open Sans', sans-serif;
 	color: white;
 }
 
-.sign-up-form {
-	border: 2px solid yellow;
-	text-align: center;
+.sign-up-content {
+	min-height: 150px;
 }
 
-.sign-up-1 {
-	text-align: center;
-	padding: 50px 0;
+.sign-up-content > form {
+	margin-top: 40px;
 }
 
-.sign-up-1-list {
-	border: 2px solid green;
-	margin: auto auto;
-	width: 450px;
+.sign-up-content-list {
+	width: 500px;
+	margin: 0 auto;
 }
 
-.sign-up-1-list li.form-input {
+.sign-up-content-list > li {
 	float: left;
-	border: 1px solid pink;
 	width: 100px;
-	padding-left: 10px;
+	margin: 0 10px;
+	height: 30px;
+	text-align: center;
 }
 
 .prefix {
-	height: 35px;
-	margin-top: 15px;
-	padding: 0 0;
+	padding-top: 5px;
 	color: white;
 }
 
+.dropdown {
+	padding-top: 5px;
+}
+
 .continue {
-	height: 50px;
-	width: 100px;
-	background: red;
+	background-color: #8CCD32;
+	height: 100%;
+	width: 100%;
+	color: white;
 }
 
-.dropdown > select {
-	height: 50px;
-	width: 100px;
-	background: yellow;
+.continue:hover {
+	background: #abdb65;
 }
 
-footer.sign-up-footer {
-  position: relative;
-  height: 181px;
-  width: 1140px;
-  margin: 0 auto;
-	border: 2px solid black;
 
+.sign-up-footer {
+	position: absolute;
+	bottom: 0;
+	height: 200px;
+
+	width: 100%;
+	background: white;
+	color: black;
 }
+
+.footer-tag {
+	float: left;
+	margin-top: 100px;
+	margin-left: 10px;
+}
+
+.footer-list {
+	float: right;
+	margin-top: 100px;
+	margin-right: 10px;
+}
+
+.footer-list > li {
+	float: left;
+	border-left: 1px solid black;
+	padding-left: 5px;
+	margin-left: 5px;
+}
+

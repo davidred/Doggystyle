@@ -9,22 +9,24 @@
 </head>
 <body>
 
-<div class="sign-up">
-
   <nav class="sign-up-nav">
-    <%= link_to "Sign In", new_session_url %>
+		<figure class="main-logo">
+			<img src="<%= asset_path 'Doggystyle-logo.png' %>"></img>
+		</figure>
+		<div class="sign-in-link">
+	    <%= link_to "Sign In", new_session_url %>			
+		</div>
   </nav>
 
   <section class="sign-up-content">
     <%= yield %>
   </section>
-</div>
 
 <footer class="sign-up-footer">
-  <div>
+  <div class="footer-tag">
     <p>"The Google of doggy dating" - New York Times</p>
   </div>
-  <ul>
+  <ul class="footer-list group">
     <li>About</li>
     <li>Legal</li>
     <li>Copyright</li>
