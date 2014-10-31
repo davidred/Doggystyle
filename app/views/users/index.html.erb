@@ -1,13 +1,35 @@
-<h1>Matches</h1>
+<header class="matches-header content-header">
 
-<ul>
-<% @users.each do |user| %>
-  <li>
-    <h3><%= button_to user.username, user_visits_url(user), method: :post %></h3>
-    <p><%= user.age %></p>
-    <p><%= user.breed_name %></p>
-    <p><%= user.gender_name %></p>
-  </li>
-<% end %>
+  <h1>Matches</h1>
 
-</ul>
+</header>
+
+<nav class="content-nav matches-nav">
+  <ul class="content-nav-list group">
+    <li><a href='#'>Search</a></li>
+    <li><a href='#'>Bookmarks</a></li>
+  </ul>
+</nav>
+
+<section class="section-content matches-content">
+
+  <ul class="matches-list">
+  <% @users.each do |user| %>
+    <li class="match">
+      <form action="<%= user_visits_url(user) %>" method="POST">
+        <%= form_auth %>
+        <button type="submit">
+          <figure class="match-photo">
+            <img src="<%= asset_path 'puppy.jpg' %>">
+          </figure>
+          <div class="match-summary">
+            <h3><%= user.username %></h3>
+            <div><span><%= user.breed_name %>&#8226<%= user.country_name %></span></div>
+          </div>
+        </button>
+      </form>
+  <% end %>
+
+  </ul>
+
+</section>

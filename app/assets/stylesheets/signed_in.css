@@ -14,6 +14,10 @@ input {
   background-color: inherit;
 }
 
+button {
+  background-color: inherit``;
+}
+
 a {
   text-decoration: none;
 }
@@ -112,7 +116,8 @@ main {
 }
 
 /*PROFILE*/
-.profile-header {
+.content-header {
+  font-size: 30px;
 }
 
 .profile-basic-group {
@@ -258,4 +263,50 @@ main {
 
 .owner-info {
   margin-top: 10px;
+}
+
+.matches-content h1 {
+
+}
+
+.matches-list {
+  background: red;
+}
+
+.matches-list > li {
+  float: left;
+  margin: 10px 10px 0 0;
+  width: 250px;
+  background: white;
+}
+
+.match > figure {
+  height: 150px;
+  overflow: hidden;
+}
+
+.match > figure:hover {
+  height: 170px;
+  overflow: hidden;
+}
+
+.match-photo > img {
+  width: 100%;
+  height: auto;
+}
+
+.match-summary {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+.match button {
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.match-summary h3 {
+  font-size: 30px;
+  margin-bottom: 4px;
 }

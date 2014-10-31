@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Usernames = ['Fancy Fancy', 'Sennacy', 'Pit Bull', 'Kesha']
+Usernames = ['Fancy Fancy', 'Sennacy', 'Pit Bull', 'Ke$ha']
 Breeds = [1, 2, 3, 4]
 Countries = [1, 1, 2, 3 ]
 Genders = [1, 2, 1, 2]
