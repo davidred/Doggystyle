@@ -1,39 +1,51 @@
-<h1>Sign Up 2</h1>
+<div class="sign-up-heading">
+  <h1>Almost there! Just two more steps</h1>
+</div>
 
-<form action="<%= new_user_url %>" method="POST">
-  <%= form_auth %>
+<div class="sign-up-content">
+  <form class="sign-up-2" action="<%= new_user_url %>" method="POST">
+    <%= form_auth %>
 
-  <a href="/auth/facebook">LOGIN WITH FACEBOOK</a>
+    <ul class="sign-up-content-list group">
+      <li>
+        <a href="/auth/facebook">LOGIN WITH FACEBOOK</a>
+      </li>
 
-	<h3>OR</h3>
+      <li>
+       	<h3>OR</h3>
+      </li>
 
-  <br>
-  <br>
-  <label for="country">Country</label>
-  <select id="country" name="user[country]">
-    <% @user.countries.each do |country_id, country_name| %>
-      <option value="<%= country_id %>" <%= "selected" if @user.country == country_id %>><%= country_name %></option>
-    <% end %>
-  </select>
+      <li>
+        <label for="country">Country</label>
+        <select id="country" name="user[country]">
+          <% @user.countries.each do |country_id, country_name| %>
+            <option value="<%= country_id %>" <%= "selected" if @user.country == country_id %>><%= country_name %></option>
+          <% end %>
+        </select>
+      </li>
 
-  <br>
-  <br>
-  <label for="zip">Zip Code</label>
-  <input type="text"
-         id="zip"
-         name="user[zip]"
-         value="<%= @user.zip %>">
+      <li>
+        <label for="zip">Zip Code</label>
+        <input type="text"
+               id="zip"
+               name="user[zip]"
+               value="<%= @user.zip %>">
+      </li>
 
-  <br>
-  <br>
-  <label for="email">Email</label>
-  <input type="text"
-         id="email"
-         name="user[email]"
-         value="<%= @user.email %>">
+      <li>
+        <label for="email">Email</label>
+        <input type="text"
+               id="email"
+               name="user[email]"
+               value="<%= @user.email %>">
+      </li>
 
-  <br>
-  <br>
-  <input type="submit" value="Continue">
 
-</form>
+  		<li>
+  			<button type="submit" class="continue">Continue</button>
+  		</li>
+
+    </ul>
+
+  </form>
+</div>

@@ -1,12 +1,33 @@
-<h1><%= current_user.username %>'s Inbox</h1>
+<header class="inbox-header content-header">
 
-<ul>
+  <h1><%= current_user.username %>'s Inbox</h1>
+
+</header>
+
+<nav class="content-nav matches-nav">
+  <ul class="content-nav-list group">
+    <li><a href='#'>Messages</a></li>
+    <li><a href='#'><%= link_to "Sent", outbox_url %></a></li>
+  </ul>
+</nav>
+
+<section class="section-content messages-content">
+
+<ul class="messagers-list">
   <% @messagers.each do |messager| %>
-    <li>
-      <%= link_to messager.username, convo_url(user_id: messager.id) %>
+    <li class="messager">
+      <div class="user-banner group">
+        <a href="<%= convo_url(user_id: messager.id) %>">
+          <figure class="user-banner-photo">
+            <img src="<%= asset_path 'puppy.jpg' %>">
+          </figure>
+          <div class="match-summary">
+            <h3><%= messager.username %></h3>
+            <div><span><%= messager.breed_name %>&#8226<%= messager.country_name %></span></div>
+          </div>
+        </a>
+      </div>
+      <!-- <%#= link_to messager.username, convo_url(user_id: messager.id) %> -->
     </li>
   <% end %>
 </ul>
-
-<br>
-<%= link_to "Sent Messages", outbox_url %>

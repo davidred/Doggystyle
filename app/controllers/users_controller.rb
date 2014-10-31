@@ -68,12 +68,12 @@ class UsersController < ApplicationController
 
   def inbox
     @messagers = current_user.messagers.distinct
-    render :inbox
+    render :inbox, layout: "signed_in"
   end
 
   def outbox
     @messagees = current_user.messagees.distinct
-    render :outbox
+    render :outbox, layout: "signed_in"
   end
 
   private

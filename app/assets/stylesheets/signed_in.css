@@ -309,3 +309,33 @@ main {
   font-size: 30px;
   margin-bottom: 4px;
 }
+
+/*INBOX*/
+.messagers-list {
+
+}
+
+.messagers-list > li {
+
+}
+
+.user-banner {
+
+}
+
+.user-banner-photo {
+  width: 80px;
+  height: 80px;
+  float: left;
+}
+
+.user-banner-photo > img {
+  height: 100%;
+  width: auto;
+}
+
+.match-summary {
+  float: left;
+}
+
+
