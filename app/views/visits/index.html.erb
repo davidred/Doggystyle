@@ -1,9 +1,32 @@
-<h1><%= current_user.username %>'s Visitors</h1>
+<header class="visitor-header content-header">
+  <h1>Visitors</h1>
+</header>
 
-<ul>
-  <% @visitors.each do |visitor| %>
-    <li>
-      <%= link_to visitor.username, user_url(visitor) %>
-    </li>
-  <% end %>
-</ul>
+<nav class="content-nav matches-nav">
+  <ul class="content-nav-list group">
+    <li><a href='#'>Visitors</a></li>
+    <li><a href='#'>Favorites</a></li>
+  </ul>
+</nav>
+
+<section class="section-content visitor-content">
+  <ul class="messagers-list">
+    <% @visitors.each do |visitor| %>
+      <li class="messager">
+        <div class="user-banner">
+          <a class="group" href="<%= user_url(visitor) %>">
+            <figure class="user-banner-photo">
+              <img src="<%= asset_path 'puppy.jpg' %>">
+            </figure>
+            <div class="match-summary">
+              <h3><%= visitor.username %></h3>
+              <div><span><%= visitor.breed_name %>&#8226<%= visitor.country_name %></span></div>
+            </div>
+          </a>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</section>
+
+
