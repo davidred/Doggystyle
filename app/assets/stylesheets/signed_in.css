@@ -321,6 +321,7 @@ main {
 
 .messagers-list > li {
   margin-top: 5px;
+  margin-bottom: 20px;
 }
 
 .user-banner > a {
