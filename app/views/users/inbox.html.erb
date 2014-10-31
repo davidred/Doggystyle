@@ -16,8 +16,8 @@
 <ul class="messagers-list">
   <% @messagers.each do |messager| %>
     <li class="messager">
-      <div class="user-banner group">
-        <a href="<%= convo_url(user_id: messager.id) %>">
+      <div class="user-banner">
+        <a class="group" href="<%= convo_url(user_id: messager.id) %>">
           <figure class="user-banner-photo">
             <img src="<%= asset_path 'puppy.jpg' %>">
           </figure>
@@ -31,3 +31,5 @@
     </li>
   <% end %>
 </ul>
+
+</section>

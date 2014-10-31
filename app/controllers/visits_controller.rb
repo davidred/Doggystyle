@@ -8,7 +8,7 @@ class VisitsController < ApplicationController
 
   def index
     @visitors = current_user.visitors.distinct
-    render :index
+    render :index, layout: "signed_in"
   end
 
 end

@@ -19,21 +19,21 @@ PreferenceAttrs = [:breed, :size, :gender]
 
 Messages = [
              [ #Fancy Fancy's Comments
-              [1, "You're a cat, why are you even on this site?"],
-              [3, "Ke$ha! Love your I'm so fancy song! I'm so fancyyyy. You already knowwwww.."],
-              [3, "Oh wait, that was Iggy Azelea."],
-              [3, "Still a great song though. I'm in the fast lane, from LA to Tokyoooooo"]
+              [2, "You're a cat, why are you even on this site?"],
+              [4, "Ke$ha! Love your I'm so fancy song! I'm so fancyyyy. You already knowwwww.."],
+              [4, "Oh wait, that was Iggy Azelea."],
+              [4, "Still a great song though. I'm in the fast lane, from LA to Tokyoooooo"]
              ],
              [ #Sennacy's Comments
-              [0, "You're all so playful, it's pathetic"],
-              [2, "Seriously? Your name is Pit Bull? You're a Poodle"],
-              [3, "Why don't you go chase a mailman or pee on something."]
+              [1, "You're all so playful, it's pathetic"],
+              [3, "Seriously? Your name is Pit Bull? You're a Poodle"],
+              [4, "Why don't you go chase a mailman or pee on something."]
              ],
              [ #Pit Bull's Comments
-              [1, "You're so fancy. I think I love you"]
+              [2, "You're so fancy. I think I love you"]
              ],
              [ #Ke$ha's Comments
-              [0, "Uhhh. Thanks? Want to play in the park tomorrow?"],
+              [1, "Uhhh. Thanks? Want to play in the park tomorrow?"],
              ]
            ]
 
@@ -64,10 +64,9 @@ Usernames.each_with_index do |username, index|
   p2 = u1.preferences.create(preference_attribute: PreferenceAttrs[1], value: Sizes[rand(Sizes.length + 1)])
   p3 = u1.preferences.create(preference_attribute: PreferenceAttrs[2], value:rand(2))
 
-  Messages[index].each do |cat_message|
-    cat_message.each do |message|
-      u1.sent_messages.create(body: message[1], to: message[0])
-    end
+  Messages[index].each do |message|
+    u1.sent_messages.create(body: message[1], to: message[0])
   end
+
 
 end
