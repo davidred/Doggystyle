@@ -12,7 +12,7 @@
   <nav class="signed-in-nav">
     <ul class="signed-in-nav-list group">
       <li>
-        <%= link_to current_user.username, user_url(current_user) %>
+        <%= link_to "Profile", user_url(current_user) %>
       </li>
       <li>
         <%= button_to "Sign out", session_url, method: :delete %>
