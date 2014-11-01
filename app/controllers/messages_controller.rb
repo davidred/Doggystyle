@@ -32,7 +32,7 @@ class MessagesController < ApplicationController
   def conversation
     @user = User.find(params[:user_id])
     @messages = Message.where(from: [@user.id, current_user.id], to: [@user.id, current_user.id])
-    render :conversation
+    render :conversation, layout: 'signed_in'
   end
 
   def show

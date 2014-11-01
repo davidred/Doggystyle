@@ -17,12 +17,15 @@ ActiveRecord::Schema.define(version: 20141030025014) do
   enable_extension "plpgsql"
 
   create_table "messages", force: true do |t|
-    t.text     "body"
-    t.integer  "from"
-    t.integer  "to"
+    t.text     "body",       null: false
+    t.integer  "from",       null: false
+    t.integer  "to",         null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "messages", ["from"], name: "index_messages_on_from", using: :btree
+  add_index "messages", ["to"], name: "index_messages_on_to", using: :btree
 
   create_table "preferences", force: true do |t|
     t.integer  "user_id",              null: false

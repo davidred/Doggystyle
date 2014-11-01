@@ -114,6 +114,10 @@ main {
   padding: 20px;
 }
 
+.section-content {
+  padding-top: 30px;
+}
+
 /*PROFILE*/
 .content-header {
   font-size: 30px;
@@ -309,3 +313,91 @@ main {
   font-size: 30px;
   margin-bottom: 4px;
 }
+
+/*INBOX*/
+.messagers-list {
+
+}
+
+.messagers-list > li {
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.user-banner > a {
+  display: block;
+}
+
+.user-banner > a:hover {
+  background: white;
+}
+
+.user-banner-photo {
+  width: 100px;
+  height: 100px;
+  float: left;
+  overflow: hidden;
+}
+
+.user-banner-photo > img {
+  height: 100%;
+  width: auto;
+}
+
+.match-summary {
+  float: left;
+  margin-left: 20px;
+  height: 50px;
+  background: inherit;
+}
+
+
+/*CONVERSATION*/
+
+.conversation {
+  margin-top: 30px;
+}
+
+.conversation-list {
+/*  background: yellow;*/
+
+}
+
+.conversation-list > li {
+  margin-bottom: 10px;
+}
+
+.message > a {
+  display: block;
+}
+
+.message > a:hover {
+  background: white;
+}
+
+
+.user-banner-photo {
+  float: left;
+  border-radius: 50%;
+}
+
+.user-banner-photo > img {
+}
+
+.message-body {
+  padding: 5px;
+  float: left;
+  margin-top: 10px;
+  margin-left: 20px;
+  width: 600px;
+  min-height: 50px;
+  padding: 20px 20px;
+
+  background: white;
+}
+
+.message-body > p {
+
+}
+
+

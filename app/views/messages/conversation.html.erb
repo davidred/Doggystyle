@@ -1,8 +1,43 @@
-<h1>Conversation with <%= @user.username %></h1>
-<ul>
-  <% @messages.each do |message| %>
-    <li><%= message.body %></li>
-  <% end %>
-</ul>
+<header class="conversation-header content-header">
+  <h1>Messages</h1>
+</header>
+
+<nav class="content-nav messages-nav">
+  <ul class="content-nav-list group">
+    <li><a href='#'>Conversation</a></li>
+  </ul>
+</nav>
+
+<section class="section-content conversation-content"></section>
+  <div class="user-banner">
+    <a class="group" href="<%= user_url(@user) %>">
+      <figure class="user-banner-photo">
+        <img src="<%= asset_path 'puppy.jpg' %>">
+      </figure>
+      <div class="match-summary">
+        <h3><%= @user.username %></h3>
+        <div><span><%= @user.breed_name %>&#8226<%= @user.country_name %></span></div>
+      </div>
+    </a>
+  </div>
+
+  <div class="conversation">
+    <ul class="conversation-list">
+      <% @messages.each do |message| %>
+        <% sender = message.sender %>
+        <li class="message group">
+          <figure class="user-banner-photo">
+            <img src="<%= asset_path 'puppy.jpg' %>">
+          </figure>
+          <div class="message-body">
+            <p><%= message.body %></p>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+</section>
+
 
 <%= link_to "Back to Messages", inbox_url %>
