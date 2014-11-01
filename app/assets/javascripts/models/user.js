@@ -1,3 +1,4 @@
-Doggystyle.Models.User = new Backbone.Model.extend({
+Doggystyle.Models.User = Backbone.Model.extend({
+	urlRoot: '/api/users',
 	
 })

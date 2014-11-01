@@ -4,7 +4,12 @@ window.Doggystyle = {
   Views: {},
   Routers: {},
   initialize: function() {
-		//alert('Hello from Backbone!');
+		new Doggystyle.Routers.Router({
+			$rootEl: $('body'),
+			collection: Doggystyle.users
+		});
+		
+		Backbone.history.start();
   }
 };
 

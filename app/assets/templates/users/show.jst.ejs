@@ -1,0 +1,98 @@
+
+<header class="profile-header content-header">
+
+  <div class="profile-basic-group group">
+    <figure class="profile-picture">
+      PHOTO
+			<!-- <img src="< asset_path 'puppy.jpg' %>"> -->
+    </figure>
+    <div class="profile-basic-info">
+      <h1><%= user.escape('username') %></h1>
+      <ul class="profile-basic-info-list group">
+        <li><%= user.escape('breed_name') %></li>
+        <li>&#8226</li>
+        <li><%= user.escape('gender_name') %></li>
+        <li>&#8226</li>
+        <li><%= user.escape('country_name') %></li> <!--Change to geocoded location -->
+      </ul>
+    </div>
+  </div>
+  <!-- < if user != current_user %> -->
+  <div>
+		Link to Send Message
+		<!-- link_to "Send Message", new_user_message_url(@user) %> -->
+  </div>
+  <!-- < end %> -->
+</header>
+
+<nav class="content-nav profile-nav">
+  <ul class="content-nav-list group">
+    <li><a href='javascript.void(0)'>About</a></li>
+    <li><a href='javascript.void(0)'>Photos</a></li>
+  </ul>
+</nav>
+
+<section class="profile-content section-content group">
+
+  <section class="profile-content-left">
+
+    <section class="detailed-info">
+
+      <div class="user-summary">
+        <h3>My Self Summary</h3>
+        <p><%= user.escape('summary') %></p>
+      </div>
+
+      <div class="user-age-size group">
+        <div class="user-age">
+          <h3>Age</h3>
+          <p><%= user.escape('age') %></p>
+        </div>
+        <div class="user-size">
+          <h3>Size</h3>
+          <p><%= user.escape('size_name') %></p>
+        </div>
+      </div>
+
+      <div class="user-play_style-energy_level group">
+        <div class="user-play_style">
+          <h3>Play Style</h3>
+          <p><%= user.escape('play_style_name') %></p>
+        </div>
+        <div class="user-energy_level">
+          <h3>Energy Level</h3>
+          <p><%= user.escape('energy_level_name') %></p>
+        </div>
+      </div>
+
+    </section>
+  </section>
+
+  <section class="profile-content-right">
+
+    <section class="looking-for">
+      <h3>Looking For</h3>
+      <ul>
+        <li>Small males</li>
+        <li>Playmates</li>
+        <li>Near me</li>
+      </ul>
+    </section>
+
+    <section class="owner-info">
+      <h3>My Person</h3>
+      <ul>
+        <li>
+          <figure class="owner-photo">
+
+          </figure>
+        </li>
+        <li><%= user.escape('owner_name') %></li>
+        <li><%= user.escape('owner_age') %></li>
+        <li><%= user.escape('owner_gender_name') %></li>
+      </ul>
+    </section>
+
+  </section>
+
+</section>

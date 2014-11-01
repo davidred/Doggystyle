@@ -1,0 +1,35 @@
+<header class="matches-header content-header">
+
+  <h1>Matches</h1>
+
+</header>
+
+<nav class="content-nav matches-nav">
+  <ul class="content-nav-list group">
+    <li><a href='#'>Search</a></li>
+    <li><a href='#'>Bookmarks</a></li>
+  </ul>
+</nav>
+
+<section class="section-content matches-content">
+
+  <ul class="matches-list">
+  <% users.each( function(user) {%>
+    <li class="match">
+      <!-- <form action=" user_visits_url(user)" method="POST"> -->
+        <button id="#user-profile-link" data-id="<%= user.id %>">
+          <figure class="match-photo">
+						PHOTO
+            <!-- <img src=" asset_path 'puppy.jpg'"> -->
+          </figure>
+          <div class="match-summary">
+            <h3><%= user.escape('username') %></h3>
+            <div><span><%= user.escape('breed_name') %>&#8226<%= user.escape('country_name') %></span></div>
+          </div>
+        </button>
+      </form>
+  <% }); %>
+
+  </ul>
+
+</section>
