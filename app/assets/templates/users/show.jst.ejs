@@ -38,30 +38,30 @@
   <section class="profile-content-left">
 
     <section class="detailed-info">
-
+			<h3>About Me</h3>
       <div class="user-summary">
-        <h3>My Self Summary</h3>
+        <h4>My Self Summary</h4>
         <p><%= user.escape('summary') %></p>
       </div>
 
       <div class="user-age-size group">
         <div class="user-age">
-          <h3>Age</h3>
+          <h4>Age</h4>
           <p><%= user.escape('age') %></p>
         </div>
         <div class="user-size">
-          <h3>Size</h3>
+          <h4>Size</h4>
           <p><%= user.escape('size_name') %></p>
         </div>
       </div>
 
       <div class="user-play_style-energy_level group">
         <div class="user-play_style">
-          <h3>Play Style</h3>
+          <h4>Play Style</h4>
           <p><%= user.escape('play_style_name') %></p>
         </div>
         <div class="user-energy_level">
-          <h3>Energy Level</h3>
+          <h4>Energy Level</h4>
           <p><%= user.escape('energy_level_name') %></p>
         </div>
       </div>
@@ -74,9 +74,31 @@
     <section class="looking-for">
       <h3>Looking For</h3>
       <ul>
-        <li>Small males</li>
-        <li>Playmates</li>
-        <li>Near me</li>
+
+        <li>
+					<span>Info: &nbsp</span>						
+					<% user.preferred().sizes.forEach(function(size) { %>
+						<%= this.model.sizes[size] %>, 
+					<% }.bind(this)); %>
+				</li>
+				<li>		
+					<span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>	
+					<% user.preferred().genders.forEach(function(gender) { %>
+						<%= this.model.genders[gender] %>
+					<% }.bind(this)); %>
+					<% user.preferred().breeds.forEach(function(breed) { %>
+						<%= this.model.breeds[breed] %>s
+					<% }.bind(this)); %>
+				</li>
+        <li>
+					<span>For: &nbsp</span>
+					<% user.preferred().play.forEach(function(playtype) { %>
+						<%= this.model.play[playtype] %>
+					<% }.bind(this)); %>
+				</li>
+        <li>
+						<!-- Implement near me -->
+				</li>
       </ul>
     </section>
 
@@ -94,16 +116,11 @@
       </ul>
     </section>
 		
-		<h1>Show <a href="javascript.void(0)" class="js-show-modal">Modal</a>.</h1>
-
 		<section id="modal" class="modal basic-info-modal">
 			<article class="modal-content">
 				<span class="modal-close js-hide-modal">&times;</span>
 				
 				<h1>Basic Info</h1>
-				<form class="test">
-					<input type="submit" value="Submit">
-				</form>
 				<form class="test">
 	        <ul class="basic-info-list">
 	          <li class="breed">
@@ -111,12 +128,12 @@
 	            <br>
 	            <label for="breed">Breed</label>
 	            <select id="breed" name="user[breed]">
-	              <% for(var prop in users.breeds) { %>
+	              <% for(var prop in user.breeds) { %>
 	                <option value="<%= prop %>"
-										<% if (users.breeds[prop] === user.escape('breed_name')) { %>
+										<% if (user.breeds[prop] === user.escape('breed_name')) { %>
 										selected="selected"
 										<% } %>
-										><%= users.breeds[prop] %></option>
+										><%= user.breeds[prop] %></option>
 	              <% }; %>
 	            </select>
 	          </li>
@@ -149,17 +166,85 @@
 	            <br>
 	            <label for="country">Country</label>
 	            <select id="country" name="user[country]">
-								<% for (var prop in users.countries) { %>
+								<% for (var prop in user.countries) { %>
 									<option value="<%= prop %>" 
-									<% if(users.countries[prop] === user.escape('country_name')) { %>
+									<% if(user.countries[prop] === user.escape('country_name')) { %>
 									selected="selected"
 									<% } %>
-									><%= users.countries[prop] %></option> 
+									><%= user.countries[prop] %></option> 
 								<% } %>
 	            </select>
 	          </li>
 	        </ul>
-					<input type="submit" value="Submit">
+					<input type="submit" class="modal-btn save" value="Save">
+					<button class="modal-btn cancel js-hide-modal">Cancel</button>
+				
+				</form>
+			
+			</article>
+			<div class="modal-screen js-hide-modal"></div>
+		</section>
+		
+		<section id="modal" class="modal looking-for-modal">
+			<article class="modal-content">
+				<span class="modal-close js-hide-modal">&times;</span>
+				
+				<h1>Looking For</h1>
+				<form class="looking-for-form">
+	        <ul class="looking-for-list">
+	          <li class="breed">
+	            <br>
+	            <br>
+	            <label for="breed">Breed</label>
+	            <select id="breed" name="user[breed]">
+	              <% for(var prop in user.breeds) { %>
+	                <option value="<%= prop %>"
+										<% if (user.breeds[prop] === user.escape('breed_name')) { %>
+										selected="selected"
+										<% } %>
+										><%= user.breeds[prop] %></option>
+	              <% }; %>
+	            </select>
+	          </li>
+	          <li class="gender">
+	            <label for="gender">Gender</label>
+	            <select name="user[gender]" id="gender">
+	              <option value="1"
+								<% if ( "Male" === user.escape('gender_name')) { %>
+								selected="selected"
+								<% } %>
+								>Male</option>
+	              <option value="2"
+								<% if ( "Female" === user.escape('gender_name')) { %>
+								selected="selected"
+								<% } %>
+								>Female</option>
+	            </select>
+	          </li>
+	          <li class="zip">
+	            <br>
+	            <br>
+	            <label for="zip">Zip Code</label>
+	            <input type="text"
+	                   id="zip"
+	                   name="user[zip]"
+	                   value="<%= user.escape('zip') %>">
+	          </li>
+	          <li class="country">
+	            <br>
+	            <br>
+	            <label for="country">Country</label>
+	            <select id="country" name="user[country]">
+								<% for (var prop in user.countries) { %>
+									<option value="<%= prop %>" 
+									<% if(user.countries[prop] === user.escape('country_name')) { %>
+									selected="selected"
+									<% } %>
+									><%= user.countries[prop] %></option> 
+								<% } %>
+	            </select>
+	          </li>
+	        </ul>
 					<input type="submit" class="modal-btn save" value="Save">
 					<button class="modal-btn cancel js-hide-modal">Cancel</button>
 				

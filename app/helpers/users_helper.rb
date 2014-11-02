@@ -38,10 +38,25 @@ module UsersHelper
     end
     fail
   end
+  
+  def default_preferences(user)
+    user.preferences.create(preference_attribute: "looking_for", value: 1)
+    user.preferences.create(preference_attribute: "looking_for", value: 2)
+    user.preferences.create(preference_attribute: "looking_for", value: 3)
+    user.preferences.create(preference_attribute: "gender", value: 1)
+    user.preferences.create(preference_attribute: "gender", value: 2)
+    user.preferences.create(preference_attribute: "size", value: 1)
+    user.preferences.create(preference_attribute: "size", value: 2)
+    user.preferences.create(preference_attribute: "size", value: 3)
+    user.preferences.create(preference_attribute: "size", value: 4)
+    user.preferences.create(preference_attribute: "breed", value: 0)
+  end
 
   def convert_to_integer(val, pref_attr)
     @user.send(pref_attr.pluralize).key(val.to_sym)
   end
+  
+  
 
 
 end

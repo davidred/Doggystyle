@@ -15,7 +15,7 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
 	render: function() {
 		var renderedContent = this.template({
 			user: this.model,
-			users: this.collection,
+			// users: this.collection,
 		});
 		
 		this.$el.html(renderedContent);

@@ -40,7 +40,7 @@ Messages = [
 USERS = []
 
 Usernames.each_with_index do |username, index|
-  u1 = User.create(username: username,
+  user = User.create(username: username,
                    password: '123456',
                    email: username + '@aol.com',
                    breed: Breeds[index],
@@ -58,13 +58,24 @@ Usernames.each_with_index do |username, index|
                    owner_gender: Genders[index],
                    owner_age: 25,
                     )
-  USERS.push(u1)
+  USERS.push(user)
   # rand(2).times do
-  p1 = u1.preferences.create(preference_attribute: PreferenceAttrs[0], value: Breeds[rand(Breeds.length + 1)])
+  #p1 = u1.preferences.create(preference_attribute: PreferenceAttrs[0], value: Breeds[rand(Breeds.length + 1)])
  #  # end
  #
-  p2 = u1.preferences.create(preference_attribute: PreferenceAttrs[1], value: Sizes[rand(Sizes.length + 1)])
-  p3 = u1.preferences.create(preference_attribute: PreferenceAttrs[2], value:rand(2))
+  #p2 = u1.preferences.create(preference_attribute: PreferenceAttrs[1], value: Sizes[rand(Sizes.length + 1)])
+  
+  #p3 = u1.preferences.create(preference_attribute: PreferenceAttrs[2], value:rand(2))
+  user.preferences.create(preference_attribute: "looking_for", value: 1)
+  user.preferences.create(preference_attribute: "looking_for", value: 2)
+  user.preferences.create(preference_attribute: "looking_for", value: 3)
+  user.preferences.create(preference_attribute: "gender", value: 1)
+  user.preferences.create(preference_attribute: "gender", value: 2)
+  user.preferences.create(preference_attribute: "size", value: 1)
+  user.preferences.create(preference_attribute: "size", value: 2)
+  user.preferences.create(preference_attribute: "size", value: 3)
+  user.preferences.create(preference_attribute: "size", value: 4)
+  user.preferences.create(preference_attribute: "breed", value: 0)
 
 
 
@@ -73,8 +84,6 @@ end
 
 USERS.each_with_index do |user, index|
   Messages[index].each do |message|
-    puts message[0]
-    puts USERS[message[0]]
     user.sent_messages.create(body: message[1], to: USERS[message[0]].id)
   end
 end

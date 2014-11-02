@@ -30,6 +30,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:notice] = ["Successfully created account!"]
       sign_in!(@user)
+      default_preferences(@user)
       redirect_to user_url(@user)
     else
       flash[:errors] = @user.errors.full_messages
