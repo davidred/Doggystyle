@@ -2,10 +2,10 @@
 <header class="profile-header content-header">
 
   <div class="profile-basic-group group">
+		<a href="javascript.void(0)" class="js-show-modal">
     <figure class="profile-picture">
-      PHOTO
-			<!-- <img src="< asset_path 'puppy.jpg' %>"> -->
-    </figure>
+      <img src="../../assets/images/puppy.jpg">
+		</figure>
     <div class="profile-basic-info">
       <h1><%= user.escape('username') %></h1>
       <ul class="profile-basic-info-list group">
@@ -16,6 +16,7 @@
         <li><%= user.escape('country_name') %></li> <!--Change to geocoded location -->
       </ul>
     </div>
+		</a>
   </div>
   <!-- < if user != current_user %> -->
   <div>
@@ -92,7 +93,63 @@
         <li><%= user.escape('owner_gender_name') %></li>
       </ul>
     </section>
+		
+		<h1>Show <a href="javascript.void(0)" class="js-show-modal">Modal</a>.</h1>
+
+		<section id="modal" class="modal basic-info-modal">
+			<article class="modal-content">
+				<span class="modal-close js-hide-modal">&times;</span>
+				
+				<h1>Basic Info</h1>
+        <ul class="basic-info">
+          <li class="breed">
+            <br>
+            <br>
+            <label for="breed">Breed</label>
+            <select id="breed" name="user[breed]">
+              <% for(var prop in users.breeds) { %>
+                <option value="<%= prop %>"><%= users.breeds[prop] %></option>
+              <% }; %>
+            </select>
+          </li>
+          <li class="gender">
+            <label for="gender">Gender</label>
+            <select name="user[gender]" id="gender">
+              <option value="1">Male</option>
+              <option value="2">Female</option>
+            </select>
+          </li>
+          <li class="zip">
+            <br>
+            <br>
+            <label for="zip">Zip Code</label>
+            <input type="text"
+                   id="zip"
+                   name="user[zip]"
+                   value="<%= user.zip %>">
+          </li>
+          <li class="country">
+            <br>
+            <br>
+            <label for="country">Country</label>
+            <select id="country" name="user[country]">
+							<% for (var prop in users.countries) { %>
+								<option value="<%= prop %>" ><%= users.countries[prop] %></option> 
+							<% } %>
+            </select>
+          </li>
+        </ul>
+				
+				<button class="modal-btn save js-hide-modal save-basic-info">Save</button>
+				<button class="modal-btn cancel js-hide-modal">Cancel</button>
+				
+			
+			</article>
+			<div class="modal-screen js-hide-modal"></div>
+		</section>
 
   </section>
+	
+	
 
 </section>

@@ -24,10 +24,11 @@ Doggystyle.Routers.Router = Backbone.Router.extend({
 	},
 	
 	userShow: function (id) {
-
+		this.collection.fetch();
 		var model = this.collection.getOrFetch(id);
 		var showView = new Doggystyle.Views.UserShowView({
 			model: model,
+			collection: this.collection,
 		});
 
 		this._swapView(showView);
