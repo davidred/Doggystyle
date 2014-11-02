@@ -9,6 +9,7 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
 	events: {
 		"click .js-show-modal": "showModal",
 		"click .js-hide-modal": "hideModal",
+		"submit form": "saveBasicInfo",
 	},
 	
 	render: function() {
@@ -31,5 +32,16 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
 		event.preventDefault();
 		$('#modal').addClass("is-active")
 	},
+	
+	saveBasicInfo: function(event) {
+		event.preventDefault();
+		attrs = $(event.currentTarget).serializeJSON();
+		this.model.save(attrs.user, {patch: true});
+
+		//send info to api/update
+		
+		//hide modal on successful save
+		//
+	}
 	
 })

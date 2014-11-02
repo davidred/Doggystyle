@@ -101,48 +101,69 @@
 				<span class="modal-close js-hide-modal">&times;</span>
 				
 				<h1>Basic Info</h1>
-        <ul class="basic-info">
-          <li class="breed">
-            <br>
-            <br>
-            <label for="breed">Breed</label>
-            <select id="breed" name="user[breed]">
-              <% for(var prop in users.breeds) { %>
-                <option value="<%= prop %>"><%= users.breeds[prop] %></option>
-              <% }; %>
-            </select>
-          </li>
-          <li class="gender">
-            <label for="gender">Gender</label>
-            <select name="user[gender]" id="gender">
-              <option value="1">Male</option>
-              <option value="2">Female</option>
-            </select>
-          </li>
-          <li class="zip">
-            <br>
-            <br>
-            <label for="zip">Zip Code</label>
-            <input type="text"
-                   id="zip"
-                   name="user[zip]"
-                   value="<%= user.zip %>">
-          </li>
-          <li class="country">
-            <br>
-            <br>
-            <label for="country">Country</label>
-            <select id="country" name="user[country]">
-							<% for (var prop in users.countries) { %>
-								<option value="<%= prop %>" ><%= users.countries[prop] %></option> 
-							<% } %>
-            </select>
-          </li>
-        </ul>
+				<form class="test">
+					<input type="submit" value="Submit">
+				</form>
+				<form class="test">
+	        <ul class="basic-info-list">
+	          <li class="breed">
+	            <br>
+	            <br>
+	            <label for="breed">Breed</label>
+	            <select id="breed" name="user[breed]">
+	              <% for(var prop in users.breeds) { %>
+	                <option value="<%= prop %>"
+										<% if (users.breeds[prop] === user.escape('breed_name')) { %>
+										selected="selected"
+										<% } %>
+										><%= users.breeds[prop] %></option>
+	              <% }; %>
+	            </select>
+	          </li>
+	          <li class="gender">
+	            <label for="gender">Gender</label>
+	            <select name="user[gender]" id="gender">
+	              <option value="1"
+								<% if ( "Male" === user.escape('gender_name')) { %>
+								selected="selected"
+								<% } %>
+								>Male</option>
+	              <option value="2"
+								<% if ( "Female" === user.escape('gender_name')) { %>
+								selected="selected"
+								<% } %>
+								>Female</option>
+	            </select>
+	          </li>
+	          <li class="zip">
+	            <br>
+	            <br>
+	            <label for="zip">Zip Code</label>
+	            <input type="text"
+	                   id="zip"
+	                   name="user[zip]"
+	                   value="<%= user.escape('zip') %>">
+	          </li>
+	          <li class="country">
+	            <br>
+	            <br>
+	            <label for="country">Country</label>
+	            <select id="country" name="user[country]">
+								<% for (var prop in users.countries) { %>
+									<option value="<%= prop %>" 
+									<% if(users.countries[prop] === user.escape('country_name')) { %>
+									selected="selected"
+									<% } %>
+									><%= users.countries[prop] %></option> 
+								<% } %>
+	            </select>
+	          </li>
+	        </ul>
+					<input type="submit" value="Submit">
+					<input type="submit" class="modal-btn save" value="Save">
+					<button class="modal-btn cancel js-hide-modal">Cancel</button>
 				
-				<button class="modal-btn save js-hide-modal save-basic-info">Save</button>
-				<button class="modal-btn cancel js-hide-modal">Cancel</button>
-				
+				</form>
 			
 			</article>
 			<div class="modal-screen js-hide-modal"></div>

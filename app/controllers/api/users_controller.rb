@@ -19,18 +19,45 @@ module Api
     
     def update
       @user = User.find(params[:id])
+      puts('saving')
       if @user.update(user_params)
-        render json: @user
+        render :show
       else
-        flash[:errors] = @user.errors.full_messages
-        render json: @user
+        render json: @user.errors.full_messages, status: :unprocessable_entity
       end
     end
     
     private
     
-    def user_params 
-      params.require(:user).permit()
+    def user_params
+      params.require(:user).permit(:username,
+                                   :password,
+                                   :breed,
+                                   :gender,
+                                   :country,
+                                   :zip,
+                                   :email,
+                                   :summary,
+                                   :age,
+                                   :size,
+                                   :play_style,
+                                   :energy_level,
+                                   :owner_age,
+                                   :owner_photo,
+                                   :owner_gender)
     end
+
+    def preference_params
+      params.require(:user).permit(:Tiny,
+                                   :Small,
+                                   :Medium,
+                                   :Large,
+                                   :Friendship,
+                                   :"Casual Play",
+                                   :"Breeding Partner",
+                                   :Male,
+                                   :Female,
+                                   :near_me)
   end
+end
 end

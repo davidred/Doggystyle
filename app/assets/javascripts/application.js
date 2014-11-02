@@ -15,6 +15,7 @@
 //= require underscore
 //= require backbone
 //= require doggystyle
+//= require_tree ../../../vendor/assets
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections
