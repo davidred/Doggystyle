@@ -1,0 +1,1 @@
+json.array! users, :id, :username, :country_name, :breed_name

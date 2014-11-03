@@ -30,11 +30,11 @@ Rails.application.routes.draw do
   get '/auth/facebook/callback', to: 'oauth_callbacks#facebook'
 
   resources :users do
-    resources :messages, only: [:new, :create, :index]
+    resources :messages, only: [:new, :create]
     resources :visits, only: [:create]
   end
 
-  resources :messages, only: [:destroy, :show, :index]
+  resources :messages, only: [:destroy, :show]
   get '/inbox', to: 'users#inbox'
   get '/outbox', to: 'users#outbox'
   get '/users/:user_id/conversation', to: 'messages#conversation', as: 'convo'
@@ -44,12 +44,17 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
 
   namespace :api, defaults: { format: :json } do
-    resources :users, except: [:new, :create]
+    resources :users, except: [:new, :create] do
+      resources :visits, only: [:create]
+      resources :messages, only: [:new, :create]
+    end
+
     get 'inbox', to: 'users#inbox'
     get 'outbox', to: 'users#outbox'
     get '/users/:user_id/conversation', to: 'messages#conversation', as: 'conversation'
 
     resources :messages, only: [:destroy, :show, :index]
+    resources :visits, only: [:index], as: 'visitors'
   end
 
 end

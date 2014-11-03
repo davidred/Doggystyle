@@ -13,6 +13,3 @@ window.Doggystyle = {
   }
 };
 
-$(document).ready(function(){
-  Doggystyle.initialize();
-});

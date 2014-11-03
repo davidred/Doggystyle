@@ -15,7 +15,7 @@
 //= require underscore
 //= require backbone
 //= require doggystyle
-//= require_tree ../../../vendor/assets
+//= require jquery.serializejson.min
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections

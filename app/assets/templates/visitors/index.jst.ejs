@@ -1,0 +1,33 @@
+<header class="visitor-header content-header">
+  <h1>Visitors</h1>
+</header>
+
+<nav class="content-nav matches-nav">
+  <ul class="content-nav-list group">
+    <li><a href='#'>Visitors</a></li>
+    <li><a href='#'>Favorites</a></li>
+  </ul>
+</nav>
+
+<section class="section-content visitor-content">
+  <ul class="messagers-list">
+    <% visitors.each( function(visitor { %>
+      <li class="messager">
+        <div class="user-banner">
+          <a class="group" href="#">
+               <!-- < user_url(visitor) %> -->
+            <figure class="user-banner-photo">
+              <img src="puppy.jpg">
+            </figure>
+            <div class="match-summary">
+              <h3><%= visitor.escape('username') %></h3>
+              <div><span><%= visitor.escape('breed_name') %>&#8226<%= visitor.escape('country_name') %></span></div>
+            </div>
+          </a>
+        </div>
+      </li>
+    <% }); %>
+  </ul>
+</section>
+
+

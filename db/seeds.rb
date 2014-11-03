@@ -59,13 +59,7 @@ Usernames.each_with_index do |username, index|
                    owner_age: 25,
                     )
   USERS.push(user)
-  # rand(2).times do
-  #p1 = u1.preferences.create(preference_attribute: PreferenceAttrs[0], value: Breeds[rand(Breeds.length + 1)])
- #  # end
- #
-  #p2 = u1.preferences.create(preference_attribute: PreferenceAttrs[1], value: Sizes[rand(Sizes.length + 1)])
-  
-  #p3 = u1.preferences.create(preference_attribute: PreferenceAttrs[2], value:rand(2))
+
   user.preferences.create(preference_attribute: "looking_for", value: 1)
   user.preferences.create(preference_attribute: "looking_for", value: 2)
   user.preferences.create(preference_attribute: "looking_for", value: 3)
@@ -85,5 +79,6 @@ end
 USERS.each_with_index do |user, index|
   Messages[index].each do |message|
     user.sent_messages.create(body: message[1], to: USERS[message[0]].id)
+    user.visited.create(visited: USERS[message[0]].id)
   end
 end
