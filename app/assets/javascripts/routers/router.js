@@ -41,7 +41,7 @@ Doggystyle.Routers.Router = Backbone.Router.extend({
   userVisitors: function () {
     var visitors = new Doggystyle.Collections.Visitors();
     visitors.fetch();
-    var visitorsView = new Doggystyle.Views.VisitorsView({
+		var visitorsView = new Doggystyle.Views.VisitorsView({
       collection: visitors,
     });
 
@@ -69,8 +69,6 @@ Doggystyle.Routers.Router = Backbone.Router.extend({
 
     this._swapView(conversationView);
   },
-
-
 
 	_swapView: function (view) {
 		this._currentView && this._currentView.remove()

@@ -1,5 +1,5 @@
 Doggystyle.Collections.Visitors = Backbone.Collection.extend({
-  url: "/api/users/visits",
+  url: "/api/visits",
 
   model: Doggystyle.Models.User,
 });
