@@ -5,18 +5,18 @@ module Api
       # render json: @user
       render :show
     end
-    
+
     def index
       @users = User.all
       # render json: @users
       render :index
     end
-    
+
     def edit
       @users = User.find(params[:id])
       render json: @user
     end
-    
+
     def update
       @user = User.find(params[:id])
       puts('saving')
@@ -26,9 +26,16 @@ module Api
         render json: @user.errors.full_messages, status: :unprocessable_entity
       end
     end
-    
+
+    def inbox
+      @messagers = current_user.messagers.distinct
+      @user = current_user
+      # render json: @messagers
+      render :inbox
+    end
+
     private
-    
+
     def user_params
       params.require(:user).permit(:username,
                                    :password,

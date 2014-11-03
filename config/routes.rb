@@ -24,7 +24,7 @@
 
 Rails.application.routes.draw do
 
-  root to: 'users#new'
+  root to: 'users#index'
 
   post '/users/new', to: 'users#new'
   get '/auth/facebook/callback', to: 'oauth_callbacks#facebook'
@@ -44,7 +44,10 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
 
   namespace :api, defaults: { format: :json } do
-    resources :users, only: [:show, :index, :edit, :update]
+    resources :users, except: [:new, :create]
+    get 'inbox', to: 'users#inbox'
+    get 'outbox', to: 'users#outbox'
+    get '/users/:user_id/conversation'
   end
 
 end

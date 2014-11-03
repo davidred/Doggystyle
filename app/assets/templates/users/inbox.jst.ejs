@@ -1,0 +1,37 @@
+<header class="inbox-header content-header">
+  <h1>Inbox</h1>
+</header>
+
+<nav class="content-nav matches-nav">
+  <ul class="content-nav-list group">
+    <li><a href='#'>Messages</a></li>
+    <li><a href='#'>
+      Sent
+      <!-- < "Sent", outbox_url > -->
+    </a></li>
+  </ul>
+</nav>
+
+<section class="section-content messages-content">
+
+<ul class="messagers-list">
+  <% inbox.each( function(messager) { %>
+    <li class="messager">
+      <div class="user-banner">
+        <a class="group" href="">
+        <!-- <= convo_url(user_id: messager.id) %> -->
+          <figure class="user-banner-photo">
+            <!-- <img src="puppy.jpg"> -->
+          </figure>
+          <div class="match-summary">
+            <h3><%= messager.get('username') %></h3>
+            <div><span><%= messager.get('breed_name') %>&#8226<%= messager.get('country_name') %></span></div>
+          </div>
+        </a>
+      </div>
+      <!-- <= link_to messager.username, convo_url(user_id: messager.id) > -->
+    </li>
+  <% }); %>
+</ul>
+
+</section>

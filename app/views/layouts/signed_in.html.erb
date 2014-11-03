@@ -8,7 +8,9 @@
 
 </head>
 <body>
-
+  <script>
+    Doggystyle.currentUserId = <%= current_user.try(:id) %>;
+  </script>
   <nav class="signed-in-nav">
     <ul class="signed-in-nav-list group">
       <li>

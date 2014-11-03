@@ -8,7 +8,7 @@ window.Doggystyle = {
 			$rootEl: $('body'),
 			collection: Doggystyle.users
 		});
-		
+
 		Backbone.history.start();
   }
 };
