@@ -13,6 +13,7 @@ Doggystyle.Routers.Router = Backbone.Router.extend({
 		'users/inbox': 'userInbox',
     'users/outbox': 'userOutbox',
     'users/:id': 'userShow',
+    'users/:id/conversation': 'conversationShow'
 	},
 
 	usersIndex: function () {
@@ -44,6 +45,18 @@ Doggystyle.Routers.Router = Backbone.Router.extend({
     });
 
     this._swapView(inboxView);
+  },
+
+  conversationShow: function (id) {
+    var user = this.collection.getOrFetch(id);
+    var conversation = new Doggystyle.Collections.Conversation({ userID: user.id });
+    conversation.fetch();
+    var conversationView = new Doggystyle.Views.ConversationView({
+      model: user,
+      collection: conversation,
+    });
+
+    this._swapView(conversationView);
   },
 
 	_swapView: function (view) {

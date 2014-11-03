@@ -1,0 +1,41 @@
+<header class="conversation-header content-header">
+  <h1>Messages</h1>
+</header>
+
+<% debugger %>
+<nav class="content-nav messages-nav">
+  <ul class="content-nav-list group">
+    <li><a href='#'>Conversation</a></li>
+  </ul>
+</nav>
+
+<section class="section-content conversation-content"></section>
+  <div class="user-banner">
+    <a class="group" href="#">
+      <figure class="user-banner-photo">
+        <img src="puppy.jpg">
+      </figure>
+      <div class="match-summary">
+        <h3><%= user.escape('username') %></h3>
+        <div><span><%= user.escape('breed_name') %>&#8226<%= user.escape('country_name') %></span></div>
+      </div>
+    </a>
+  </div>
+
+  <div class="conversation">
+    <ul class="conversation-list">
+      <% messages.each( function(message) { %>
+        <li class="message group">
+          <figure class="user-banner-photo">
+            <img src="puppy.jpg">
+          </figure>
+          <div class="message-body">
+            <p><%= message.escape('body') %></p>
+          </div>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
+
+</section>
+
