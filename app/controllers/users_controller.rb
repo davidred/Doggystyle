@@ -44,6 +44,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    fail
     @user = User.find(params[:id])
 
     if @user.update(user_params)

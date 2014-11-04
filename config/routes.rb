@@ -30,8 +30,9 @@ Rails.application.routes.draw do
   get '/auth/facebook/callback', to: 'oauth_callbacks#facebook'
 
   resources :users do
-    resources :messages, only: [:new, :create]
     resources :visits, only: [:create]
+    resources :messages, only: [:new, :create]
+    resources :preferences, only: [:index, :create, :destroy, :update]
   end
 
   resources :messages, only: [:destroy, :show]
@@ -47,6 +48,7 @@ Rails.application.routes.draw do
     resources :users, except: [:new, :create] do
       resources :visits, only: [:create]
       resources :messages, only: [:new, :create]
+      resources :preferences, only: [:index, :create, :destroy, :update]
     end
 
     get 'inbox', to: 'users#inbox'

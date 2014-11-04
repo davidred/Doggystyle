@@ -80,7 +80,7 @@
             <p id="user-size"><%= user.escape('size_name') %></p>
           </a>
             <form id="user-size" class="inactive" action="#" method="post">
-              <input type="text" name="" value="<%= user.escape('age') %>">
+              <input type="text" name="" value="<%= user.escape('size_name') %>">
               <button id="save-user-size"
                       class="save inactive user-size"
                       data-input="user-size">Save</button>
@@ -112,7 +112,7 @@
             <p id="user-energy_level"><%= user.escape('energy_level_name') %></p>
           </a>
           <form id="user-energy_level" class="inactive" action="#" method="post">
-            <input type="text" name="" value="<%= user.escape('play_style_name') %>">
+            <input type="text" name="" value="<%= user.escape('energy_level_name') %>">
             <button id="save-user-energy_level"
                     class="save inactive user-energy_level"
                     data-input="user-energy_level">Save</button>
@@ -134,24 +134,28 @@
 
           <li>
   					<span>Info: &nbsp</span>
-  					<% user.preferred().sizes.forEach(function(size) { %>
-  						<%= this.model.sizes[size] %>,
-  					<% }.bind(this)); %>
+            <!-- size -->
+            <% user.preferences().forEach( function(preference) { %>
+              <% if (preference.get('preference_attribute') === "size") { %>
+                <%= user.sizes[preference.get('value')] %>
+              <% } %>
+  			    <% }); %>
   				</li>
   				<li>
   					<span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
-  					<% user.preferred().genders.forEach(function(gender) { %>
-  						<%= this.model.genders[gender] %>
-  					<% }.bind(this)); %>
-  					<% user.preferred().breeds.forEach(function(breed) { %>
-  						<%= this.model.breeds[breed] %>s
-  					<% }.bind(this)); %>
+  					<% user.preferences().forEach(function(preference) { %>
+  						<% if (preference.get('preference_attribute') === "breed") { %>
+                <%= user.breeds[preference.get('value')] %>s
+              <% } %>
+  					<% }); %>
   				</li>
           <li>
   					<span>For: &nbsp</span>
-  					<% user.preferred().play.forEach(function(playtype) { %>
-  						<%= this.model.play[playtype] %>
-  					<% }.bind(this)); %>
+            <% user.preferences().forEach(function(preference) { %>
+              <% if (preference.get('preference_attribute') === "looking_for") { %>
+                <%= user.play[preference.get('value')] %>
+              <% } %>
+            <% }); %>
   				</li>
           <li>
   						<!-- Implement near me -->
@@ -182,7 +186,7 @@
               data-modal="basic-info-modal">&times;</span>
 
 				<h1>Basic Info</h1>
-				<form class="test">
+				<form class="basic-info-form">
 	        <ul class="basic-info-list">
 	          <li class="breed">
 	            <br>
@@ -257,58 +261,36 @@
 				<h1>Looking For</h1>
 				<form class="looking-for-form">
 	        <ul class="looking-for-list">
-	          <li class="breed">
-	            <br>
-	            <br>
-	            <label for="breed">Breed</label>
-	            <select id="breed" name="user[breed]">
-	              <% for(var prop in user.breeds) { %>
-	                <option value="<%= prop %>"
-										<% if (user.breeds[prop] === user.escape('breed_name')) { %>
-										selected="selected"
-										<% } %>
-										><%= user.breeds[prop] %></option>
-	              <% }; %>
-	            </select>
-	          </li>
-	          <li class="gender">
-	            <label for="gender">Gender</label>
-	            <select name="user[gender]" id="gender">
-	              <option value="1"
-								<% if ( "Male" === user.escape('gender_name')) { %>
-								selected="selected"
-								<% } %>
-								>Male</option>
-	              <option value="2"
-								<% if ( "Female" === user.escape('gender_name')) { %>
-								selected="selected"
-								<% } %>
-								>Female</option>
-	            </select>
-	          </li>
-	          <li class="zip">
-	            <br>
-	            <br>
-	            <label for="zip">Zip Code</label>
-	            <input type="text"
-	                   id="zip"
-	                   name="user[zip]"
-	                   value="<%= user.escape('zip') %>">
-	          </li>
-	          <li class="country">
-	            <br>
-	            <br>
-	            <label for="country">Country</label>
-	            <select id="country" name="user[country]">
-								<% for (var prop in user.countries) { %>
-									<option value="<%= prop %>"
-									<% if(user.countries[prop] === user.escape('country_name')) { %>
-									selected="selected"
-									<% } %>
-									><%= user.countries[prop] %></option>
-								<% } %>
-	            </select>
-	          </li>
+            <li class="size">
+              <label for="size">Size</label>
+              <br>
+              <input type="checkbox" name="tiny" checked="true">Tiny<br>
+              <input type="checkbox" name="small" checked="true">Small<br>
+              <input type="checkbox" name="medium" checked="true">Medium<br>
+              <input type="checkbox" name="large" checked="true">Large<br>
+            </li>
+
+            <li class="gender">
+              <label for="gender">Gender</label>
+              <br>
+              <input type="checkbox" name="male" checked="true">Male<br>
+              <input type="checkbox" name="female" checked="true">Female<br>
+            </li>
+
+            <li class="looking-for-breed">
+              <br>
+              <br>
+              <label for="looking-for-breed">Breed</label>
+              <select id="looking-for-breed" name="user[breed]">
+                <% for(var prop in user.breeds) { %>
+                  <option value="<%= prop %>"
+                    <% if (user.breeds[prop] === user.escape('breed_name')) { %>
+                    selected="selected"
+                    <% } %>
+                    ><%= user.breeds[prop] %></option>
+                <% }; %>
+              </select>
+            </li>
 	        </ul>
 					<input type="submit"
                  class="modal-btn save"
@@ -331,57 +313,38 @@
         <h1>Owner Info</h1>
         <form class="owner-info-form">
           <ul class="owner-info-list">
-            <li class="breed">
+            <li class="owner-name">
               <br>
               <br>
-              <label for="breed">Breed</label>
-              <select id="breed" name="user[breed]">
-                <% for(var prop in user.breeds) { %>
-                  <option value="<%= prop %>"
-                    <% if (user.breeds[prop] === user.escape('breed_name')) { %>
-                    selected="selected"
-                    <% } %>
-                    ><%= user.breeds[prop] %></option>
-                <% }; %>
-              </select>
+              <label for="owner-name">Name</label>
+              <input type="text"
+                     id="owner-name"
+                     name="user[owner_name]"
+                     value="<%= user.escape('owner_name') %>">
             </li>
-            <li class="gender">
-              <label for="gender">Gender</label>
-              <select name="user[gender]" id="gender">
+            <li class="owner-gender">
+              <label for="owner-gender">Gender</label>
+              <select name="user[owner_gender]" id="owner-gender">
                 <option value="1"
-                <% if ( "Male" === user.escape('gender_name')) { %>
+                <% if ( "Male" === user.escape('owner_gender_name')) { %>
                 selected="selected"
                 <% } %>
                 >Male</option>
                 <option value="2"
-                <% if ( "Female" === user.escape('gender_name')) { %>
+                <% if ( "Female" === user.escape('owner_gender_name')) { %>
                 selected="selected"
                 <% } %>
                 >Female</option>
               </select>
             </li>
-            <li class="zip">
+            <li class="owner-age">
               <br>
               <br>
-              <label for="zip">Zip Code</label>
+              <label for="owner-age">Age</label>
               <input type="text"
-                     id="zip"
-                     name="user[zip]"
-                     value="<%= user.escape('zip') %>">
-            </li>
-            <li class="country">
-              <br>
-              <br>
-              <label for="country">Country</label>
-              <select id="country" name="user[country]">
-                <% for (var prop in user.countries) { %>
-                  <option value="<%= prop %>"
-                  <% if(user.countries[prop] === user.escape('country_name')) { %>
-                  selected="selected"
-                  <% } %>
-                  ><%= user.countries[prop] %></option>
-                <% } %>
-              </select>
+                     id="owner-age"
+                     name="user[owner_age]"
+                     value="<%= user.escape('owner_age') %>">
             </li>
           </ul>
           <input type="submit"

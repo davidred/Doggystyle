@@ -15,4 +15,6 @@ class Preference < ActiveRecord::Base
   validates :user_id, uniqueness: { scope: [:preference_attribute, :value] }
 
   belongs_to :user
+
+  scope :user_ID, -> (user_ID) { where("user_id = ?", user_ID) }
 end

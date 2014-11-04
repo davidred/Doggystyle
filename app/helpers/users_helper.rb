@@ -36,9 +36,8 @@ module UsersHelper
       int_val = (pref_attr == "near_me") ? true : convert_to_integer(val, pref_attr)
       @user.preferences.create(preference_attribute: pref_attr, value: int_val)
     end
-    fail
   end
-  
+
   def default_preferences(user)
     user.preferences.create(preference_attribute: "looking_for", value: 1)
     user.preferences.create(preference_attribute: "looking_for", value: 2)
@@ -55,8 +54,8 @@ module UsersHelper
   def convert_to_integer(val, pref_attr)
     @user.send(pref_attr.pluralize).key(val.to_sym)
   end
-  
-  
+
+
 
 
 end

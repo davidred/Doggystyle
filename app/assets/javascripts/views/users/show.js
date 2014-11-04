@@ -7,7 +7,7 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
 
 	initialize: function() {
 		this.listenTo(this.model, "sync", this.render);
-		this.listenTo(this.collection, "sync", this.render);
+		// this.listenTo(this.collection, "sync", this.render);
 	},
 
 	events: {
@@ -15,7 +15,9 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
 		"click .js-hide-modal": "hideModal",
     "click .js-show-input": "showInput",
     "click .js-hide-input": "hideInput",
-		"submit form": "saveBasicInfo",
+		"submit form.basic-info-form": "saveBasicInfo",
+    "submit form.looking-for-form": "saveLookingForInfo",
+    "submit form.owner-info-form": "saveOwnerInfo",
 	},
 
 	render: function() {
@@ -62,11 +64,13 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
 		event.preventDefault();
 		attrs = $(event.currentTarget).serializeJSON();
 		this.model.save(attrs.user, {patch: true});
+	},
 
-		//send info to api/update
+  saveLookingForInfo: function(event) {
+    event.preventDefault();
+    attrs = $(event.currentTarget).serializeJSON()
+    
+  },
 
-		//hide modal on successful save
-		//
-	}
 
 })

@@ -19,7 +19,7 @@ module Api
 
     def update
       @user = User.find(params[:id])
-      puts('saving')
+      puts('saving api')
       if @user.update(user_params)
         render :show
       else
