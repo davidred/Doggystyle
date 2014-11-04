@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require underscore
 //= require backbone
+//= require utils
 //= require doggystyle
 //= require jquery.serializejson.min
 //= require_tree ../templates

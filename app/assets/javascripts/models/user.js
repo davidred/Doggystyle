@@ -53,7 +53,7 @@ Doggystyle.Models.User = Backbone.Model.extend({
 	},
 
 	genders: {
-		0: 'Male', 1: 'Female'
+		1: 'Male', 2: 'Female'
 	},
 
 	breeds: {

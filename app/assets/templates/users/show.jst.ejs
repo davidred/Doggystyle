@@ -264,17 +264,59 @@
             <li class="size">
               <label for="size">Size</label>
               <br>
-              <input type="checkbox" name="tiny" checked="true">Tiny<br>
-              <input type="checkbox" name="small" checked="true">Small<br>
-              <input type="checkbox" name="medium" checked="true">Medium<br>
-              <input type="checkbox" name="large" checked="true">Large<br>
+              <input type="checkbox" name="Tiny"<% var keyVal = parseInt(getKeyByValue(user.sizes, 'Tiny')) %>
+              <% var preference = user.preferences().where({preference_attribute: "size", value: keyVal}) %>
+              <% if (preference.length === 1) { %>
+                checked="true">Tiny
+              <% } else { %>
+                >Tiny
+              <% } %>
+              <br>
+              <input type="checkbox" name="Small"<% var keyVal = parseInt(getKeyByValue(user.sizes, 'Small')) %>
+              <% var preference = user.preferences().where({preference_attribute: "size", value: keyVal}) %>
+              <% if (preference.length === 1) { %>
+                checked="true">Small
+              <% } else { %>
+                >Small
+              <% } %>
+              <br>
+              <input type="checkbox" name="Medium"<% var keyVal = parseInt(getKeyByValue(user.sizes, 'Medium')) %>
+              <% var preference = user.preferences().where({preference_attribute: "size", value: keyVal}) %>
+              <% if (preference.length === 1) { %>
+                checked="true">Medium
+              <% } else { %>
+                >Tiny
+              <% } %>
+              <br>
+              <input type="checkbox" name="Large"<% var keyVal = parseInt(getKeyByValue(user.sizes, 'Large')) %>
+              <% var preference = user.preferences().where({preference_attribute: "size", value: keyVal}) %>
+              <% if (preference.length === 1) { %>
+                checked="true">Large
+              <% } else { %>
+                >Tiny
+              <% } %>
+              <br>
             </li>
 
             <li class="gender">
               <label for="gender">Gender</label>
               <br>
-              <input type="checkbox" name="male" checked="true">Male<br>
-              <input type="checkbox" name="female" checked="true">Female<br>
+              <% debugger %>
+              <input type="checkbox" name="Male"<% var keyVal = parseInt(getKeyByValue(user.genders, 'Male')) %>
+              <% var preference = user.preferences().where({preference_attribute: "gender", value: keyVal}) %>
+              <% if (preference.length === 1) { %>
+                checked="true">Male
+              <% } else { %>
+                >Male
+              <% } %>
+              <br>
+              <input type="checkbox" name="Female"<% var keyVal = parseInt(getKeyByValue(user.genders, 'Female')) %>
+              <% var preference = user.preferences().where({preference_attribute: "gender", value: keyVal}) %>
+              <% if (preference.length === 1) { %>
+                checked="true">Female
+              <% } else { %>
+                >Female
+              <% } %>
             </li>
 
             <li class="looking-for-breed">
@@ -284,7 +326,7 @@
               <select id="looking-for-breed" name="user[breed]">
                 <% for(var prop in user.breeds) { %>
                   <option value="<%= prop %>"
-                    <% if (user.breeds[prop] === user.escape('breed_name')) { %>
+                    <% if (user.breeds[prop] === user.preferences().where({preference_attribute: "breed", value: prop})) { %>
                     selected="selected"
                     <% } %>
                     ><%= user.breeds[prop] %></option>
