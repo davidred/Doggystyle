@@ -13,6 +13,8 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
 	events: {
 		"click .js-show-modal": "showModal",
 		"click .js-hide-modal": "hideModal",
+    "click .js-show-input": "showInput",
+    "click .js-hide-input": "hideInput",
 		"submit form": "saveBasicInfo",
 	},
 
@@ -37,7 +39,24 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
 		event.preventDefault();
     var targetModal = event.currentTarget.dataset.modal;
 		$('#'+targetModal).addClass("is-active");
+
 	},
+
+  showInput: function(event) {
+    event.preventDefault();
+    var targetInput = event.currentTarget.dataset.input;
+    $('p#'+targetInput).addClass("inactive");
+    $('button.'+targetInput).removeClass("inactive");
+    $('form#'+targetInput).removeClass("inactive");
+  },
+
+  hideInput: function(event) {
+    event.preventDefault();
+    var targetInput = event.currentTarget.dataset.input;
+    $('p#'+targetInput).removeClass("inactive");
+    $('form#'+targetInput).addClass("inactive");
+    $('button.'+targetInput).addClass("inactive");
+  },
 
 	saveBasicInfo: function(event) {
 		event.preventDefault();

@@ -38,31 +38,87 @@
   <section class="profile-content-left">
 
     <section class="detailed-info">
+
 			<h3>About Me</h3>
       <div class="user-summary">
-        <h4>My Self Summary</h4>
-        <p><%= user.escape('summary') %></p>
+        <a href="#" class="js-show-input" data-input="user-summary">
+          <h4>My Self Summary</h4>
+          <p id="user-summary"><%= user.escape('summary') %></p>
+          <form id="user-summary" class="inactive" action="#" method="post">
+            <textarea name="" rows="4" cols="40"><%= user.escape('summary') %></textarea>
+
+          </form>
+        </a>
+        <button id="save-user-summary"
+                class="save inactive user-summary"
+                data-input="user-summary">Save</button>
+        <button class="modal-btn cancel inactive user-summary js-hide-input"
+                data-input="user-summary">Cancel</button>
       </div>
+
 
       <div class="user-age-size group">
         <div class="user-age">
-          <h4>Age</h4>
-          <p><%= user.escape('age') %></p>
+          <a href="#" class="js-show-input" data-input="user-age">
+            <h4>Age</h4>
+            <p id="user-age"><%= user.escape('age') %></p>
+            <form id="user-age" class="inactive" action="#" method="post">
+              <input type="text" name="" value="<%= user.escape('age') %>">
+
+            </form>
+          </a>
+          <button id="save-user-age"
+                  class="save inactive user-age"
+                  data-input="user-age">Save</button>
+          <button class="modal-btn cancel inactive user-age js-hide-input"
+                  data-input="user-age">Cancel</button>
         </div>
+
         <div class="user-size">
-          <h4>Size</h4>
-          <p><%= user.escape('size_name') %></p>
+          <a href="#" class="js-show-input" data-input="user-size">
+            <h4>Size</h4>
+            <p id="user-size"><%= user.escape('size_name') %></p>
+          </a>
+            <form id="user-size" class="inactive" action="#" method="post">
+              <input type="text" name="" value="<%= user.escape('age') %>">
+              <button id="save-user-size"
+                      class="save inactive user-size"
+                      data-input="user-size">Save</button>
+              <button class="modal-btn cancel inactive user-size js-hide-input"
+                      data-input="user-size">Cancel</button>
+            </form>
         </div>
+
       </div>
 
       <div class="user-play_style-energy_level group">
         <div class="user-play_style">
-          <h4>Play Style</h4>
-          <p><%= user.escape('play_style_name') %></p>
+          <a href="#" class="js-show-input" data-input="user-play_style">
+            <h4>Play Style</h4>
+            <p id="user-play_style"><%= user.escape('play_style_name') %></p>
+          </a>
+          <form id="user-play_style" class="inactive" action="#" method="post">
+            <input type="text" name="" value="<%= user.escape('play_style_name') %>">
+            <button id="save-user-play_style"
+                    class="save inactive user-play_style"
+                    data-input="user-play_style">Save</button>
+            <button class="modal-btn cancel inactive user-play_style js-hide-input"
+                    data-input="user-play_style">Cancel</button>
+          </form>
         </div>
         <div class="user-energy_level">
-          <h4>Energy Level</h4>
-          <p><%= user.escape('energy_level_name') %></p>
+          <a href="#" class="js-show-input" data-input="user-energy_level">
+            <h4>Energy Level</h4>
+            <p id="user-energy_level"><%= user.escape('energy_level_name') %></p>
+          </a>
+          <form id="user-energy_level" class="inactive" action="#" method="post">
+            <input type="text" name="" value="<%= user.escape('play_style_name') %>">
+            <button id="save-user-energy_level"
+                    class="save inactive user-energy_level"
+                    data-input="user-energy_level">Save</button>
+            <button class="modal-btn cancel inactive user-energy_level js-hide-input"
+                    data-input="user-energy_level">Cancel</button>
+          </form>
         </div>
       </div>
 

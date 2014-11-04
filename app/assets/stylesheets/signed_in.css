@@ -198,7 +198,7 @@ main {
 }
 
 .profile-content {
- 
+
 }
 
 .profile-content h3 {
@@ -487,16 +487,16 @@ main {
 .modal-content {
 	position: absolute;
 	z-index: 1000;
-	
+
 	top: 50%;
 	left: 50%;
-	
+
 	width: 400px;
 	padding: 50px;
-	
+
 	margin-left: -250px;
 	transform: translateY(-50%);
-	
+
 	background: white;
 	border-radius: 5px;
 }
@@ -513,4 +513,8 @@ main {
 
 .modal-close:hover {
 	color: black;
+}
+
+.inactive {
+  display: none;
 }
