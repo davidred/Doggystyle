@@ -1,7 +1,7 @@
   <nav class="signed-in-nav">
     <ul class="signed-in-nav-list group">
       <li>
-        Profile
+        <a href="/#users/<%= Doggystyle.currentUserId %>" id="profile-link">Profile</a>
 				<!-- link_to "Profile", user_url(current_user) -->
       </li>
       <li>
@@ -18,16 +18,13 @@
       </figure>
       <ul class="sidebar-list">
         <li>
-					Browse Matches
-					<!-- link_to "Browse Matches", users_url-->
+					<a href="/#">Browse Matches</a>
 				</li>
         <li>
-					Messages
-					<!-- link_to "Messages", inbox_url-->
+					<a href="/#users/inbox">Messages</a>
 				</li>
         <li>
-					Visitors
-					<!-- link_to "Visitors", visits_url-->
+					<a href="/#users/visitors">Visitors</a>
 				</li>
       </ul>
     </section>

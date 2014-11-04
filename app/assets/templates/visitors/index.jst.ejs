@@ -12,11 +12,9 @@
 <section class="section-content visitor-content">
   <ul class="messagers-list">
     <% visitors.each( function(visitor) { %>
-      <% debugger %>
       <li class="messager">
         <div class="user-banner">
-          <a class="group" href="#">
-               <!-- < user_url(visitor) %> -->
+          <a class="group" href="#users/<%= visitor.id %>">
             <figure class="user-banner-photo">
               <img src="puppy.jpg">
             </figure>
