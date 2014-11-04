@@ -2,7 +2,7 @@
 <header class="profile-header content-header">
 
   <div class="profile-basic-group group">
-		<a href="javascript.void(0)" class="js-show-modal">
+		<a href="javascript.void(0)" class="js-show-modal" data-modal="basic-info-modal">
     <figure class="profile-picture">
       <img src="../../assets/images/puppy.jpg">
 		</figure>
@@ -72,54 +72,59 @@
   <section class="profile-content-right">
 
     <section class="looking-for">
-      <h3>Looking For</h3>
-      <ul>
+      <a href="javascript.void(0)" class="js-show-modal" data-modal="looking-for-modal">
+        <h3>Looking For</h3>
+        <ul>
 
-        <li>
-					<span>Info: &nbsp</span>						
-					<% user.preferred().sizes.forEach(function(size) { %>
-						<%= this.model.sizes[size] %>, 
-					<% }.bind(this)); %>
-				</li>
-				<li>		
-					<span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>	
-					<% user.preferred().genders.forEach(function(gender) { %>
-						<%= this.model.genders[gender] %>
-					<% }.bind(this)); %>
-					<% user.preferred().breeds.forEach(function(breed) { %>
-						<%= this.model.breeds[breed] %>s
-					<% }.bind(this)); %>
-				</li>
-        <li>
-					<span>For: &nbsp</span>
-					<% user.preferred().play.forEach(function(playtype) { %>
-						<%= this.model.play[playtype] %>
-					<% }.bind(this)); %>
-				</li>
-        <li>
-						<!-- Implement near me -->
-				</li>
-      </ul>
+          <li>
+  					<span>Info: &nbsp</span>
+  					<% user.preferred().sizes.forEach(function(size) { %>
+  						<%= this.model.sizes[size] %>,
+  					<% }.bind(this)); %>
+  				</li>
+  				<li>
+  					<span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+  					<% user.preferred().genders.forEach(function(gender) { %>
+  						<%= this.model.genders[gender] %>
+  					<% }.bind(this)); %>
+  					<% user.preferred().breeds.forEach(function(breed) { %>
+  						<%= this.model.breeds[breed] %>s
+  					<% }.bind(this)); %>
+  				</li>
+          <li>
+  					<span>For: &nbsp</span>
+  					<% user.preferred().play.forEach(function(playtype) { %>
+  						<%= this.model.play[playtype] %>
+  					<% }.bind(this)); %>
+  				</li>
+          <li>
+  						<!-- Implement near me -->
+  				</li>
+        </ul>
+      </a>
     </section>
 
     <section class="owner-info">
-      <h3>My Person</h3>
-      <ul>
-        <li>
-          <figure class="owner-photo">
+      <a href="javascript.void(0)" class="js-show-modal" data-modal="owner-info-modal">
+        <h3>My Person</h3>
+        <ul>
+          <li>
+            <figure class="owner-photo">
 
-          </figure>
-        </li>
-        <li><%= user.escape('owner_name') %></li>
-        <li><%= user.escape('owner_age') %></li>
-        <li><%= user.escape('owner_gender_name') %></li>
-      </ul>
+            </figure>
+          </li>
+          <li><%= user.escape('owner_name') %></li>
+          <li><%= user.escape('owner_age') %></li>
+          <li><%= user.escape('owner_gender_name') %></li>
+        </ul>
+      </a>
     </section>
-		
-		<section id="modal" class="modal basic-info-modal">
+
+		<section id="basic-info-modal" class="modal">
 			<article class="modal-content">
-				<span class="modal-close js-hide-modal">&times;</span>
-				
+				<span class="modal-close js-hide-modal"
+              data-modal="basic-info-modal">&times;</span>
+
 				<h1>Basic Info</h1>
 				<form class="test">
 	        <ul class="basic-info-list">
@@ -167,28 +172,32 @@
 	            <label for="country">Country</label>
 	            <select id="country" name="user[country]">
 								<% for (var prop in user.countries) { %>
-									<option value="<%= prop %>" 
+									<option value="<%= prop %>"
 									<% if(user.countries[prop] === user.escape('country_name')) { %>
 									selected="selected"
 									<% } %>
-									><%= user.countries[prop] %></option> 
+									><%= user.countries[prop] %></option>
 								<% } %>
 	            </select>
 	          </li>
 	        </ul>
-					<input type="submit" class="modal-btn save" value="Save">
-					<button class="modal-btn cancel js-hide-modal">Cancel</button>
-				
+					<input type="submit"
+                 class="modal-btn save"
+                 value="Save">
+					<button class="modal-btn cancel js-hide-modal"
+                  data-modal="basic-info-modal">Cancel</button>
+
 				</form>
-			
+
 			</article>
 			<div class="modal-screen js-hide-modal"></div>
 		</section>
-		
-		<section id="modal" class="modal looking-for-modal">
+
+		<section id="looking-for-modal" class="modal">
 			<article class="modal-content">
-				<span class="modal-close js-hide-modal">&times;</span>
-				
+				<span class="modal-close js-hide-modal"
+              data-modal="looking-for-modal">&times;</span>
+
 				<h1>Looking For</h1>
 				<form class="looking-for-form">
 	        <ul class="looking-for-list">
@@ -236,26 +245,104 @@
 	            <label for="country">Country</label>
 	            <select id="country" name="user[country]">
 								<% for (var prop in user.countries) { %>
-									<option value="<%= prop %>" 
+									<option value="<%= prop %>"
 									<% if(user.countries[prop] === user.escape('country_name')) { %>
 									selected="selected"
 									<% } %>
-									><%= user.countries[prop] %></option> 
+									><%= user.countries[prop] %></option>
 								<% } %>
 	            </select>
 	          </li>
 	        </ul>
-					<input type="submit" class="modal-btn save" value="Save">
-					<button class="modal-btn cancel js-hide-modal">Cancel</button>
-				
+					<input type="submit"
+                 class="modal-btn save"
+                 value="Save"
+                 data-modal="looking-for-modal">
+					<button class="modal-btn cancel js-hide-modal"
+                  data-modal="looking-for-modal">Cancel</button>
+
 				</form>
-			
+
 			</article>
 			<div class="modal-screen js-hide-modal"></div>
 		</section>
 
+    <section id="owner-info-modal" class="modal">
+      <article class="modal-content">
+        <span class="modal-close js-hide-modal"
+              data-modal="owner-info-modal">&times;</span>
+
+        <h1>Owner Info</h1>
+        <form class="owner-info-form">
+          <ul class="owner-info-list">
+            <li class="breed">
+              <br>
+              <br>
+              <label for="breed">Breed</label>
+              <select id="breed" name="user[breed]">
+                <% for(var prop in user.breeds) { %>
+                  <option value="<%= prop %>"
+                    <% if (user.breeds[prop] === user.escape('breed_name')) { %>
+                    selected="selected"
+                    <% } %>
+                    ><%= user.breeds[prop] %></option>
+                <% }; %>
+              </select>
+            </li>
+            <li class="gender">
+              <label for="gender">Gender</label>
+              <select name="user[gender]" id="gender">
+                <option value="1"
+                <% if ( "Male" === user.escape('gender_name')) { %>
+                selected="selected"
+                <% } %>
+                >Male</option>
+                <option value="2"
+                <% if ( "Female" === user.escape('gender_name')) { %>
+                selected="selected"
+                <% } %>
+                >Female</option>
+              </select>
+            </li>
+            <li class="zip">
+              <br>
+              <br>
+              <label for="zip">Zip Code</label>
+              <input type="text"
+                     id="zip"
+                     name="user[zip]"
+                     value="<%= user.escape('zip') %>">
+            </li>
+            <li class="country">
+              <br>
+              <br>
+              <label for="country">Country</label>
+              <select id="country" name="user[country]">
+                <% for (var prop in user.countries) { %>
+                  <option value="<%= prop %>"
+                  <% if(user.countries[prop] === user.escape('country_name')) { %>
+                  selected="selected"
+                  <% } %>
+                  ><%= user.countries[prop] %></option>
+                <% } %>
+              </select>
+            </li>
+          </ul>
+          <input type="submit"
+                 class="modal-btn save"
+                 value="Save"
+                 data-modal="owner-info-modal">
+          <button class="modal-btn cancel js-hide-modal"
+                  data-modal="owner-info-modal">Cancel</button>
+
+        </form>
+
+      </article>
+      <div class="modal-screen js-hide-modal"></div>
+    </section>
+
   </section>
-	
-	
+
+
 
 </section>

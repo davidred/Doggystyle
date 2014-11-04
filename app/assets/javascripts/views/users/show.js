@@ -29,12 +29,14 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
 
 	hideModal: function(event) {
 		event.preventDefault();
-		$('#modal').removeClass("is-active")
+    var targetModal = event.currentTarget.dataset.modal;
+		$('#'+targetModal).removeClass("is-active");
 	},
 
 	showModal: function(event) {
 		event.preventDefault();
-		$('#modal').addClass("is-active")
+    var targetModal = event.currentTarget.dataset.modal;
+		$('#'+targetModal).addClass("is-active");
 	},
 
 	saveBasicInfo: function(event) {
