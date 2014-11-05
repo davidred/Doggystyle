@@ -4,7 +4,7 @@
   <div class="profile-basic-group group">
 		<a href="javascript.void(0)" class="js-show-modal" data-modal="basic-info-modal">
     <figure class="profile-picture">
-      <img src="../../assets/images/puppy.jpg">
+      <img src="<%= user.escape('profile_photo')%>">
 		</figure>
     <div class="profile-basic-info">
       <h1><%= user.escape('username') %></h1>

@@ -19,7 +19,7 @@
       <!-- <form action=" user_visits_url(user)" method="POST"> -->
         <button id="#user-profile-link" data-id="<%= user.id %>">
           <figure class="match-photo">
-						<img src="../../images/puppy.jpg">
+						<img src="<%= user.escape('profile_photo')%>">
             <!-- <img src=" asset_path 'puppy.jpg'"> -->
           </figure>
           <div class="match-summary">

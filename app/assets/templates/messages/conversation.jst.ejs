@@ -12,7 +12,7 @@
   <div class="user-banner">
     <a class="group" href="#users/<%= user.id %>">
       <figure class="user-banner-photo">
-        <img src="puppy.jpg">
+        <img src="<%= user.escape('profile_photo') %>">
       </figure>
       <div class="match-summary">
         <h3><%= user.escape('username') %></h3>
@@ -26,7 +26,12 @@
       <% messages.each( function(message) { %>
         <li class="message group">
           <figure class="user-banner-photo">
-            <img src="puppy.jpg">
+            <% if(user.id === parseInt(message.escape("from"))) { %>
+              <img src="<%= user.escape('profile_photo') %>">
+            <% } else { %>
+
+              <img src="<%= currentUser.escape('profile_photo') %>">
+            <% } %>
           </figure>
           <div class="message-body">
             <p><%= message.escape('body') %></p>

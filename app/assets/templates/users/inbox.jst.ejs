@@ -21,7 +21,7 @@
         <a class="group" href="/#users/<%= messager.id %>/conversation">
         <!-- <= convo_url(user_id: messager.id) %> -->
           <figure class="user-banner-photo">
-            <!-- <img src="puppy.jpg"> -->
+            <img src="<%= messager.escape('profile_photo')%>">
           </figure>
           <div class="match-summary">
             <h3><%= messager.get('username') %></h3>

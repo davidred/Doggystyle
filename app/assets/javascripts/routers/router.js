@@ -59,11 +59,13 @@ Doggystyle.Routers.Router = Backbone.Router.extend({
   },
 
   conversationShow: function (id) {
+		var cUser = this.collection.getOrFetch(Doggystyle.currentUserId);
     var user = this.collection.getOrFetch(id);
     var conversation = new Doggystyle.Collections.Conversation({ userID: user.id });
     conversation.fetch();
     var conversationView = new Doggystyle.Views.ConversationView({
-      model: user,
+			currentUser: cUser,
+			model: user,
       collection: conversation,
     });
 

@@ -6,12 +6,16 @@ Doggystyle.Views.ConversationView = Backbone.View.extend({
 
   template: JST['messages/conversation'],
 
-  initialize: function() {
+  initialize: function(options) {
+    this.currentUser = options.currentUser;
     this.listenTo(this.collection, "sync", this.render);
+    this.listenTo(this.currentUser, "sync", this.render);
+    this.listenTo(this.model, "sync", this.render);
   },
 
   render: function() {
     var renderedContent = this.template({
+      currentUser: this.currentUser,
       user: this.model,
       messages: this.collection,
     });
