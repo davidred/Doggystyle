@@ -47,9 +47,9 @@ Doggystyle.Models.User = Backbone.Model.extend({
 		if(response.preferences) {
 			this.preferences().set(response.preferences, {parse: true});
 			delete response.preferences;
-
-			return response;
 		}
+
+		return response;
 	},
 
 	genders: {
