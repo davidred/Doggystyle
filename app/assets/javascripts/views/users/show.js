@@ -78,6 +78,7 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
         console.log(preferences);
       },
     });
+		this.model.fetch()
     // `create` action should `render json: @widget`
     // this gives the client access to the `id` attribute issued by
     // the server.

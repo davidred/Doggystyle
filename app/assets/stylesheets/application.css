@@ -145,10 +145,12 @@ html, body {
 	background: #abdb65;
 }
 
-
 .sign-up-footer {
+	position: relative;
+}
+.footer {
 	position: absolute;
-	bottom: 0;
+	bottom: 0px;
 	height: 200px;
 
 	width: 100%;

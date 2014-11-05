@@ -325,7 +325,8 @@
               <select id="looking-for-breed" name="preference[breed]">
                 <% for(var prop in user.breeds) { %>
                   <option value="<%= prop %>"
-                    <% if (user.breeds[prop] === user.preferences().where({preference_attribute: "breed", value: prop})) { %>
+										<% debugger %>
+                    <% if (user.preferences().where({preference_attribute: "breed", value: prop}).length === 1) { %>
                     selected="selected"
                     <% } %>
                     ><%= user.breeds[prop] %></option>

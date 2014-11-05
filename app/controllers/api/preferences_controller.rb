@@ -11,6 +11,7 @@ module Api
       @user = User.find(params[:user_id])
       @preferences = @user.preferences
       # {"Tiny"=>"size", "Small"=>"size", "Medium"=>"size", "Large"=>"size", "Friendship"=>"play", "Playmate"=>"play", "breed_partner"=>"play", "Male"=>"gender", "Female"=>"gender", "near_me"=>"near_me"}
+      @user.preferences.destroy_all
       preference_params.each do |val, pref_attr|
         puts "#{pref_attr}"
         puts "#{val}"
@@ -18,6 +19,7 @@ module Api
         puts "#{int_val}"
         @user.preferences.create(preference_attribute: pref_attr, value: int_val)
       end
+      
       @user.preferences.create(preference_attribute: 'breed', value: params[:preference][:breed])
       render json: @user.preferences
     end
