@@ -16,7 +16,7 @@
         <div class="user-banner">
           <a class="group" href="#users/<%= visitor.id %>">
             <figure class="user-banner-photo">
-              <img src="puppy.jpg">
+              <img src="<%= visitor.escape('profile_photo') %>">
             </figure>
             <div class="match-summary">
               <h3><%= visitor.escape('username') %></h3>
