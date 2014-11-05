@@ -137,7 +137,7 @@
             <!-- size -->
             <% user.preferences().forEach( function(preference) { %>
               <% if (preference.get('preference_attribute') === "size") { %>
-                <%= user.sizes[preference.get('value')] %>
+                <%= user.sizes[preference.get('value')] %>,
               <% } %>
   			    <% }); %>
   				</li>
@@ -145,14 +145,14 @@
   					<span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
   					<% user.preferences().forEach(function(preference) { %>
   						<% if (preference.get('preference_attribute') === "breed") { %>
-                <%= user.breeds[preference.get('value')] %>s
+                <%= user.breeds[preference.get('value')] %>s,
               <% } %>
   					<% }); %>
   				</li>
           <li>
   					<span>For: &nbsp</span>
             <% user.preferences().forEach(function(preference) { %>
-              <% if (preference.get('preference_attribute') === "looking_for") { %>
+              <% if (preference.get('preference_attribute') === "play") { %>
                 <%= user.play[preference.get('value')] %>
               <% } %>
             <% }); %>
@@ -264,7 +264,7 @@
             <li class="size">
               <label for="size">Size</label>
               <br>
-              <input type="checkbox" name="Tiny"<% var keyVal = parseInt(getKeyByValue(user.sizes, 'Tiny')) %>
+              <input type="checkbox" name="preference[Tiny]" value="size"<% var keyVal = parseInt(getKeyByValue(user.sizes, 'Tiny')) %>
               <% var preference = user.preferences().where({preference_attribute: "size", value: keyVal}) %>
               <% if (preference.length === 1) { %>
                 checked="true">Tiny
@@ -272,7 +272,7 @@
                 >Tiny
               <% } %>
               <br>
-              <input type="checkbox" name="Small"<% var keyVal = parseInt(getKeyByValue(user.sizes, 'Small')) %>
+              <input type="checkbox" name="preference[Small]" value="size"<% var keyVal = parseInt(getKeyByValue(user.sizes, 'Small')) %>
               <% var preference = user.preferences().where({preference_attribute: "size", value: keyVal}) %>
               <% if (preference.length === 1) { %>
                 checked="true">Small
@@ -280,7 +280,7 @@
                 >Small
               <% } %>
               <br>
-              <input type="checkbox" name="Medium"<% var keyVal = parseInt(getKeyByValue(user.sizes, 'Medium')) %>
+              <input type="checkbox" name="preference[Medium]" value="size"<% var keyVal = parseInt(getKeyByValue(user.sizes, 'Medium')) %>
               <% var preference = user.preferences().where({preference_attribute: "size", value: keyVal}) %>
               <% if (preference.length === 1) { %>
                 checked="true">Medium
@@ -288,7 +288,7 @@
                 >Tiny
               <% } %>
               <br>
-              <input type="checkbox" name="Large"<% var keyVal = parseInt(getKeyByValue(user.sizes, 'Large')) %>
+              <input type="checkbox" name="preference[Large]" value="size"<% var keyVal = parseInt(getKeyByValue(user.sizes, 'Large')) %>
               <% var preference = user.preferences().where({preference_attribute: "size", value: keyVal}) %>
               <% if (preference.length === 1) { %>
                 checked="true">Large
@@ -301,8 +301,7 @@
             <li class="gender">
               <label for="gender">Gender</label>
               <br>
-              <% debugger %>
-              <input type="checkbox" name="Male"<% var keyVal = parseInt(getKeyByValue(user.genders, 'Male')) %>
+              <input type="checkbox" name="preference[Male]" value="gender"<% var keyVal = parseInt(getKeyByValue(user.genders, 'Male')) %>
               <% var preference = user.preferences().where({preference_attribute: "gender", value: keyVal}) %>
               <% if (preference.length === 1) { %>
                 checked="true">Male
@@ -310,7 +309,7 @@
                 >Male
               <% } %>
               <br>
-              <input type="checkbox" name="Female"<% var keyVal = parseInt(getKeyByValue(user.genders, 'Female')) %>
+              <input type="checkbox" name="preference[Female]" value="gender"<% var keyVal = parseInt(getKeyByValue(user.genders, 'Female')) %>
               <% var preference = user.preferences().where({preference_attribute: "gender", value: keyVal}) %>
               <% if (preference.length === 1) { %>
                 checked="true">Female
@@ -323,7 +322,7 @@
               <br>
               <br>
               <label for="looking-for-breed">Breed</label>
-              <select id="looking-for-breed" name="user[breed]">
+              <select id="looking-for-breed" name="preference[breed]">
                 <% for(var prop in user.breeds) { %>
                   <option value="<%= prop %>"
                     <% if (user.breeds[prop] === user.preferences().where({preference_attribute: "breed", value: prop})) { %>
@@ -332,6 +331,28 @@
                     ><%= user.breeds[prop] %></option>
                 <% }; %>
               </select>
+            </li>
+
+            <li class="play">
+              <label for="play">For</label>
+              <br>
+              <input type="checkbox" name="preference[Friendship]" value="play"<% var keyVal = parseInt(getKeyByValue(user.play, 'Friendship')) %>
+              <% var preference = user.preferences().where({preference_attribute: "play", value: keyVal}) %>
+              <% if (preference.length === 1) { %>
+                checked="true">Friendship
+              <% } else { %>
+                >Friendship
+              <% } %>
+              <br>
+              <input type="checkbox" name="preference[Playmate]" value="play"<% var keyVal = parseInt(getKeyByValue(user.play, 'Playmate')) %>
+              <% var preference = user.preferences().where({preference_attribute: "play", value: keyVal}) %>
+              <% if (preference.length === 1) { %>
+                checked="true">Playmate
+              <% } else { %>
+                >Playmate
+              <% } %>
+              <br>
+
             </li>
 	        </ul>
 					<input type="submit"

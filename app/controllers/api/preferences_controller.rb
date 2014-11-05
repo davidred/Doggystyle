@@ -8,48 +8,50 @@ module Api
     end
 
     def create
-      user = User.find(params[:user_id])
-      @preferences = user.preferences
-      fail
-      render json: @preferences
+      @user = User.find(params[:user_id])
+      @preferences = @user.preferences
+      # {"Tiny"=>"size", "Small"=>"size", "Medium"=>"size", "Large"=>"size", "Friendship"=>"play", "Playmate"=>"play", "breed_partner"=>"play", "Male"=>"gender", "Female"=>"gender", "near_me"=>"near_me"}
+      preference_params.each do |val, pref_attr|
+        puts "#{pref_attr}"
+        puts "#{val}"
+        int_val = (pref_attr == "near_me") ? true : convert_to_integer(val, pref_attr)
+        puts "#{int_val}"
+        @user.preferences.create(preference_attribute: pref_attr, value: int_val)
+      end
+      @user.preferences.create(preference_attribute: 'breed', value: params[:preference][:breed])
+      render json: @user.preferences
     end
 
-    def destroy
+    private
+
+    def update_preferences
+
+      @user.preferences.destroy_all
+      preference_params.each do |val, pref_attr|
+        int_val = convert_to_integer(val, pref_attr)
+        @user.preferences.create(preference_attribute: pref_attr, value: int_val)
+      end
+
 
     end
 
-    def update
-
+    def convert_to_integer(val, pref_attr)
+      @user.send(pref_attr.pluralize).key(val.to_sym)
     end
 
-  end
+    def preference_params
+      params.require(:preference).permit(:Tiny,
+                                         :Small,
+                                         :Medium,
+                                         :Large,
+                                         :Friendship,
+                                         :"Playmate",
+                                         :"Having Puppies",
+                                         :Male,
+                                         :Female,
+                                         :near_me)
 
-  private
-
-  def update_preferences
-    # {"tiny"=>"size", "small"=>"size", "medium"=>"size", "large"=>"size", "friendship"=>"looking_for", "casual_play"=>"looking_for", "breed_partner"=>"looking_for", "male"=>"gender", "female"=>"gender", "near_me"=>"near_me"}
-    @user.preferences.destroy_all
-    preference_params.each do |val, pref_attr|
-      int_val = (pref_attr == "near_me") ? true : convert_to_integer(val, pref_attr)
-      @user.preferences.create(preference_attribute: pref_attr, value: int_val)
     end
   end
 
-  def convert_to_integer(val, pref_attr)
-    @user.send(pref_attr.pluralize).key(val.to_sym)
-  end
-
-  def preference_params
-    params.require(:preference).permit(:Tiny,
-                                       :Small,
-                                       :Medium,
-                                       :Large,
-                                       :Friendship,
-                                       :"Casual Play",
-                                       :"Breeding Partner",
-                                       :Male,
-                                       :Female,
-                                       :near_me)
-
-  end
 end

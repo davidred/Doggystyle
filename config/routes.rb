@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :visits, only: [:create]
     resources :messages, only: [:new, :create]
-    resources :preferences, only: [:index, :create, :destroy, :update]
+    resources :preferences, only: [:index, :create]
   end
 
   resources :messages, only: [:destroy, :show]
@@ -48,7 +48,7 @@ Rails.application.routes.draw do
     resources :users, except: [:new, :create] do
       resources :visits, only: [:create]
       resources :messages, only: [:new, :create]
-      resources :preferences, only: [:index, :create, :destroy, :update]
+      resources :preferences, only: [:index, :create]
     end
 
     get 'inbox', to: 'users#inbox'

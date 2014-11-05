@@ -71,7 +71,7 @@ class User < ActiveRecord::Base
   SIZES = {1 => :Tiny, 2 => :Small, 3 => :Medium, 4 => :Large}
   PLAY_STYLES = {1 => :Chaser, 2 => :Tugger, 3 => :Wrestler, 4 => :Tackler, 5 => :"Not Sure"}
   ENERGY_LEVELS = {1 => :"Super Chill", 2 => :Tame, 3 => :"Likes to party", 4 => :"Wild Beast"}
-  LOOKING_FORS = {1 => :Friendship, 2 => :"Casual Play", 3 => :"Breeding Partner"}
+  PLAYS = {1 => :Friendship, 2 => :"Playmate", 3 => :"Having Puppies"}
 
   def self.find_by_credentials(creds)
     user = User.find_by_username(creds[:username])
@@ -110,8 +110,8 @@ class User < ActiveRecord::Base
     ENERGY_LEVELS
   end
 
-  def looking_fors
-    LOOKING_FORS
+  def plays
+    PLAYS
   end
 
   def breed_name

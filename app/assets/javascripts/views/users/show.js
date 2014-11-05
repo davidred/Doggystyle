@@ -68,8 +68,19 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
 
   saveLookingForInfo: function(event) {
     event.preventDefault();
-    attrs = $(event.currentTarget).serializeJSON()
-    
+    attrs = $(event.currentTarget).serializeJSON();
+    console.log(attrs)
+    $.ajax({
+      url: "/api/users/"+this.model.id+"/preferences.json",
+      type: "POST",
+      data: attrs,
+      success: function(preferences) {
+        console.log(preferences);
+      },
+    });
+    // `create` action should `render json: @widget`
+    // this gives the client access to the `id` attribute issued by
+    // the server.
   },
 
 

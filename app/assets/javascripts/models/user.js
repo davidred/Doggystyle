@@ -81,5 +81,5 @@ Doggystyle.Models.User = Backbone.Model.extend({
 	},
 
   play: {
-		1: "Friendship", 2: "Casual Play", 3: "Breeding" },
+		1: "Friendship", 2: "Playmate", 3: "Having Puppies" },
 });
