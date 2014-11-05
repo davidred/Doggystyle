@@ -3,7 +3,7 @@
 
   <div class="profile-basic-group group">
     <figure class="profile-picture">
-      <img src="<%= asset_path 'puppy.jpg' %>">
+      <%= image_tag @user.profile_photo.url(:big) %>
     </figure>
     <div class="profile-basic-info">
       <h1><%= @user.username %></h1>

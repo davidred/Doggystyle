@@ -17,7 +17,7 @@
       <div class="user-banner">
         <a class="group" href="<%= convo_url(user_id: messager.id) %>">
           <figure class="user-banner-photo">
-            <img src="<%= asset_path 'puppy.jpg' %>">
+            <%= image_tag messager.profile_photo.url(:big) %>
           </figure>
           <div class="match-summary">
             <h3><%= messager.username %></h3>

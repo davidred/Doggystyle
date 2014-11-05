@@ -81,7 +81,7 @@
             <p id="user-size"><%= user.escape('size_name') %></p>
           </a>
             <form id="user-size" class="user-info inactive" action="#" method="post">
-              <select name="user[user_size]" id="user-size">
+              <select name="user[size]" id="user-size">
                 <option value="1"
                 <% if ( "Tiny" === user.escape('size_name')) { %>
                 selected="selected"
@@ -92,7 +92,6 @@
                 selected="selected"
                 <% } %>
                 >Small</option>
-                <% debugger %>
                 <option value="3"
                 <% if ( "Medium" === user.escape('size_name')) { %>
                 selected="selected"
@@ -133,7 +132,6 @@
               selected="selected"
               <% } %>
               >Tugger</option>
-              <% debugger %>
               <option value="3"
               <% if ( "Wrestler" === user.escape('play_style_name')) { %>
               selected="selected"
@@ -150,9 +148,6 @@
               <% } %>
               >Not Sure</option>
             </select>
-            <input type="text"
-                   name="user[play_style]"
-                   value="<%= user.escape('play_style_name') %>">
             <button id="user-play_style"
                     class="save inactive save-user-info"
                     data-input="user-play_style">Save</button>
@@ -178,7 +173,6 @@
                      selected="selected"
                      <% } %>
                      >Tame</option>
-                     <% debugger %>
                      <option value="3"
                      <% if ( "Likes to party" === user.escape('energy_level_name')) { %>
                      selected="selected"

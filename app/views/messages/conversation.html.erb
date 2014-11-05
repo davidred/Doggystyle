@@ -12,7 +12,7 @@
   <div class="user-banner">
     <a class="group" href="<%= user_url(@user) %>">
       <figure class="user-banner-photo">
-        <img src="<%= asset_path 'puppy.jpg' %>">
+        <%= image_tag @user.profile_photo.url(:big) %>
       </figure>
       <div class="match-summary">
         <h3><%= @user.username %></h3>
@@ -27,7 +27,7 @@
         <% sender = message.sender %>
         <li class="message group">
           <figure class="user-banner-photo">
-            <img src="<%= asset_path 'puppy.jpg' %>">
+            <%= image_tag sender.profile_photo.url(:big) %>
           </figure>
           <div class="message-body">
             <p><%= message.body %></p>

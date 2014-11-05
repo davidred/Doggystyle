@@ -27,6 +27,8 @@ gem 'spring',        group: :development
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'backbone-on-rails'
+gem 'paperclip'
+gem 'aws-sdk'
 # Use unicorn as the app server
 # gem 'unicorn'
 

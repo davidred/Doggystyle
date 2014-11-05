@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141030025014) do
+ActiveRecord::Schema.define(version: 20141105160115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,17 +38,17 @@ ActiveRecord::Schema.define(version: 20141030025014) do
   add_index "preferences", ["user_id"], name: "index_preferences_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "username",        null: false
-    t.string   "password_digest", null: false
+    t.string   "username",                   null: false
+    t.string   "password_digest",            null: false
     t.string   "omniauthid"
     t.string   "session_token"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "gender",          null: false
-    t.integer  "breed",           null: false
-    t.string   "email",           null: false
-    t.integer  "country",         null: false
-    t.integer  "zip",             null: false
+    t.integer  "gender",                     null: false
+    t.integer  "breed",                      null: false
+    t.string   "email",                      null: false
+    t.integer  "country",                    null: false
+    t.integer  "zip",                        null: false
     t.text     "summary"
     t.string   "photo"
     t.integer  "age"
@@ -59,6 +59,10 @@ ActiveRecord::Schema.define(version: 20141030025014) do
     t.string   "owner_photo"
     t.integer  "owner_gender"
     t.integer  "owner_age"
+    t.string   "profile_photo_file_name"
+    t.string   "profile_photo_content_type"
+    t.integer  "profile_photo_file_size"
+    t.datetime "profile_photo_updated_at"
   end
 
   add_index "users", ["breed"], name: "index_users_on_breed", using: :btree

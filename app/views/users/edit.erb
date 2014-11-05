@@ -1,14 +1,13 @@
 <nav class="signed-in"></nav>
 
 <section class="content">
-  <nav class="sidebar">
-    <ul>
-      <li>Browse Matches</li>
-      <li>Messages</li>
-      <li>Visitors</li>
-    </ul>
-  </nav>
   <section class="profile">
+    <%= form_for @user, :html => { :multipart => true } do |f| %>
+      <%= f.label :profile_photo %>:
+      <%= f.file_field :profile_photo %>
+      <br />
+
+    <%= f.submit %>
     <form action="<%= user_url(@user) %>" method="POST">
       <%= form_auth %>
       <input type="hidden" name="_method" value="patch">
@@ -16,6 +15,9 @@
         <figure>
 
         </figure>
+
+
+        <% end %>
 
         <form action="javascript.void(0)" class="basic-info">
           <h3>Basic Info</h3>

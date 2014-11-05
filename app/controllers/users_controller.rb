@@ -44,7 +44,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    fail
     @user = User.find(params[:id])
 
     if @user.update(user_params)
@@ -90,6 +89,7 @@ class UsersController < ApplicationController
                                  :country,
                                  :zip,
                                  :email,
+                                 :profile_photo,
                                  :summary,
                                  :age,
                                  :size,

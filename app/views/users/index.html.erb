@@ -20,7 +20,7 @@
         <%= form_auth %>
         <button type="submit">
           <figure class="match-photo">
-            <img src="<%= asset_path 'puppy.jpg' %>">
+            <%= image_tag user.profile_photo.url(:big) %>
           </figure>
           <div class="match-summary">
             <h3><%= user.username %></h3>
@@ -28,6 +28,7 @@
           </div>
         </button>
       </form>
+    </li>
   <% end %>
 
   </ul>

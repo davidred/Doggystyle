@@ -1,3 +1,4 @@
+
 <header class="visitor-header content-header">
   <h1>Visitors</h1>
 </header>
@@ -16,7 +17,7 @@
         <div class="user-banner">
           <a class="group" href="<%= user_url(visitor) %>">
             <figure class="user-banner-photo">
-              <img src="<%= asset_path 'puppy.jpg' %>">
+              <%= image_tag visitor.profile_photo.url(:big) %>
             </figure>
             <div class="match-summary">
               <h3><%= visitor.username %></h3>
@@ -28,5 +29,3 @@
     <% end %>
   </ul>
 </section>
-
-

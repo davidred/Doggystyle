@@ -70,13 +70,12 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
   saveLookingForInfo: function(event) {
     event.preventDefault();
     attrs = $(event.currentTarget).serializeJSON();
-    console.log(attrs)
     $.ajax({
       url: "/api/users/"+this.model.id+"/preferences.json",
       type: "POST",
       data: attrs,
-      success: function(preferences) {
-        console.log(preferences);
+      success: function(results) {
+        console.log(results);
       },
     });
 		this.model.fetch()
@@ -84,10 +83,9 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
 
   saveProfileInfo: function(event) {
     event.preventDefault();
-    alert('saving');
     var input = event.currentTarget.dataset.input;
-    $input = $('input');
-    debugger
+    attrs = $('form#'+input).serializeJSON();
+    this.model.save(attrs, {patch: true});
   },
 
 
