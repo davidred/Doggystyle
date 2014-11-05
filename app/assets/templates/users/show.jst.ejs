@@ -326,7 +326,7 @@
                 <% for(var prop in user.breeds) { %>
                   <option value="<%= prop %>"
 										<% debugger %>
-                    <% if (user.preferences().where({preference_attribute: "breed", value: prop}).length === 1) { %>
+                    <% if (user.preferences().where({preference_attribute: "breed", value: parseInt(prop)}).length === 1) { %>
                     selected="selected"
                     <% } %>
                     ><%= user.breeds[prop] %></option>
