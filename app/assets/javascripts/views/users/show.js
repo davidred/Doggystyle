@@ -15,6 +15,7 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
 		"click .js-hide-modal": "hideModal",
     "click .js-show-input": "showInput",
     "click .js-hide-input": "hideInput",
+    "click .save-user-info": "saveProfileInfo",
 		"submit form.basic-info-form": "saveBasicInfo",
     "submit form.looking-for-form": "saveLookingForInfo",
     "submit form.owner-info-form": "saveOwnerInfo",
@@ -48,7 +49,7 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
     event.preventDefault();
     var targetInput = event.currentTarget.dataset.input;
     $('p#'+targetInput).addClass("inactive");
-    $('button.'+targetInput).removeClass("inactive");
+    $('button#'+targetInput).removeClass("inactive");
     $('form#'+targetInput).removeClass("inactive");
   },
 
@@ -57,7 +58,7 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
     var targetInput = event.currentTarget.dataset.input;
     $('p#'+targetInput).removeClass("inactive");
     $('form#'+targetInput).addClass("inactive");
-    $('button.'+targetInput).addClass("inactive");
+    $('button#'+targetInput).addClass("inactive");
   },
 
 	saveBasicInfo: function(event) {
@@ -79,9 +80,14 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
       },
     });
 		this.model.fetch()
-    // `create` action should `render json: @widget`
-    // this gives the client access to the `id` attribute issued by
-    // the server.
+  },
+
+  saveProfileInfo: function(event) {
+    event.preventDefault();
+    alert('saving');
+    var input = event.currentTarget.dataset.input;
+    $input = $('input');
+    debugger
   },
 
 

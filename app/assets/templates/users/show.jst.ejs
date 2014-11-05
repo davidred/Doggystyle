@@ -45,14 +45,14 @@
           <h4>My Self Summary</h4>
           <p id="user-summary"><%= user.escape('summary') %></p>
           <form id="user-summary" class="inactive" action="#" method="post">
-            <textarea name="" rows="4" cols="40"><%= user.escape('summary') %></textarea>
-
+            <textarea name="user[summary]" rows="4" cols="40"><%= user.escape('summary') %></textarea>
           </form>
         </a>
-        <button id="save-user-summary"
-                class="save inactive user-summary"
+        <button id="user-summary"
+                class="save inactive save-user-info"
                 data-input="user-summary">Save</button>
-        <button class="modal-btn cancel inactive user-summary js-hide-input"
+        <button id="user-summary"
+                class="modal-btn cancel inactive js-hide-input"
                 data-input="user-summary">Cancel</button>
       </div>
 
@@ -62,15 +62,16 @@
           <a href="#" class="js-show-input" data-input="user-age">
             <h4>Age</h4>
             <p id="user-age"><%= user.escape('age') %></p>
-            <form id="user-age" class="inactive" action="#" method="post">
-              <input type="text" name="" value="<%= user.escape('age') %>">
+            <form id="user-age" class="user-info inactive" action="#" method="post">
+              <input type="text" name="user[age]" value="<%= user.escape('age') %>">
 
             </form>
           </a>
-          <button id="save-user-age"
-                  class="save inactive user-age"
+          <button id="user-age"
+                  class="save inactive save-user-info"
                   data-input="user-age">Save</button>
-          <button class="modal-btn cancel inactive user-age js-hide-input"
+          <button id="user-age"
+                  class="cancel inactive js-hide-input"
                   data-input="user-age">Cancel</button>
         </div>
 
@@ -79,12 +80,35 @@
             <h4>Size</h4>
             <p id="user-size"><%= user.escape('size_name') %></p>
           </a>
-            <form id="user-size" class="inactive" action="#" method="post">
-              <input type="text" name="" value="<%= user.escape('size_name') %>">
-              <button id="save-user-size"
-                      class="save inactive user-size"
+            <form id="user-size" class="user-info inactive" action="#" method="post">
+              <select name="user[user_size]" id="user-size">
+                <option value="1"
+                <% if ( "Tiny" === user.escape('size_name')) { %>
+                selected="selected"
+                <% } %>
+                >Tiny</option>
+                <option value="2"
+                <% if ( "Small" === user.escape('size_name')) { %>
+                selected="selected"
+                <% } %>
+                >Small</option>
+                <% debugger %>
+                <option value="3"
+                <% if ( "Medium" === user.escape('size_name')) { %>
+                selected="selected"
+                <% } %>
+                >Medium</option>
+                <option value="4"
+                <% if ( "Large" === user.escape('size_name')) { %>
+                selected="selected"
+                <% } %>
+                >Large</option>
+              </select>
+              <button id="user-size"
+                      class="save inactive save-user-info"
                       data-input="user-size">Save</button>
-              <button class="modal-btn cancel inactive user-size js-hide-input"
+              <button id="user-size"
+                      class="cancel inactive js-hide-input"
                       data-input="user-size">Cancel</button>
             </form>
         </div>
@@ -98,11 +122,42 @@
             <p id="user-play_style"><%= user.escape('play_style_name') %></p>
           </a>
           <form id="user-play_style" class="inactive" action="#" method="post">
-            <input type="text" name="" value="<%= user.escape('play_style_name') %>">
-            <button id="save-user-play_style"
-                    class="save inactive user-play_style"
+            <select name="user[play_style]" id="user-play_style">
+              <option value="1"
+              <% if ( "Chaser" === user.escape('play_style_name')) { %>
+              selected="selected"
+              <% } %>
+              >Chaser</option>
+              <option value="2"
+              <% if ( "Tugger" === user.escape('play_style_name')) { %>
+              selected="selected"
+              <% } %>
+              >Tugger</option>
+              <% debugger %>
+              <option value="3"
+              <% if ( "Wrestler" === user.escape('play_style_name')) { %>
+              selected="selected"
+              <% } %>
+              >Wrestler</option>
+              <option value="4"
+              <% if ( "Tackler" === user.escape('play_style_name')) { %>
+              selected="selected"
+              <% } %>
+              >Tackler</option>
+              <option value="5"
+              <% if ( "Not Sure" === user.escape('play_style_name')) { %>
+              selected="selected"
+              <% } %>
+              >Not Sure</option>
+            </select>
+            <input type="text"
+                   name="user[play_style]"
+                   value="<%= user.escape('play_style_name') %>">
+            <button id="user-play_style"
+                    class="save inactive save-user-info"
                     data-input="user-play_style">Save</button>
-            <button class="modal-btn cancel inactive user-play_style js-hide-input"
+            <button id="user-play_style"
+                    class="cancel inactive js-hide-input"
                     data-input="user-play_style">Cancel</button>
           </form>
         </div>
@@ -112,11 +167,34 @@
             <p id="user-energy_level"><%= user.escape('energy_level_name') %></p>
           </a>
           <form id="user-energy_level" class="inactive" action="#" method="post">
-            <input type="text" name="" value="<%= user.escape('energy_level_name') %>">
-            <button id="save-user-energy_level"
-                    class="save inactive user-energy_level"
+            <select name="user[energy_level]" id="user-energy_level">
+                     <option value="1"
+                     <% if ( "Super Chill" === user.escape('energy_level_name')) { %>
+                     selected="selected"
+                     <% } %>
+                     >Super Chill</option>
+                     <option value="2"
+                     <% if ( "Tame" === user.escape('energy_level_name')) { %>
+                     selected="selected"
+                     <% } %>
+                     >Tame</option>
+                     <% debugger %>
+                     <option value="3"
+                     <% if ( "Likes to party" === user.escape('energy_level_name')) { %>
+                     selected="selected"
+                     <% } %>
+                     >Likes to Party</option>
+                     <option value="4"
+                     <% if ( "Wild Beast" === user.escape('energy_level_name')) { %>
+                     selected="selected"
+                     <% } %>
+                     >Wild Beast</option>
+                   </select>
+            <button id="user-energy_level"
+                    class="save inactive save-user-info"
                     data-input="user-energy_level">Save</button>
-            <button class="modal-btn cancel inactive user-energy_level js-hide-input"
+            <button id="user-energy_level"
+                    class="cancel inactive js-hide-input"
                     data-input="user-energy_level">Cancel</button>
           </form>
         </div>
