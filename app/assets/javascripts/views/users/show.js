@@ -19,6 +19,7 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
 		"submit form.basic-info-form": "saveBasicInfo",
     "submit form.looking-for-form": "saveLookingForInfo",
     "submit form.owner-info-form": "saveOwnerInfo",
+    "change .photo-upload": "handlePhoto",
 	},
 
 	render: function() {
@@ -31,6 +32,31 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
 
 		return this;
 	},
+
+  handlePhoto: function(event) {
+    var file = event.currentTarget.files[0];
+    var view = this;
+    var formData = new FormData();
+    formData.append('new_photo', file);
+    // var reader = new FileReader();
+    // reader.onload = function(e) {
+    //   view.model.set('new_photo', this.result);
+    // }
+    // reader.readAsDataURL(file);
+    $.ajax({
+      type: 'put',
+      url: 'api/users/'+Doggystyle.currentUserId+'/photo',
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function(data) {
+        console.log(data);
+        $('#profile-picture-modal').removeClass('is-active');
+        $('.profile-picture > img').attr('src', data)
+      }
+    });
+
+  },
 
 	hideModal: function(event) {
 		event.preventDefault();

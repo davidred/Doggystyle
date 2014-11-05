@@ -79,6 +79,7 @@ class UsersController < ApplicationController
     render :outbox, layout: "signed_in"
   end
 
+
   private
 
   def user_params

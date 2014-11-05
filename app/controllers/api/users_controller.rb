@@ -19,7 +19,6 @@ module Api
 
     def update
       @user = User.find(params[:id])
-      puts('saving api')
       if @user.update(user_params)
         render :show
       else
@@ -32,6 +31,13 @@ module Api
       @user = current_user
       # render json: @messagers
       render :inbox
+    end
+
+    def photo
+      user = User.find(params[:user_id])
+      user.profile_photo = params[:new_photo]
+      user.save
+      render json: user.profile_photo
     end
 
     private

@@ -2,20 +2,23 @@
 <header class="profile-header content-header">
 
   <div class="profile-basic-group group">
-		<a href="javascript.void(0)" class="js-show-modal" data-modal="basic-info-modal">
-    <figure class="profile-picture">
-      <img src="<%= user.escape('profile_photo')%>">
-		</figure>
-    <div class="profile-basic-info">
-      <h1><%= user.escape('username') %></h1>
-      <ul class="profile-basic-info-list group">
-        <li><%= user.escape('breed_name') %></li>
-        <li>&#8226</li>
-        <li><%= user.escape('gender_name') %></li>
-        <li>&#8226</li>
-        <li><%= user.escape('country_name') %></li> <!--Change to geocoded location -->
-      </ul>
-    </div>
+    <a href="" class="js-show-modal" data-modal="profile-picture-modal">
+      <figure class="profile-picture">
+        <img src="<%= user.escape('profile_photo')%>">
+      </figure>
+    </a>
+
+    <a href="javascript.void(0)" class="js-show-modal" data-modal="basic-info-modal">
+      <div class="profile-basic-info">
+        <h1><%= user.escape('username') %></h1>
+        <ul class="profile-basic-info-list group">
+          <li><%= user.escape('breed_name') %></li>
+          <li>&#8226</li>
+          <li><%= user.escape('gender_name') %></li>
+          <li>&#8226</li>
+          <li><%= user.escape('country_name') %></li> <!--Change to geocoded location -->
+        </ul>
+      </div>
 		</a>
   </div>
   <!-- < if user != current_user %> -->
@@ -252,11 +255,29 @@
       </a>
     </section>
 
+    <section id="profile-picture-modal" class="modal">
+      <article class="modal-content">
+        <span class="modal-close js-hide-modal"
+              data-modal="profile-picture-modal">&times;</span>
+
+        <h1>Profile Photo</h1>
+
+        <input type="file" id="profile-picture" class="photo-upload">
+        <button id="save-profile-picture"
+                class="modal-btn save save-user-info"
+                data-modal="profile-picture">Save</button>
+        <button id="save-profile-picture"
+                class="modal-btn cancel js-hide-modal"
+                data-modal="profile-picture-modal">Cancel</button>
+
+      </article>
+          <div class="modal-screen js-hide-modal"></div>
+    </section>
+
 		<section id="basic-info-modal" class="modal">
 			<article class="modal-content">
 				<span class="modal-close js-hide-modal"
               data-modal="basic-info-modal">&times;</span>
-
 				<h1>Basic Info</h1>
 				<form class="basic-info-form">
 	        <ul class="basic-info-list">
@@ -318,9 +339,7 @@
                  value="Save">
 					<button class="modal-btn cancel js-hide-modal"
                   data-modal="basic-info-modal">Cancel</button>
-
 				</form>
-
 			</article>
 			<div class="modal-screen js-hide-modal"></div>
 		</section>
@@ -329,7 +348,6 @@
 			<article class="modal-content">
 				<span class="modal-close js-hide-modal"
               data-modal="looking-for-modal">&times;</span>
-
 				<h1>Looking For</h1>
 				<form class="looking-for-form">
 	        <ul class="looking-for-list">
@@ -337,57 +355,56 @@
               <label for="size">Size</label>
               <br>
               <input type="checkbox" name="preference[Tiny]" value="size"<% var keyVal = parseInt(getKeyByValue(user.sizes, 'Tiny')) %>
-              <% var preference = user.preferences().where({preference_attribute: "size", value: keyVal}) %>
-              <% if (preference.length === 1) { %>
-                checked="true">Tiny
-              <% } else { %>
-                >Tiny
-              <% } %>
-              <br>
+                <% var preference = user.preferences().where({preference_attribute: "size", value: keyVal}) %>
+                <% if (preference.length === 1) { %>
+                  checked="true">Tiny
+                <% } else { %>
+                  >Tiny
+                <% } %>
+                <br>
               <input type="checkbox" name="preference[Small]" value="size"<% var keyVal = parseInt(getKeyByValue(user.sizes, 'Small')) %>
-              <% var preference = user.preferences().where({preference_attribute: "size", value: keyVal}) %>
-              <% if (preference.length === 1) { %>
-                checked="true">Small
-              <% } else { %>
-                >Small
-              <% } %>
-              <br>
+                <% var preference = user.preferences().where({preference_attribute: "size", value: keyVal}) %>
+                <% if (preference.length === 1) { %>
+                  checked="true">Small
+                <% } else { %>
+                  >Small
+                <% } %>
+                <br>
               <input type="checkbox" name="preference[Medium]" value="size"<% var keyVal = parseInt(getKeyByValue(user.sizes, 'Medium')) %>
-              <% var preference = user.preferences().where({preference_attribute: "size", value: keyVal}) %>
-              <% if (preference.length === 1) { %>
-                checked="true">Medium
-              <% } else { %>
-                >Tiny
-              <% } %>
-              <br>
+                <% var preference = user.preferences().where({preference_attribute: "size", value: keyVal}) %>
+                <% if (preference.length === 1) { %>
+                  checked="true">Medium
+                <% } else { %>
+                  >Medium
+                <% } %>
+                <br>
               <input type="checkbox" name="preference[Large]" value="size"<% var keyVal = parseInt(getKeyByValue(user.sizes, 'Large')) %>
-              <% var preference = user.preferences().where({preference_attribute: "size", value: keyVal}) %>
-              <% if (preference.length === 1) { %>
-                checked="true">Large
-              <% } else { %>
-                >Tiny
-              <% } %>
-              <br>
+                <% var preference = user.preferences().where({preference_attribute: "size", value: keyVal}) %>
+                <% if (preference.length === 1) { %>
+                  checked="true">Large
+                <% } else { %>
+                  >Large
+                <% } %>
+                <br>
             </li>
-
             <li class="gender">
               <label for="gender">Gender</label>
               <br>
               <input type="checkbox" name="preference[Male]" value="gender"<% var keyVal = parseInt(getKeyByValue(user.genders, 'Male')) %>
-              <% var preference = user.preferences().where({preference_attribute: "gender", value: keyVal}) %>
-              <% if (preference.length === 1) { %>
-                checked="true">Male
-              <% } else { %>
-                >Male
-              <% } %>
-              <br>
+                <% var preference = user.preferences().where({preference_attribute: "gender", value: keyVal}) %>
+                <% if (preference.length === 1) { %>
+                  checked="true">Male
+                <% } else { %>
+                  >Male
+                <% } %>
+                <br>
               <input type="checkbox" name="preference[Female]" value="gender"<% var keyVal = parseInt(getKeyByValue(user.genders, 'Female')) %>
-              <% var preference = user.preferences().where({preference_attribute: "gender", value: keyVal}) %>
-              <% if (preference.length === 1) { %>
-                checked="true">Female
-              <% } else { %>
-                >Female
-              <% } %>
+                <% var preference = user.preferences().where({preference_attribute: "gender", value: keyVal}) %>
+                <% if (preference.length === 1) { %>
+                  checked="true">Female
+                <% } else { %>
+                  >Female
+                <% } %>
             </li>
 
             <li class="looking-for-breed">
@@ -409,21 +426,21 @@
               <label for="play">For</label>
               <br>
               <input type="checkbox" name="preference[Friendship]" value="play"<% var keyVal = parseInt(getKeyByValue(user.play, 'Friendship')) %>
-              <% var preference = user.preferences().where({preference_attribute: "play", value: keyVal}) %>
-              <% if (preference.length === 1) { %>
-                checked="true">Friendship
-              <% } else { %>
-                >Friendship
-              <% } %>
-              <br>
+                <% var preference = user.preferences().where({preference_attribute: "play", value: keyVal}) %>
+                <% if (preference.length === 1) { %>
+                  checked="true">Friendship
+                <% } else { %>
+                  >Friendship
+                <% } %>
+                <br>
               <input type="checkbox" name="preference[Playmate]" value="play"<% var keyVal = parseInt(getKeyByValue(user.play, 'Playmate')) %>
-              <% var preference = user.preferences().where({preference_attribute: "play", value: keyVal}) %>
-              <% if (preference.length === 1) { %>
-                checked="true">Playmate
-              <% } else { %>
-                >Playmate
-              <% } %>
-              <br>
+                <% var preference = user.preferences().where({preference_attribute: "play", value: keyVal}) %>
+                <% if (preference.length === 1) { %>
+                  checked="true">Playmate
+                <% } else { %>
+                  >Playmate
+                <% } %>
+                <br>
 
             </li>
 	        </ul>
@@ -433,9 +450,7 @@
                  data-modal="looking-for-modal">
 					<button class="modal-btn cancel js-hide-modal"
                   data-modal="looking-for-modal">Cancel</button>
-
 				</form>
-
 			</article>
 			<div class="modal-screen js-hide-modal"></div>
 		</section>
@@ -444,7 +459,6 @@
       <article class="modal-content">
         <span class="modal-close js-hide-modal"
               data-modal="owner-info-modal">&times;</span>
-
         <h1>Owner Info</h1>
         <form class="owner-info-form">
           <ul class="owner-info-list">
@@ -461,15 +475,15 @@
               <label for="owner-gender">Gender</label>
               <select name="user[owner_gender]" id="owner-gender">
                 <option value="1"
-                <% if ( "Male" === user.escape('owner_gender_name')) { %>
-                selected="selected"
-                <% } %>
-                >Male</option>
+                  <% if ( "Male" === user.escape('owner_gender_name')) { %>
+                  selected="selected"
+                  <% } %>
+                  >Male</option>
                 <option value="2"
-                <% if ( "Female" === user.escape('owner_gender_name')) { %>
-                selected="selected"
-                <% } %>
-                >Female</option>
+                  <% if ( "Female" === user.escape('owner_gender_name')) { %>
+                  selected="selected"
+                  <% } %>
+                  >Female</option>
               </select>
             </li>
             <li class="owner-age">
@@ -488,15 +502,11 @@
                  data-modal="owner-info-modal">
           <button class="modal-btn cancel js-hide-modal"
                   data-modal="owner-info-modal">Cancel</button>
-
         </form>
-
       </article>
       <div class="modal-screen js-hide-modal"></div>
     </section>
 
   </section>
-
-
 
 </section>

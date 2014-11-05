@@ -49,6 +49,7 @@ Rails.application.routes.draw do
       resources :visits, only: [:create]
       resources :messages, only: [:new, :create]
       resources :preferences, only: [:index, :create]
+      put '/photo', to: 'users#photo', as: 'photo_update'
     end
 
     get 'inbox', to: 'users#inbox'
