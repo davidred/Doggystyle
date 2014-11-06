@@ -13,6 +13,10 @@ Doggystyle.Views.ConversationView = Backbone.View.extend({
     this.listenTo(this.model, "sync", this.render);
   },
 
+  events: {
+    "click #send-message": "sendMessage",
+  },
+
   render: function() {
     var renderedContent = this.template({
       currentUser: this.currentUser,
@@ -23,5 +27,11 @@ Doggystyle.Views.ConversationView = Backbone.View.extend({
     this.$el.html(renderedContent);
 
     return this;
+  },
+
+  sendMessage: function(event) {
+    event.preventDefault();
+    var message = $('.new-message > textarea').val();
+    debugger
   },
 });

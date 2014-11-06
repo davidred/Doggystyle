@@ -10,8 +10,17 @@ ul {
   list-style: none;
 }
 
-input {
+input,
+textarea {
   background-color: inherit;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  -webkit-appearance: none;
+  font: inherit;
+  color: inherit;
+  background: transparent;
 }
 
 button {
@@ -469,6 +478,36 @@ main {
 
 .message-body > p {
 
+}
+
+.btn {
+  background-color: #8CCD32;
+  color: white;
+  cursor: pointer;
+  padding: 10px 40px;
+  border-radius: 3px;
+}
+
+.btn-send {
+  background-color: #8CCD32;
+  margin-top: 10px;
+}
+
+.btn-send:hover {
+  background-color: #abdb65;
+}
+
+
+.new-message {
+  background: #EBEDF2;
+  padding: 30px 30px;
+}
+
+.new-message > textarea {
+  min-height: 100px;
+  width: 95%;
+  background: white;
+  padding: 10px 10px;
 }
 
 /*EDIT MODALS*/

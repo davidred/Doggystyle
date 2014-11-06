@@ -29,7 +29,6 @@
             <% if(user.id === parseInt(message.escape("from"))) { %>
               <img src="<%= user.escape('profile_photo') %>">
             <% } else { %>
-
               <img src="<%= currentUser.escape('profile_photo') %>">
             <% } %>
           </figure>
@@ -39,6 +38,16 @@
         </li>
       <% }); %>
     </ul>
+  </div>
+
+  <div class="conversation">
+    <figure class="user-banner-photo">
+      <img src="<%= currentUser.escape('profile_photo') %>">
+    </figure>
+    <div class="message-body new-message">
+      <textarea placeholder="Write them a lovely message..."></textarea>
+      <button id="send-message" class="btn btn-send">Send</button>
+    </div>
   </div>
 
 </section>
