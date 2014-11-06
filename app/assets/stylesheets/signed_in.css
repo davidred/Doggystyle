@@ -306,6 +306,7 @@ main {
 .clickable:hover {
   background: white;
   cursor: pointer;
+  box-shadow: 3px 3px 1px #eee;
 }
 
 .user-energy_level {
