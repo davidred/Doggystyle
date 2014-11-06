@@ -69,6 +69,23 @@ class UsersController < ApplicationController
     render :index, layout: "signed_in"
   end
 
+  def matches
+    user = current_user
+    # user = User.find(params[:user_id])
+    breed_preferences, gender_preferences, size_preferences = get_preferences(user)
+
+    if breed_preferences.include?(0)
+      @users = User.size(size_preferences)
+                   .gender(gender_preferences)
+    else
+      @users = User.size(size_preferences)
+                   .gender(gender_preferences)
+                   .breed(breed_preferences)
+    end
+
+    render :index, layout: "signed_in"
+  end
+
   def inbox
     @messagers = current_user.messagers.distinct
     render :inbox, layout: "signed_in"

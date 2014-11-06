@@ -57,7 +57,7 @@ Usernames.each_with_index do |username, index|
                    owner_photo: Photos[index] + 'owner',
                    owner_gender: Genders[index],
                    owner_age: 25,
-                    )
+                  )
   USERS.push(user)
 
   user.preferences.create(preference_attribute: "looking_for", value: 1)

@@ -9,12 +9,24 @@ Doggystyle.Routers.Router = Backbone.Router.extend({
 	},
 
 	routes: {
-		'': 'usersIndex',
+		'': 'usersMatches',
+		'users/index': 'usersIndex',
 		'users/inbox': 'userInbox',
     'users/outbox': 'userOutbox',
     'users/visitors': 'userVisitors',
     'users/:id': 'userShow',
     'users/:id/conversation': 'conversationShow',
+	},
+
+	usersMatches: function () {
+		this.collection.fetch();
+		var matches = new Doggystyle.Collections.Matches;
+		matches.fetch();
+		var matchesView = new Doggystyle.Views.UserMatchesView({
+			collection: matches,
+		});
+
+		this._swapView(matchesView);
 	},
 
 	usersIndex: function () {

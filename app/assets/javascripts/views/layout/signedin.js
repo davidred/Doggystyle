@@ -9,9 +9,8 @@ Doggystyle.Views.SignedInView = Backbone.View.extend({
 
 		return this;
 	},
-
-	redirect: function(event) {
-		event.preventDefault();
-		debugger
-	},
+	// 
+	// redirect: function(event) {
+	// 	event.preventDefault();
+	// },
 });

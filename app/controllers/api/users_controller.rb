@@ -1,5 +1,8 @@
 module Api
   class UsersController < ApiController
+
+    include UsersHelper
+
     def show
       @user = User.find(params[:id])
       # render json: @user
@@ -9,6 +12,23 @@ module Api
     def index
       @users = User.all
       # render json: @users
+      render :index
+    end
+
+    def matches
+      user = current_user
+      # user = User.find(params[:user_id])
+      breed_preferences, gender_preferences, size_preferences = get_preferences(user)
+
+      if breed_preferences.include?(0)
+        @users = User.size(size_preferences)
+                     .gender(gender_preferences)
+      else
+        @users = User.size(size_preferences)
+                     .gender(gender_preferences)
+                     .breed(breed_preferences)
+      end
+
       render :index
     end
 

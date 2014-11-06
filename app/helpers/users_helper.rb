@@ -55,6 +55,22 @@ module UsersHelper
     @user.send(pref_attr.pluralize).key(val.to_sym)
   end
 
+  def get_preferences(user)
+    preferences = user.preferences
+
+    breed_preferences = preferences
+                            .where(preference_attribute: "breed")
+                            .map { |preference| preference.value }
+    gender_preferences = preferences
+                             .where(preference_attribute: "gender")
+                             .map { |preference| preference.value }
+    size_preferences = preferences
+                           .where(preference_attribute: "size")
+                           .map { |preference| preference.value }
+
+    [breed_preferences, gender_preferences, size_preferences]
+  end
+
 
 
 

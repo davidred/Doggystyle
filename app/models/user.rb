@@ -2,28 +2,32 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  username        :string(255)      not null
-#  password_digest :string(255)      not null
-#  omniauthid      :string(255)
-#  session_token   :string(255)
-#  created_at      :datetime
-#  updated_at      :datetime
-#  gender          :integer          not null
-#  breed           :integer          not null
-#  email           :string(255)      not null
-#  country         :integer          not null
-#  zip             :integer          not null
-#  summary         :text
-#  photo           :string(255)
-#  age             :integer
-#  size            :integer
-#  play_style      :integer
-#  energy_level    :integer
-#  owner_name      :string(255)
-#  owner_photo     :string(255)
-#  owner_gender    :integer
-#  owner_age       :integer
+#  id                         :integer          not null, primary key
+#  username                   :string(255)      not null
+#  password_digest            :string(255)      not null
+#  omniauthid                 :string(255)
+#  session_token              :string(255)
+#  created_at                 :datetime
+#  updated_at                 :datetime
+#  gender                     :integer          not null
+#  breed                      :integer          not null
+#  email                      :string(255)      not null
+#  country                    :integer          not null
+#  zip                        :integer          not null
+#  summary                    :text
+#  photo                      :string(255)
+#  age                        :integer
+#  size                       :integer
+#  play_style                 :integer
+#  energy_level               :integer
+#  owner_name                 :string(255)
+#  owner_photo                :string(255)
+#  owner_gender               :integer
+#  owner_age                  :integer
+#  profile_photo_file_name    :string(255)
+#  profile_photo_content_type :string(255)
+#  profile_photo_file_size    :integer
+#  profile_photo_updated_at   :datetime
 #
 
 class User < ActiveRecord::Base
@@ -73,6 +77,12 @@ class User < ActiveRecord::Base
   primary_key: :id
 
   has_many :visited_profiles, through: :visited, source: :visited_user
+
+  # scope :male, -> { where gender: '1'}
+  # scope :female, -> { where gender: '2'}
+  scope :gender, -> (gender) { where(gender: gender) }
+  scope :size, -> (size) { where(size: size) }
+  scope :breed, -> (breed) { where(breed: breed) }
 
   BREEDS = {1 => :Corgi, 2 => :Poodle, 3 => :Husky, 4 => :Boxer}
   COUNTRIES = {1 => :USA, 2 => :Afghanistan, 3 => :Russia}
