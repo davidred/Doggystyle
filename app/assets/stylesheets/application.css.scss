@@ -60,14 +60,14 @@ body {
 
 .sign-up-nav {
 	position: relative;
-  min-height: 200px;
+  min-height: 150px;
 }
 
 .main-logo {
 	height: 200px;
 	width: 360px;
 	margin: 0 auto;
-  padding-top: 50px;
+  padding-top: 20px;
 }
 
 .main-logo > img {
@@ -90,7 +90,7 @@ body {
 }
 
 .sign-up-content h1 {
-  padding: 20px 0 150px 0;
+  padding: 100px 0 100px 0;
 	font-size: 25px;
 	font-weight: 80;
 	font-family: 'Open Sans', sans-serif;
@@ -98,15 +98,28 @@ body {
 }
 
 .sign-up-content {
-  margin: 0 20px;
+  position: relative;
   height: 500px;
+  width: 900px;
   text-align: center;
+  margin: auto;
+  background: image-url('going_out.jpg');
+  background-size: cover;
+  background-position: 0 -100px;
+  background-repeat: no-repeat;
+
 }
 
-.sign-up-content > form {
+.opacity {
   position: relative;
-  text-align: center;
   height: 100%;
+  width: 100%;
+  background: rgba(36, 29, 29, 0.57);
+}
+
+.sign-up-1 {
+  height: 100%;
+
 }
 
 .sign-up-content-list {
