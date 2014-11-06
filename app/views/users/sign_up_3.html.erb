@@ -1,34 +1,32 @@
-<div class="sign-up-heading">
+<form class="sign-up-1" action="<%= users_url %>" method="POST">
+  <%= form_auth %>
+
   <h1>Last step! Woof!</h1>
-</div>
 
-<div class="sign-up-content">
-  <form class="sign-up-1" action="<%= users_url %>" method="POST">
-    <%= form_auth %>
+  <ul class="sign-up-content-list group">
+    <li>
+      <div class="text-input">
+      <label for="username">Username</label>
+      <input type="text"
+             id="username"
+             name="user[username]"
+             value="<%= @user.username %>">
+      </div>
+    </li>
 
-    <ul class="sign-up-content-list group">
+    <li>
+      <div class="text-input">
+      <label for="password">Password</label>
+      <input type="password"
+             id="password"
+    				 value=""
+             name="user[password]">
+      </div>
+    </li>
 
-      <li>
-        <label for="username">Username</label>
-        <input type="text"
-               id="username"
-               name="user[username]"
-               value="<%= @user.username %>">
-      </li>
+    <li>
+      <button type="submit" class="continue">Done!</button>
+    </li>
+  </ul>
 
-      <li>
-        <label for="password">Password</label>
-        <input type="password"
-               id="password"
-      				 value=""
-               name="user[password]">
-      </li>
-
-
-      <li>
-        <button type="submit" class="continue">Done!</button>
-      </li>
-    </ul>
-  </form>
-</div>
-
+</form>

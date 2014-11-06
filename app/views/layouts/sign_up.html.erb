@@ -5,8 +5,8 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-
 </head>
+
 <body>
 
   <nav class="sign-up-nav">
@@ -14,25 +14,28 @@
 			<img src="<%= asset_path 'Doggystyle-logo.png' %>"></img>
 		</figure>
 		<div class="sign-in-link">
-	    <%= link_to "Sign In", new_session_url %>			
+	    <%= link_to "Sign In", new_session_url %>
 		</div>
   </nav>
 
   <section class="sign-up-content">
-    <%= yield %>
+    <div class="opacity">
+      <%= yield %>
+    </div>
   </section>
 
-<footer class="sign-up-footer">
-  <div class="footer-tag">
-    <p>"The Google of doggy dating" - New York Times</p>
-  </div>
-  <ul class="footer-list group">
-    <li>About</li>
-    <li>Legal</li>
-    <li>Copyright</li>
-  </ul>
-</footer>
+  <footer class="sign-up-footer">
+    <div class="footer-wrap">
+      <div class="footer-tag">
+        <p>"The Google of doggy dating" - New York Times</p>
+      </div>
+      <ul class="footer-list group">
+        <li>About</li>
+        <li>Legal</li>
+        <li>Copyright</li>
+      </ul>
+    </div>
+  </footer>
 
 </body>
 </html>
-

@@ -1,41 +1,37 @@
-<div class="sign-up-heading">
-	<h1>Join the best doggy dating site on Earth.</h1>	
-</div>
+<form class="sign-up-1" action="<%= new_user_url %>" method="POST">
+  <%= form_auth %>
 
-<div class="sign-up-content">
-	<form class="sign-up-1" action="<%= new_user_url %>" method="POST">
-	  <%= form_auth %>
+	<h1>Join the best doggy dating site on Earth.</h1>
 
 	<ul class="sign-up-content-list group">
-			<li>
-			  <div class="prefix">
-					I am a
-			  </div>
-			</li>
+		<li>
+		  <div class="prefix">
+				I am a
+		  </div>
+		</li>
 
-		  <li class="form-input">
-				<div class="dropdown">
-			    <select name="user[gender]" id="gender">
-			      <option value="1">Male</option>
-			      <option value="2">Female</option>
-			    </select>
-				</div>
-		  </li>
+	  <li class="form-input">
+			<div class="dropdown">
+		    <select name="user[gender]" id="gender">
+		      <option value="1">Male</option>
+		      <option value="2">Female</option>
+		    </select>
+			</div>
+	  </li>
 
-			<li>
-				<div class="dropdown">
-				  <select id="breed" name="user[breed]">
-				    <% @user.breeds.each do |breed_id, breed_name| %>
-				      <option value="<%= breed_id %>" <%= "selected" if @user.breed == breed_id %>><%= breed_name %></option>
-				    <% end %>
-				  </select>
-				</div>
-			</li>
+		<li>
+			<div class="dropdown">
+			  <select id="breed" name="user[breed]">
+			    <% @user.breeds.each do |breed_id, breed_name| %>
+			      <option value="<%= breed_id %>" <%= "selected" if @user.breed == breed_id %>><%= breed_name %></option>
+			    <% end %>
+			  </select>
+			</div>
+		</li>
 
-			<li>
-				<button type="submit" class="continue">Continue</button> 
-			</li>
-		</ul>
+		<li>
+			<button type="submit" class="continue">Continue</button>
+		</li>
+	</ul>
 
-	</form>
-</div>
+</form>
