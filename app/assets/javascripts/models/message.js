@@ -1,3 +1,9 @@
 Doggystyle.Models.Message = Backbone.Model.extend({
-  urlRoot: '/api/messages',
-})
+  initialize: function(options) {
+    this.user = options.user;
+  },
+
+  urlRoot: function() {
+    return '/api/users/'+this.user.id+'/messages';
+  },
+});

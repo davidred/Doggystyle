@@ -16,5 +16,21 @@ module Api
       render json: @messages
     end
 
+    def create
+      user = User.find(params[:user_id])
+      @message = current_user.sent_messages.new(message_params)
+      if @message.save
+        render json: @message
+      else
+        render json: @message.errors.full_messages
+      end
+    end
+
+    private
+
+    def message_params
+      params.require(:message).permit(:body, :to)
+    end
+
   end
 end

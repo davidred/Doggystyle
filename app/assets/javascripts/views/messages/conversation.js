@@ -31,7 +31,33 @@ Doggystyle.Views.ConversationView = Backbone.View.extend({
 
   sendMessage: function(event) {
     event.preventDefault();
-    var message = $('.new-message > textarea').val();
-    debugger
+
+    var message = new Doggystyle.Models.Message({user: this.currentUser})
+    var formData = $('.new-message > textarea').serializeJSON().message;
+    formData = _.extend(
+      formData,
+      { to: this.model.id }
+    )
+    var view = this;
+    var attributes = { message: formData }
+
+    message.set(attributes);
+    message.save(attributes, { success: function(model) {
+      view.collection.add(model);
+    }});
   },
+  // sendMessage: function(event) {
+  //   event.preventDefault();
+  //   var message = $('.new-message > textarea').serializeJSON();
+  //   var v
+  //   $.ajax({
+  //     type: "post",
+  //     url: "api/users/"+this.currentUser.id+"/messages",
+  //     data: message,
+  //     success: function(data) {
+  //       var message = new Doggystyle.model
+  //
+  //   }
+  //   });
+  // },
 });
