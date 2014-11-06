@@ -7,6 +7,7 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
 
 	initialize: function() {
 		this.listenTo(this.model, "sync", this.render);
+
 		// this.listenTo(this.collection, "sync", this.render);
 	},
 
@@ -19,7 +20,6 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
 		"submit form.basic-info-form": "saveBasicInfo",
     "submit form.looking-for-form": "saveLookingForInfo",
     "submit form.owner-info-form": "saveOwnerInfo",
-    // "change .photo-upload": "handlePhoto",
     "click button#save-profile-picture": "handlePhoto"
 	},
 
@@ -31,7 +31,13 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
 
 		this.$el.html(renderedContent);
 
+    if (this.model.id === Doggystyle.currentUserId) {
+      $('.js-show-modal').parent().addClass('clickable');
+      $('.js-show-input').parent().addClass('clickable');
+    }
+
 		return this;
+
 	},
 
   handlePhoto: function(event) {
@@ -55,7 +61,6 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
       contentType: false,
       success: function(data) {
         console.log(data);
-
         $('.profile-picture > img').attr('src', data)
       }
     });
@@ -70,17 +75,20 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
 
 	showModal: function(event) {
 		event.preventDefault();
-    var targetModal = event.currentTarget.dataset.modal;
-		$('#'+targetModal).addClass("is-active");
-
+    if (this.model.id === Doggystyle.currentUserId) {
+      var targetModal = event.currentTarget.dataset.modal;
+  		$('#'+targetModal).addClass("is-active");
+    }
 	},
 
   showInput: function(event) {
     event.preventDefault();
-    var targetInput = event.currentTarget.dataset.input;
-    $('p#'+targetInput).addClass("inactive");
-    $('button#'+targetInput).removeClass("inactive");
-    $('form#'+targetInput).removeClass("inactive");
+    if (this.model.id === Doggystyle.currentUserId) {
+      var targetInput = event.currentTarget.dataset.input;
+      $('p#'+targetInput).addClass("inactive");
+      $('button#'+targetInput).removeClass("inactive");
+      $('form#'+targetInput).removeClass("inactive");
+    }
   },
 
   hideInput: function(event) {

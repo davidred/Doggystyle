@@ -2,14 +2,19 @@
 <header class="profile-header content-header">
 
   <div class="profile-basic-group group">
+
+    <div class="profile-picture">
+
     <a href="" class="js-show-modal" data-modal="profile-picture-modal">
       <figure class="profile-picture">
         <img src="<%= user.escape('profile_photo')%>">
       </figure>
     </a>
+  </div>
 
-    <a href="javascript.void(0)" class="js-show-modal" data-modal="basic-info-modal">
-      <div class="profile-basic-info">
+
+    <div class="profile-basic-info">
+      <a href="javascript.void(0)" class="js-show-modal" data-modal="basic-info-modal">
         <h1><%= user.escape('username') %></h1>
         <ul class="profile-basic-info-list group">
           <li><%= user.escape('breed_name') %></li>
@@ -18,8 +23,9 @@
           <li>&#8226</li>
           <li><%= user.escape('country_name') %></li> <!--Change to geocoded location -->
         </ul>
-      </div>
-		</a>
+      </a>
+    </div>
+
   </div>
   <!-- < if user != current_user %> -->
   <div>

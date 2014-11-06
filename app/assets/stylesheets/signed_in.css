@@ -29,6 +29,7 @@ button {
 
 a {
   text-decoration: none;
+  cursor: default;
 }
 
 body {
@@ -68,11 +69,16 @@ html, body {
   float:left;
   padding-left: 5px;
   color: #96B4FA;
+  cursor: pointer;
 }
 
 .signed-in-nav-list > li:hover {
   color: white;
-  /*cursor: crosshair;*/
+  cursor: pointer;
+}
+
+#profile-link {
+  cursor: pointer;
 }
 
 .sidebar-logo > img {
@@ -80,8 +86,11 @@ html, body {
   height: auto;
 }
 
-.sidebar-logo:hover {
+/*.sidebar-logo:hover {
   background: #183270;
+}*/
+
+.sidebar-list a {
   cursor: pointer;
 }
 
@@ -156,9 +165,10 @@ main {
   padding: 10px;
 }
 
-.profile-basic-info:hover {
+/*.profile-basic-info:hover {
   background: white;
-}
+  cursor: pointer;
+}*/
 
 .profile-basic-info > h1 {
   font-size: 30px;
@@ -199,6 +209,7 @@ main {
   font-family: "Open Sans", sans-serif;
   color: #474d59;
   border-bottom: white;
+  cursor: pointer;
 }
 
 .content-nav-list li a:hover {
@@ -247,10 +258,10 @@ main {
 	margin-bottom: 10px;
 }
 
-.user-summary:hover {
+/*.user-summary:hover {
 	background: white;
 	cursor: pointer;
-}
+}*/
 
 .user-age-size {
   margin-bottom: 10px;
@@ -262,10 +273,10 @@ main {
   width: 150px;
 }
 
-.user-age:hover {
+/*.user-age:hover {
 	background: white;
 	cursor: pointer;
-}
+}*/
 
 .user-size {
 	padding: 10px;
@@ -273,10 +284,10 @@ main {
   width: 150px;
 }
 
-.user-size:hover {
+/*.user-size:hover {
 	background: white;
 	cursor: pointer;
-}
+}*/
 
 .user-play_style-energy_level {
 }
@@ -287,9 +298,14 @@ main {
   width: 150px;
 }
 
-.user-play_style:hover {
+/*.user-play_style:hover {
 	background: white;
 	cursor: pointer;
+}*/
+
+.clickable:hover {
+  background: white;
+  cursor: pointer;
 }
 
 .user-energy_level {
@@ -298,10 +314,10 @@ main {
   width: 150px;
 }
 
-.user-energy_level:hover {
+/*.user-energy_level:hover {
 	background: white;
 	cursor: pointer;
-}
+}*/
 
 .profile-content-right {
   width: 350px;
@@ -322,10 +338,10 @@ main {
 	padding: 10px;
 }
 
-.looking-for:hover {
+/*.looking-for:hover {
 	background: white;
 	cursor: pointer;
-}
+}*/
 
 .owner-info {
 	padding: 10px;
@@ -333,10 +349,10 @@ main {
 	margin-right: 20px;
 }
 
-.owner-info:hover {
+/*.owner-info:hover {
 	background: white;
 	cursor: pointer;
-}
+}*/
 
 .owner-info > ul {
 	padding: 10px;
@@ -406,6 +422,7 @@ main {
 
 .user-banner > a {
   display: block;
+  cursor: pointer;
 }
 
 .user-banner > a:hover {
@@ -449,6 +466,7 @@ main {
 
 .message > a {
   display: block;
+  cursor: pointer;
 }
 
 .message > a:hover {
