@@ -1,29 +1,52 @@
-<div class="sign-up-heading">
-	<h1>Sign In</h1>	
-</div>
+<!-- <div class="sign-up-heading">
+	<h1>Sign In</h1>
+</div> -->
 
-<div class="sign-up-content">
-	<form action="<%= session_url %>" method="POST">
-	  <%= form_auth %>
-	  <label for="username">Username</label>
-	  <input type="text"
-	         id="username"
-	         name="user[username]">
+<form class="sign-up-1" action="<%= session_url %>" method="POST">
+  <%= form_auth %>
 
-	  <br>
-	  <br>
-	  <label for="password">Password</label>
-	  <input type="password"
-	         id="password"
-	         name="user[password]">
+	<h1>Sign In</h1>
 
-	  <br>
-	  <br>
-	  <input type="submit" value="Sign In">
+	<ul class="sign-in-content-list group">
 
-	</form>
+		<li class="form-input sign-in-input">
+				<label for="username">Username</label>
+				<input type="text"
+							id="username"
+							name="user[username]">
+		</li>
 
-	<h3>OR</h3>
+		<li class="form-input sign-in-input">
+				<label for="password">Password</label>
+				<input type="password"
+							id="password"
+							name="user[password]">
+		</li>
+
+		<li>
+			<button type="submit" class="sign-in-button">Sign in</button>
+		</li>
+	</ul>
+
+  <!-- <label for="username">Username</label>
+  <input type="text"
+         id="username"
+         name="user[username]">
+
+  <br>
+  <br>
+  <label for="password">Password</label>
+  <input type="password"
+         id="password"
+         name="user[password]">
+
+  <br>
+  <br>
+  <button type="submit" class="continue">Sign in</button> -->
+
+</form>
+
+	<!-- <h3>OR</h3>
 
 	<a href="/auth/facebook">LOGIN WITH FACEBOOK</a>
-</div>
+</div> -->
