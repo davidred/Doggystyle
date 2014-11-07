@@ -98,7 +98,7 @@ USERS.each_with_index do |user, index|
   end
 end
 
-7.times do |index|
+7.times do |ind|
   User.create!(username: Faker::Name.name,
                    password: '123456',
                    email: Faker::Internet.email,
@@ -107,7 +107,7 @@ end
                    zip: 11229,
                    country: Countries[rand(Countries.length)],
                    summary: Faker::Lorem.paragraph,
-                   profile_photo: Others[rand(8)],
+                   profile_photo: Others[ind],
                    age: Ages[rand(10)+1],
                    size: Sizes[rand(Sizes.length)+1],
                    play_style: Playstyles[rand(Playstyles.length)],
