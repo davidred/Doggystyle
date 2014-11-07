@@ -348,49 +348,49 @@ main {
 }
 
 .Tiny {
-  background: url(tiny.png) no-repeat;
+  background: image-url("tiny.png") no-repeat;
   background-size: 35px 35px;
   background-position: 0 0;
 }
 
 .Small {
-  background: url(small.png) no-repeat;
+  background: image-url("small.png") no-repeat;
   background-size: 35px 35px;
   background-position: 0 0;
 }
 
 .Medium {
-  background: url(medium.png) no-repeat;
+  background: image-url("medium.png") no-repeat;
   background-size: 50px 50px;
   background-position: 0 0;
 }
 
 .Large {
-  background: url(large.png) no-repeat;
+  background: image-url("large.png") no-repeat;
   background-size: cover;
 }
 
 div.Tiny{
-  background: url(tiny.png) no-repeat;
+  background: image-url("tiny.png") no-repeat;
   background-size: 35px 35px;
   background-position: 12px 23px;
 }
 
 div.Small{
-  background: url(small.png) no-repeat;
+  background: image-url("small.png") no-repeat;
   background-size: 35px 35px;
   background-position: 12px 20px;
 }
 
 
 div.Medium{
-  background: url(medium.png) no-repeat;
+  background: image-url("medium.png") no-repeat;
   background-size: 50px 50px;
   background-position: 9px 13px;
 }
 
 div.Large{
-  background: url(large.png) no-repeat;
+  background: image-url("large.png") no-repeat;
   background-size: cover;
 }
 
