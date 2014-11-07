@@ -85,23 +85,28 @@
         </div>
 
         <div class="user-size">
-          <a href="#" class="js-show-input" data-input="user-size">
-            <h4>Size</h4>
-            <p id="user-size"><%= user.escape('size_name') %></p>
+          <a href="#" class="js-show-input group" data-input="user-size">
+            <div class="user-size-info">
+              <h4>Size</h4>
+              <p id="user-size"><%= user.escape('size_name') %></p>
+            </div>
+            <figure class="current-size <%= user.escape('size_name') %>">
+              <div class="Tiny">Tiny<div>
+            </figure>
           </a>
           <form id="user-size" class="user-info inactive" action="#" method="post">
             <input id="user-size-input" name="user[size]" type="hidden">
             <ul class="size-list group">
-              <li class="choose-size" data-value="1" data-input="user-size">
+              <li class="choose-size" data-value="1" data-size="Tiny" data-input="user-size">
                 <div class="Tiny" data-value="1">Tiny</div>
               </li>
-              <li class="choose-size" data-value="2" data-input="user-size">
+              <li class="choose-size" data-value="2" data-size="Small" data-input="user-size">
                 <div class="Small" data-value="2">Small</div>
               </li>
-              <li class="choose-size" data-value="3" data-input="user-size">
+              <li class="choose-size" data-value="3" data-size="Medium" data-input="user-size">
                 <div class="Medium" data-value="3">Medium</div>
               </li>
-              <li class="choose-size" data-value="4" data-input="user-size">
+              <li class="choose-size" data-value="4" data-size="Large" data-input="user-size">
               <div class="Large" data-value="4">Large</div>
               </li>
             </ul>

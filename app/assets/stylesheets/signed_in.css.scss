@@ -285,17 +285,15 @@ main {
 }
 
 .size-list {
-  transform: translateX(-25%);
-  margin-top: 20px;
+  transform: translateX(-18%);
+  margin-top: 10px;
   width: 300px;
-  background: inherit;
 }
 
 .size-list > li {
   float: left;
   height: 60px;
   width: 60px;
-  margin: 5px 5px;
   background: white;
 }
 
@@ -305,14 +303,55 @@ main {
   overflow: hidden;
   width: 100%;
   background: url(sprites.png) no-repeat;
-
-
 }
 
-.size-list div:hover {
+.size-list li:hover {
   box-shadow: 3px 3px 3px #ccc;
   border: 2px solid blue;
+  transform: translateY(-15%);
   // background: rgba(36, 29, 29, 0.57);
+}
+
+.user-size-info {
+  float: left;
+}
+
+.current-size {
+  float: right;
+  margin-right: 30px;
+  height: 0;
+  padding-top: 60px;
+  overflow: hidden;
+  width: 60px;
+  background: transparent;
+}
+
+.user-size p {
+  display: block;
+  float:left;
+}
+
+.Tiny {
+  background: url(tiny.png) no-repeat;
+  background-size: 35px 35px;
+  background-position: 0 0;
+}
+
+.Small {
+  background: url(small.png) no-repeat;
+  background-size: 35px 35px;
+  background-position: 0 0;
+}
+
+.Medium {
+  background: url(medium.png) no-repeat;
+  background-size: 50px 50px;
+  background-position: 0 0;
+}
+
+.Large {
+  background: url(large.png) no-repeat;
+  background-size: cover;
 }
 
 div.Tiny{

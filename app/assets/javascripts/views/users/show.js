@@ -22,7 +22,15 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
     "submit form.owner-info-form": "saveOwnerInfo",
     "click button#save-profile-picture": "handlePhoto",
     "click li.choose-size": "updateSize",
+    "mouseenter li.choose-size": "previewSize",
 	},
+
+  previewSize: function(event) {
+    var size = event.currentTarget.dataset.size;
+    var input = event.currentTarget.dataset.input;
+    $('.current-size').removeClass('Tiny Small Medium Large');
+    $('.current-size').addClass(size);
+  },
 
   updateSize: function(event) {
     var size = event.currentTarget.dataset.value;
