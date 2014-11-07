@@ -11,6 +11,22 @@ Countries = [1, 1, 2, 3 ]
 Genders = [1, 2, 1, 2]
 Summaries = ["I'm a fancy poodle", "I'm a cat. I hate dogs.", "I'm Mr. Worldwide", "We are who we are"]
 Photos = ["corgi", "poodle", "husky", "boxer"]
+Images = [  'https://s3.amazonaws.com/doggystyle-development/pom_biker.jpg',
+            'https://s3.amazonaws.com/doggystyle-development/sennacy.jpg',
+            "https://s3.amazonaws.com/doggystyle-development/brown_pup.jpg",
+            "https://s3.amazonaws.com/doggystyle-development/america_pup.jpg"
+          ]
+
+Others = [
+            "https://s3.amazonaws.com/doggystyle-development/daschund.jpg",
+            "https://s3.amazonaws.com/doggystyle-development/retreiver.jpg",
+            "https://s3.amazonaws.com/doggystyle-development/boxer.jpg",
+            'https://s3.amazonaws.com/doggystyle-development/pit_bull.jpg',
+            "https://s3.amazonaws.com/doggystyle-development/glasses.jpg",
+            "https://s3.amazonaws.com/doggystyle-development/yorkie.jpg",
+            "https://s3.amazonaws.com/doggystyle-development/puppy.jpg",
+            "https://s3.amazonaws.com/doggystyle-development/lab.jpg"
+          ]
 Ages = [1, 2, 3, 1]
 Sizes = [1, 1, 3, 2]
 Playstyles = [1, 1, 2, 3]
@@ -40,7 +56,7 @@ Messages = [
 USERS = []
 
 Usernames.each_with_index do |username, index|
-  user = User.create(username: username,
+  user = User.create!(username: username,
                    password: '123456',
                    email: username + '@aol.com',
                    breed: Breeds[index],
@@ -51,6 +67,8 @@ Usernames.each_with_index do |username, index|
                    photo: Photos[index],
                    age: Ages[index],
                    size: Sizes[index],
+                  # profile_photo: File.new("#{Rails.root}/app/assets/images/boxer.jpg")
+                   profile_photo: Images[index],
                    play_style: Playstyles[index],
                    energy_level: Energylevels[index],
                    owner_name: Photos[index] + 'owner',
@@ -60,25 +78,43 @@ Usernames.each_with_index do |username, index|
                   )
   USERS.push(user)
 
-  user.preferences.create(preference_attribute: "looking_for", value: 1)
-  user.preferences.create(preference_attribute: "looking_for", value: 2)
-  user.preferences.create(preference_attribute: "looking_for", value: 3)
-  user.preferences.create(preference_attribute: "gender", value: 1)
-  user.preferences.create(preference_attribute: "gender", value: 2)
-  user.preferences.create(preference_attribute: "size", value: 1)
-  user.preferences.create(preference_attribute: "size", value: 2)
-  user.preferences.create(preference_attribute: "size", value: 3)
-  user.preferences.create(preference_attribute: "size", value: 4)
-  user.preferences.create(preference_attribute: "breed", value: 0)
-
-
-
+  user.preferences.create!(preference_attribute: "looking_for", value: 1)
+  user.preferences.create!(preference_attribute: "looking_for", value: 2)
+  user.preferences.create!(preference_attribute: "looking_for", value: 3)
+  user.preferences.create!(preference_attribute: "gender", value: 1)
+  user.preferences.create!(preference_attribute: "gender", value: 2)
+  user.preferences.create!(preference_attribute: "size", value: 1)
+  user.preferences.create!(preference_attribute: "size", value: 2)
+  user.preferences.create!(preference_attribute: "size", value: 3)
+  user.preferences.create!(preference_attribute: "size", value: 4)
+  user.preferences.create!(preference_attribute: "breed", value: 0)
 
 end
 
 USERS.each_with_index do |user, index|
   Messages[index].each do |message|
-    user.sent_messages.create(body: message[1], to: USERS[message[0]].id)
-    user.visited.create(visited: USERS[message[0]].id)
+    user.sent_messages.create!(body: message[1], to: USERS[message[0]].id)
+    user.visited.create!(visited: USERS[message[0]].id)
   end
+end
+
+7.times do |index|
+  User.create!(username: Faker::Name.name,
+                   password: '123456',
+                   email: Faker::Internet.email,
+                   breed: Breeds[rand(4)],
+                   gender: Genders[rand(2)+1],
+                   zip: 11229,
+                   country: Countries[rand(Countries.length)],
+                   summary: Faker::Lorem.paragraph,
+                   profile_photo: Others[rand(8)],
+                   age: Ages[rand(10)+1],
+                   size: Sizes[rand(Sizes.length)+1],
+                   play_style: Playstyles[rand(Playstyles.length)],
+                   energy_level: Energylevels[rand(Energylevels.length)],
+                   owner_name: Faker::Name.name,
+                   owner_gender: Genders[rand(2)+1],
+                   owner_age: rand(35)+10,
+                  )
+
 end

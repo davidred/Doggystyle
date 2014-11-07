@@ -6,9 +6,14 @@
       </li>
       <li>
         <!-- button_to "Sign out", session_url, method: :delete -->
-				<a href="#" class="sign-out-button">
+        <form action="/session" method="POST">
+          <input type="hidden" name="_method" value="delete">
+          <input type="hidden" name="authenticity_token" value="">
+          <button class="sign-out-button">Signout</button>
+      </form>
+				<!-- <a href="#" class="sign-out-button">
           Signout
-        </a>
+        </a> -->
       </li>
     </ul>
   </nav>

@@ -53,6 +53,12 @@ module Api
       render :inbox
     end
 
+    def outbox
+      @messagers = current_user.messagees.distinct
+      @user = current_user
+      render :inbox
+    end
+
     def photo
       user = User.find(params[:user_id])
       user.profile_photo = params[:new_photo]

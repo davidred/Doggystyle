@@ -29,6 +29,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'backbone-on-rails'
 gem 'paperclip'
 gem 'aws-sdk'
+gem 'faker'
 # Use unicorn as the app server
 # gem 'unicorn'
 
