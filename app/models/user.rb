@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
   has_attached_file :profile_photo, :styles => {
     :big => '600X600>',
     :small => '50X50#'
-  }
+  }, :default_url => 'puppy.jpg'
   validates_attachment_content_type(
     :profile_photo,
     :content_type => /\Aimage\/.*\Z/

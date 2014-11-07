@@ -89,36 +89,23 @@
             <h4>Size</h4>
             <p id="user-size"><%= user.escape('size_name') %></p>
           </a>
-            <form id="user-size" class="user-info inactive" action="#" method="post">
-              <select name="user[size]" id="user-size">
-                <option value="1"
-                <% if ( "Tiny" === user.escape('size_name')) { %>
-                selected="selected"
-                <% } %>
-                >Tiny</option>
-                <option value="2"
-                <% if ( "Small" === user.escape('size_name')) { %>
-                selected="selected"
-                <% } %>
-                >Small</option>
-                <option value="3"
-                <% if ( "Medium" === user.escape('size_name')) { %>
-                selected="selected"
-                <% } %>
-                >Medium</option>
-                <option value="4"
-                <% if ( "Large" === user.escape('size_name')) { %>
-                selected="selected"
-                <% } %>
-                >Large</option>
-              </select>
-              <button id="user-size"
-                      class="save inactive save-user-info"
-                      data-input="user-size">Save</button>
-              <button id="user-size"
-                      class="cancel inactive js-hide-input"
-                      data-input="user-size">Cancel</button>
-            </form>
+          <form id="user-size" class="user-info inactive" action="#" method="post">
+            <input id="user-size-input" name="user[size]" type="hidden">
+            <ul class="size-list group">
+              <li class="choose-size" data-value="1" data-input="user-size">
+                <div class="Tiny" data-value="1">Tiny</div>
+              </li>
+              <li class="choose-size" data-value="2" data-input="user-size">
+                <div class="Small" data-value="2">Small</div>
+              </li>
+              <li class="choose-size" data-value="3" data-input="user-size">
+                <div class="Medium" data-value="3">Medium</div>
+              </li>
+              <li class="choose-size" data-value="4" data-input="user-size">
+              <div class="Large" data-value="4">Large</div>
+              </li>
+            </ul>
+          </form>
         </div>
 
       </div>

@@ -20,8 +20,17 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
 		"submit form.basic-info-form": "saveBasicInfo",
     "submit form.looking-for-form": "saveLookingForInfo",
     "submit form.owner-info-form": "saveOwnerInfo",
-    "click button#save-profile-picture": "handlePhoto"
+    "click button#save-profile-picture": "handlePhoto",
+    "click li.choose-size": "updateSize",
 	},
+
+  updateSize: function(event) {
+    var size = event.currentTarget.dataset.value;
+    var input = event.currentTarget.dataset.input;
+    $('#user-size-input').val(size);
+    attrs = $('form#'+input).serializeJSON();
+    this.model.save(attrs, {patch: true});
+  },
 
 	render: function() {
 		var renderedContent = this.template({

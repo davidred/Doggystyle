@@ -284,6 +284,62 @@ main {
   width: 150px;
 }
 
+.size-list {
+  transform: translateX(-25%);
+  margin-top: 20px;
+  width: 300px;
+  background: inherit;
+}
+
+.size-list > li {
+  float: left;
+  height: 60px;
+  width: 60px;
+  margin: 5px 5px;
+  background: white;
+}
+
+.size-list div {
+  height: 0;
+  padding-top: 60px;
+  overflow: hidden;
+  width: 100%;
+  background: url(sprites.png) no-repeat;
+
+
+}
+
+.size-list div:hover {
+  box-shadow: 3px 3px 3px #ccc;
+  border: 2px solid blue;
+  // background: rgba(36, 29, 29, 0.57);
+}
+
+div.Tiny{
+  background: url(tiny.png) no-repeat;
+  background-size: 35px 35px;
+  background-position: 12px 23px;
+}
+
+div.Small{
+  background: url(small.png) no-repeat;
+  background-size: 35px 35px;
+  background-position: 12px 20px;
+}
+
+
+div.Medium{
+  background: url(medium.png) no-repeat;
+  background-size: 50px 50px;
+  background-position: 9px 13px;
+}
+
+div.Large{
+  background: url(large.png) no-repeat;
+  background-size: cover;
+}
+
+
 /*.user-size:hover {
 	background: white;
 	cursor: pointer;

@@ -23,6 +23,7 @@ module Doggystyle
       :storage => :s3,
       :s3_protocol => 'http',
       :path => "images/:class/:id.:style.:extension",
+      :default_url => "https://s3.amazonaws.com/doggystyle-development/puppy.jpg",
       :s3_credentials => {
         :bucket => ENV['AWS_BUCKET'], #these values safely stored in application.yml thanks to figaro!
         :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
