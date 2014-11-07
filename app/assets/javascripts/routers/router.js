@@ -5,7 +5,7 @@ Doggystyle.Routers.Router = Backbone.Router.extend({
 		options.$rootEl.html(signedInView.render().$el);
 
 		this.collection = options.collection;
-		this.$rootEl = $('main');
+		this.$rootEl = options.$rootEl.find('main');
 	},
 
 	routes: {
@@ -41,10 +41,12 @@ Doggystyle.Routers.Router = Backbone.Router.extend({
 
 	userShow: function (id) {
     this.collection.fetch();
+		var cUser = this.collection.getOrFetch(Doggystyle.currentUserId);
 		var model = this.collection.getOrFetch(id);
 		var showView = new Doggystyle.Views.UserShowView({
 			model: model,
       collection: this.collection,
+			currentUser: cUser,
 		});
 
 		this._swapView(showView);

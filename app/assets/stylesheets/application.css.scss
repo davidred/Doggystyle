@@ -88,9 +88,16 @@ body {
 	float: right;
 	padding: 5px 10px;
 	border: 1px solid #96B4FA;
+  cursor: pointer;
+  background: #2855A0;
+}
+
+.sign-in-link a {
+  cursor: pointer;
 }
 
 .sign-in-link:hover {
+  border: 2px solid white;
 	background: #1E57A3;
 }
 
@@ -161,8 +168,14 @@ body {
   padding: 10px 0;
   width: 200px;
   border-radius: 3px;
+  margin-top: 15px;
+  cursor: pointer;
   color: white;
   word-wrap: default;
+}
+
+.sign-in-button:hover {
+  background: #abdb65;
 }
 
 .sign-in-input {
@@ -207,9 +220,8 @@ body {
   border-radius: 3px;
 	color: white;
   word-wrap: default;
+  cursor: pointer;
 }
-
-
 
 .continue:hover {
 	background: #abdb65;

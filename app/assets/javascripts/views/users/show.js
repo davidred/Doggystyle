@@ -5,7 +5,8 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
 
 	template: JST['users/show'],
 
-	initialize: function() {
+	initialize: function(options) {
+    this.currentUser = options.currentUser;
 		this.listenTo(this.model, "sync", this.render);
 
 		// this.listenTo(this.collection, "sync", this.render);
@@ -14,6 +15,8 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
 	events: {
 		"click .js-show-modal": "showModal",
 		"click .js-hide-modal": "hideModal",
+    "click .btn-new-message": "showMessageModal",
+    "click #send-message": "sendMessage",
     "click .js-show-input": "showInput",
     "click .js-hide-input": "hideInput",
     "click .save-user-info": "saveProfileInfo",
@@ -57,6 +60,22 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
 
 	},
 
+  sendMessage: function(event) {
+    var message = new Doggystyle.Models.Message({user: this.currentUser})
+    var formData = $('.new-message-modal > textarea').serializeJSON().message;
+    formData = _.extend(
+      formData,
+      { to: this.model.id }
+    )
+    var view = this;
+    var attributes = { message: formData }
+
+    message.set(attributes);
+    message.save(attributes, { success: function(model) {
+      // view.collection.add(model);
+    }});
+  },
+
   handlePhoto: function(event) {
     event.preventDefault();
     // var file = event.currentTarget.files[0];
@@ -89,6 +108,11 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
     var targetModal = event.currentTarget.dataset.modal;
 		$('#'+targetModal).removeClass("is-active");
 	},
+
+  showMessageModal: function(event) {
+    event.preventDefault();
+    $('.message-modal').addClass("is-active");
+  },
 
 	showModal: function(event) {
 		event.preventDefault();

@@ -26,12 +26,14 @@
       </a>
     </div>
 
+    <div class="message-button">
+    <div class="btn-new-message" data-modal="new-message-modal">
+      Send Message
+      <!-- link_to "Send Message", new_user_message_url(@user) %> -->
+    </div>
+  </div>
   </div>
   <!-- < if user != current_user %> -->
-  <div>
-		Link to Send Message
-		<!-- link_to "Send Message", new_user_message_url(@user) %> -->
-  </div>
   <!-- < end %> -->
 </header>
 
@@ -251,6 +253,29 @@
           <li><%= user.escape('owner_gender_name') %></li>
         </ul>
       </a>
+    </section>
+
+    <section id="send-message-modal" class="modal message-modal">
+      <article class="message-modal-content">
+        <span class="modal-close js-hide-modal"
+              data-modal="send-message-modal">&times;</span>
+
+        <figure class="user-banner-photo">
+          <img src="<%= user.escape('profile_photo') %>">
+        </figure>
+
+        <div class="match-summary">
+          <h3><%= user.escape('username') %></h3>
+          <div><span><%= user.escape('breed_name') %>&#8226<%= user.escape('country_name') %></span></div>
+        </div>
+
+        <div class="new-message-modal">
+          <textarea name="message[body]" placeholder="Write them a lovely message..."></textarea>
+          <button id="send-message"
+                  class="btn btn-send js-hide-modal"
+                  data-modal="send-message-modal">Send</button>
+        </div>
+      </article>
     </section>
 
     <section id="profile-picture-modal" class="modal">
