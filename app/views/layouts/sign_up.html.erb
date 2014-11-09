@@ -25,15 +25,16 @@
 				<div class="sign-in-link">
 			    <%= link_to "Sign In", new_session_url %>
 				</div>
+				<div class="sign-up-link">
+					<%= link_to "Sign Up", new_user_url %>
+				</div>
 		  </nav>
-
 		  <section class="sign-up-content">
-		    <!-- <div class="opacity"> -->
+
 		      <%= yield %>
-		    <!-- </div> -->
+
 		  </section>
 		</div>
-	<!-- </div> -->
 
   <footer class="sign-up-footer">
     <div class="footer-wrap">
@@ -63,35 +64,6 @@
 		}
 
 		window.setInterval(loop, delay);
-	</script>
-	
-	<script>
-		// var delay = 5000;
-		// var itemNum = 0;
-		// var items = ["pups_running.jpg", "playing_fetch.jpg"];
-		//
-		// var loop = function() {
-		// 	itemNum++;
-		// 	if (itemNum === items.length) {
-		// 		itemNum = 0;
-		// 		$('.next')
-		// 		$('.carousel > ul').removeClass('focus2 focus3 focus4');
-		// 	}
-		// 	var focus = "focus" + item;
-		// 	$('.carousel > ul').addClass(focus);
-		// }
-		//
-		// var slideIn = function() {
-		// 	//append to list
-		// 	$('.next').addClass('active');
-		// 	$('.next').addClass('slide-in');
-		// }
-		//
-		// var slideOut = function() {
-		// 	$('.next').addClass('slide-out')
-		// }
-		//
-		// window.setInterval(loop, delay);
 	</script>
 
 </body>

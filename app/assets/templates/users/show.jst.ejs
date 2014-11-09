@@ -27,14 +27,14 @@
     </div>
 
     <div class="message-button">
+		<% if (user.id !== currentUser.id) { %>
     <div class="btn-new-message" data-modal="new-message-modal">
       Send Message
-      <!-- link_to "Send Message", new_user_message_url(@user) %> -->
     </div>
+		<% } %>
   </div>
   </div>
-  <!-- < if user != current_user %> -->
-  <!-- < end %> -->
+
 </header>
 
 <nav class="content-nav profile-nav">

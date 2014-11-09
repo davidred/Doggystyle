@@ -89,20 +89,33 @@ body {
 	position: absolute;
 	font-size: 12px;
 	top: 30px;
+	right: 120px;
+	float: right;
+	padding: 5px 10px;
+	border: 1px solid #96B4FA;
+  cursor: pointer;
+}
+
+.sign-up-link {
+	position: absolute;
+	font-size: 12px;
+	top: 30px;
 	right: 30px;
 	float: right;
 	padding: 5px 10px;
 	border: 1px solid #96B4FA;
   cursor: pointer;
-  background: #2855A0;
 }
 
-.sign-in-link a {
+.sign-up-nav a {
   cursor: pointer;
 }
 
 .sign-in-link:hover {
-  border: 2px solid white;
+	background: #1E57A3;
+}
+
+.sign-up-link:hover {
 	background: #1E57A3;
 }
 
@@ -166,30 +179,6 @@ body {
 	transform: translateX(-80%);
 }
 
-//.current {
-//	background: image-url('pups_running.jpg');
-//}
-//
-//.next {
-//	background: image-url('playing_fetch.jpg');
-//}
-//
-//.focused {
-//	transform: translateX(-33.33%);
-//}
-//
-//.active {
-//	display: block;
-//}
-//
-//.slide-in{
-//	transform: translateX(-100%);
-//}
-//
-//.slide-out {
-//	transform: translateX(100%) ;
-//}
-
 .background1 {
   background: image-url('homepage/pups_running.jpg');
 }
@@ -235,11 +224,8 @@ body {
 	text-align: center;
 
 }
-
-
-
 .sign-in-content-list {
-  width: 200px;
+  width: 400px;
   height: 200px;
   margin: -50px auto;
 }
@@ -268,7 +254,6 @@ body {
 }
 
 .sign-in-input {
-  // background: purple;
   display: block;
 }
 
