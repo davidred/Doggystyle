@@ -16,14 +16,14 @@ Doggystyle.Views.SignedInView = Backbone.View.extend({
 		return this;
 	},
 
-	signOut: function () {
-		event.preventDefault();
-		alert('sign out');
-		$.ajax({
-			type: 'delete',
-			url: '/session',
-		});
-	},
+	// signOut: function () {
+	// 	event.preventDefault();
+	// 	alert('sign out');
+	// 	$.ajax({
+	// 		type: 'delete',
+	// 		url: '/session',
+	// 	});
+	// },
 	//
 	// redirect: function(event) {
 	// 	event.preventDefault();

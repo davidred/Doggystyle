@@ -2,26 +2,20 @@
     <ul class="signed-in-nav-list group">
       <li>
         <a href="/#users/<%= Doggystyle.currentUserId %>" id="profile-link">Profile</a>
-				<!-- link_to "Profile", user_url(current_user) -->
       </li>
       <li>
-        <!-- button_to "Sign out", session_url, method: :delete -->
         <form action="/session" method="POST">
           <input type="hidden" name="_method" value="delete">
           <input type="hidden" name="authenticity_token" value="">
           <button class="sign-out-button">Signout</button>
       </form>
-				<!-- <a href="#" class="sign-out-button">
-          Signout
-        </a> -->
       </li>
     </ul>
   </nav>
   <main>
     <section class="sidebar">
       <figure class="sidebar-logo">
-				Logo
-        <!-- <img src="asset_path 'Doggystyle-logo.png'"> -->
+				<img src="https://s3.amazonaws.com/doggystyle-development/Doggystyle-logo.png">
       </figure>
       <ul class="sidebar-list">
         <li>

@@ -19,6 +19,7 @@ html, body, section, nav, div, figure, ul, li, h1, h2, h3, p, a, footer, button,
   border: 0;
   font: inherit;
   color: inherit;
+	background: transparent;
 }
 
 ul {
@@ -26,7 +27,7 @@ ul {
 }
 
 input {
-  background-color: inherit;
+
   padding: 0;
   margin: 0;
   border: 0;
@@ -35,7 +36,7 @@ input {
 }
 
 button {
-  background-color: inherit;
+  background-color: transparent;
 }
 
 a {
@@ -49,15 +50,12 @@ html, body {
 }
 
 body {
-  font-family: sans-serif;
-  color: #96B4FA;
+  font-family: 'Open Sans', sans-serif;
+	font-weight: 100;
+	color: #D8DBE2;
+//  color: #96B4FA;
   min-height: 850px;
   position: relative;
-//  background: image-url('pups_running.jpg');
-//  background-size: cover;
-//  background-position: 0 -100px;
-//  background-repeat: no-repeat;
-	
 }
 
 .group:after {
@@ -92,7 +90,7 @@ body {
 	right: 120px;
 	float: right;
 	padding: 5px 10px;
-	border: 1px solid #96B4FA;
+	border: 1px solid #D8DBE2;
   cursor: pointer;
 }
 
@@ -103,7 +101,7 @@ body {
 	right: 30px;
 	float: right;
 	padding: 5px 10px;
-	border: 1px solid #96B4FA;
+	border: 1px solid #D8DBE2;
   cursor: pointer;
 }
 
@@ -112,11 +110,15 @@ body {
 }
 
 .sign-in-link:hover {
-	background: #1E57A3;
+	background: rgba(85,85,150,0.25);
+	border: 1px solid #96B4FA;
+	color: #96B4FA;
 }
 
 .sign-up-link:hover {
-	background: #1E57A3;
+	background: rgba(85,85,150,0.25);
+	border: 1px solid #96B4FA;
+	color: #96B4FA;
 }
 
 .sign-up-content h1 {
@@ -213,7 +215,6 @@ body {
 .sign-up-content-list {
 	width: 400px;
   margin: auto;
-  // background: red;
 }
 
 .sign-up-content-list > li {
@@ -225,7 +226,7 @@ body {
 
 }
 .sign-in-content-list {
-  width: 400px;
+  width: 200px;
   height: 200px;
   margin: -50px auto;
 }
@@ -234,7 +235,6 @@ body {
   width: 200px;
   padding-bottom: 10px;
   text-align: center;
-  // border: 1px solid red;
 }
 
 .sign-in-button {
@@ -261,7 +261,6 @@ body {
   display: block;
   text-align: center;
   color: white;
-  // background: orange;
   padding-bottom: 5px;
 }
 
@@ -307,6 +306,7 @@ body {
   width: 100%;
   min-height: 150px;
   background: white;
+	color: #96B4FA;
 }
 
 .footer-tag {

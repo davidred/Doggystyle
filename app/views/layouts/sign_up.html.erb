@@ -4,6 +4,7 @@
   <title>Doggystyle</title>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag "application" %>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
 </head>
 
@@ -20,7 +21,7 @@
 		<div class="opacity">
 		  <nav class="sign-up-nav">
 				<figure class="main-logo">
-					<img src="<%= asset_path 'Doggystyle-logo.png' %>">
+					<img src="<%= asset_path 'homepage/Doggystyle-logo.png' %>">
 				</figure>
 				<div class="sign-in-link">
 			    <%= link_to "Sign In", new_session_url %>

@@ -5,7 +5,7 @@
   <%= stylesheet_link_tag 'signed_in', media: 'all' %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <script>
@@ -28,7 +28,7 @@
   <main>
     <section class="sidebar">
       <figure class="sidebar-logo">
-        <img src="<%= asset_path 'Doggystyle-logo.png' %>">
+        <img src="<%= asset_path 'homepage/Doggystyle-logo.png' %>">
       </figure>
       <ul class="sidebar-list">
         <li><%= link_to "Browse Matches", users_url %></li>
