@@ -39,7 +39,9 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
-  has_attached_file :profile_photo, :styles => {:big => '600X600>'}, :default_url => 'https://s3.amazonaws.com/doggystyle-development/puppy.jpg'
+  has_attached_file :profile_photo, 
+  # :styles => {:big => '600X600>'},
+  :default_url => 'https://s3.amazonaws.com/doggystyle-development/puppy.jpg'
   validates_attachment_content_type(
     :profile_photo,
     :content_type => /\Aimage\/.*\Z/

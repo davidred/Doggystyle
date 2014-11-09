@@ -8,21 +8,32 @@
 </head>
 
 <body>
+	<div class="carousel">
+		<ul class="group focus1">
+			<li class="background1"></li>
+			<li class="background2"></li>
+			<li class="background3"></li>
+			<li class="background4"></li> 
+			<li class="background5"></li>
+		</ul>
+	</div>
+		<div class="opacity">
+		  <nav class="sign-up-nav">
+				<figure class="main-logo">
+					<img src="<%= asset_path 'Doggystyle-logo.png' %>">
+				</figure>
+				<div class="sign-in-link">
+			    <%= link_to "Sign In", new_session_url %>
+				</div>
+		  </nav>
 
-  <nav class="sign-up-nav">
-		<figure class="main-logo">
-			<img src="<%= asset_path 'Doggystyle-logo.png' %>"></img>
-		</figure>
-		<div class="sign-in-link">
-	    <%= link_to "Sign In", new_session_url %>
+		  <section class="sign-up-content">
+		    <!-- <div class="opacity"> -->
+		      <%= yield %>
+		    <!-- </div> -->
+		  </section>
 		</div>
-  </nav>
-
-  <section class="sign-up-content">
-    <div class="opacity">
-      <%= yield %>
-    </div>
-  </section>
+	<!-- </div> -->
 
   <footer class="sign-up-footer">
     <div class="footer-wrap">
@@ -36,6 +47,52 @@
       </ul>
     </div>
   </footer>
+
+	<script>
+		var delay = 5000;
+		var item = 1;
+
+		var loop = function() {
+			item++;
+			if (item === 6) {
+				item = 1;
+				$('.carousel > ul').removeClass('focus2 focus3 focus4 focus5');
+			}
+			var focus = "focus" + item;
+			$('.carousel > ul').addClass(focus);
+		}
+
+		window.setInterval(loop, delay);
+	</script>
+	
+	<script>
+		// var delay = 5000;
+		// var itemNum = 0;
+		// var items = ["pups_running.jpg", "playing_fetch.jpg"];
+		//
+		// var loop = function() {
+		// 	itemNum++;
+		// 	if (itemNum === items.length) {
+		// 		itemNum = 0;
+		// 		$('.next')
+		// 		$('.carousel > ul').removeClass('focus2 focus3 focus4');
+		// 	}
+		// 	var focus = "focus" + item;
+		// 	$('.carousel > ul').addClass(focus);
+		// }
+		//
+		// var slideIn = function() {
+		// 	//append to list
+		// 	$('.next').addClass('active');
+		// 	$('.next').addClass('slide-in');
+		// }
+		//
+		// var slideOut = function() {
+		// 	$('.next').addClass('slide-out')
+		// }
+		//
+		// window.setInterval(loop, delay);
+	</script>
 
 </body>
 </html>

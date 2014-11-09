@@ -53,6 +53,11 @@ body {
   color: #96B4FA;
   min-height: 850px;
   position: relative;
+//  background: image-url('pups_running.jpg');
+//  background-size: cover;
+//  background-position: 0 -100px;
+//  background-repeat: no-repeat;
+	
 }
 
 .group:after {
@@ -115,11 +120,94 @@ body {
   width: 900px;
   text-align: center;
   margin: auto;
-  background: image-url('pups_running.jpg');
-  background-size: cover;
-  background-position: 0 -100px;
-  background-repeat: no-repeat;
+}
 
+.carousel {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
+.carousel > ul {
+	height: 100%;
+	width: 500%;
+	cursor: pointer;
+	transition: transform 1s;
+}
+
+.carousel > ul > li {
+	float: left;
+	height: 100%;
+	width: 20%;
+	background-position: 0 -100px;
+  background-size: cover;
+  background-repeat: no-repeat;
+	transition: transform 1s;
+}
+
+.focus1 {
+  transform: translateX(0);
+}
+
+.focus2 {
+	transform: translateX(-20%);
+}
+
+.focus3{
+	transform: translateX(-40%);
+}
+
+.focus4{
+	transform: translateX(-60%);
+}
+
+.focus5{
+	transform: translateX(-80%);
+}
+
+//.current {
+//	background: image-url('pups_running.jpg');
+//}
+//
+//.next {
+//	background: image-url('playing_fetch.jpg');
+//}
+//
+//.focused {
+//	transform: translateX(-33.33%);
+//}
+//
+//.active {
+//	display: block;
+//}
+//
+//.slide-in{
+//	transform: translateX(-100%);
+//}
+//
+//.slide-out {
+//	transform: translateX(100%) ;
+//}
+
+.background1 {
+  background: image-url('homepage/pups_running.jpg');
+}
+
+.background2 {
+  background: image-url('homepage/going_out.jpg');
+}
+
+.background3 {
+  background: image-url('homepage/dog_friends.jpg');
+}
+
+.background4 {
+  background: image-url('homepage/playing_fetch.jpg');
+}
+
+.background5 {
+	background: image-url('homepage/window_dog.jpeg');
 }
 
 .opacity {
@@ -131,7 +219,6 @@ body {
 
 .sign-up-1 {
   height: 100%;
-
 }
 
 .sign-up-content-list {
@@ -148,6 +235,8 @@ body {
 	text-align: center;
 
 }
+
+
 
 .sign-in-content-list {
   width: 200px;
