@@ -41,7 +41,8 @@ AWS_SECRET_ACCESS_KEY: "..."
 ```
 
 ```
-FACEBOOK_KEY: '...' ```
+FACEBOOK_KEY: '...'
+```
 
 ```
 FACEBOOK_SECRET: '...'
