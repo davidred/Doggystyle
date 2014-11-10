@@ -1,28 +1,36 @@
-== README
+# Doggystyle - a dating site for pets
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A joyful app where pet owners can find nearby playmates for their pets, as well as meet fellow pet lovers.
 
-Things you may want to cover:
+## Goals
 
-* Ruby version
+1. Create OkCupid clone for pets to allow for profile creation and messaging
+2. Allow users to search by preference for playmate (breed, size, and what they're looking for)
+3. Seed the database with a lot of cute dog pictures
 
-* System dependencies
+## Todo
 
-* Configuration
+- Add realtime notifications for messages and profile visits
+- Integrate Google Maps API to find nearby dog parks
 
-* Database creation
+## Requirements
 
-* Database initialization
+The following external web services are used:
 
-* How to run the test suite
+- Amazon Web Services S3 (http://aws.amazon.com/)
+- Facebook Omniauth (http://developers.facebook.com/)
 
-* Services (job queues, cache servers, search engines, etc.)
+Several authentication keys are expected as environment variables. You can create a **config\application.yml** file in your Rails **config/** folder with the following code:
 
-* Deployment instructions
+development and default photos:
+  AWS_BUCKET: 'doggystyle-development'
+production:
+  AWS_BUCKET: 'doggystyle-production'
+AWS_ACCESS_KEY_ID: "..."
+AWS_SECRET_ACCESS_KEY: "..."
 
-* ...
-
+FACEBOOK_KEY: '...'
+FACEBOOK_SECRET: '...'
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
