@@ -151,16 +151,42 @@ main {
 }
 
 .profile-picture {
+	position: relative;
   height: 160px;
   width: 160px;
   overflow: hidden;
   float: left;
+	border-radius: 3px;
+}
+
+.profile-picture:hover .upload-photo{
+	height: 50px;
 }
 
 .profile-picture > img {
   margin: 0 auto;
   height: 160px;
   width: auto;
+}
+
+.upload-photo {
+	position: absolute;
+	color: white;
+	bottom: 0;
+	height: 0;
+	width: 100%;
+	background: rgba(0,0,0,.5);
+	transition: height .3s;
+}
+
+.upload-photo > p {
+	text-align: center;
+	display: block;
+	wrap-text: none;
+	padding: 10px 20px;
+	font-size: 20px;
+	font-weight: bold;
+	background: transparent;
 }
 
 .profile-basic-info {
@@ -170,6 +196,8 @@ main {
   float: left;
   padding: 10px;
 }
+
+
 
 /*.profile-basic-info:hover {
   background: white;
@@ -225,7 +253,8 @@ main {
 
 .content-nav-list > li {
   float: left;
-  color: #AFB4B4
+  color: #AFB4B4;
+	margin-right: 5px;
 }
 
 .content-nav-list li a {

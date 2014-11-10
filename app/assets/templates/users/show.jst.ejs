@@ -9,6 +9,9 @@
       <figure class="profile-picture">
         <img src="<%= user.escape('profile_photo')%>">
       </figure>
+			<div class="upload-photo">
+				<p>Add Photo</p>
+			</div>
     </a>
   </div>
 
@@ -39,8 +42,7 @@
 
 <nav class="content-nav profile-nav">
   <ul class="content-nav-list group">
-    <li><a href='javascript.void(0)'>About</a></li>
-    <li><a href='javascript.void(0)'>Photos</a></li>
+    <li><a class="selected">About</a></li>
   </ul>
 </nav>
 
@@ -461,10 +463,9 @@
                 <br>
             </li>
 	        </ul>
-					<input type="submit"
+					<button type="submit"
                  class="modal-btn save"
-                 value="Save"
-                 data-modal="looking-for-modal">
+                 data-modal="looking-for-modal">Save</button>
 					<button class="modal-btn cancel js-hide-modal"
                   data-modal="looking-for-modal">Cancel</button>
 				</form>
@@ -513,10 +514,9 @@
                      value="<%= user.escape('owner_age') %>">
             </li>
           </ul>
-          <input type="submit"
+          <button type="submit"
                  class="modal-btn save"
-                 value="Save"
-                 data-modal="owner-info-modal">
+                 data-modal="owner-info-modal">Save</button>
           <button class="modal-btn cancel js-hide-modal"
                   data-modal="owner-info-modal">Cancel</button>
         </form>
