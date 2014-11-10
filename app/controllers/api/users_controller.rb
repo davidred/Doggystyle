@@ -17,16 +17,17 @@ module Api
 
     def matches
       user = current_user
-      # user = User.find(params[:user_id])
       breed_preferences, gender_preferences, size_preferences = get_preferences(user)
 
       if breed_preferences.include?(0)
         @users = User.size(size_preferences)
                      .gender(gender_preferences)
+                     .where.not(id: user.id)
       else
         @users = User.size(size_preferences)
                      .gender(gender_preferences)
                      .breed(breed_preferences)
+                     .where.not(id: user.id)
       end
 
       render :index
@@ -54,7 +55,7 @@ module Api
     end
 
     def outbox
-      @messagers = current_user.messagees.distinct
+      @messagers = current_user.messagees
       @user = current_user
       render :inbox
     end

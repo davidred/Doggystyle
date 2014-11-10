@@ -71,6 +71,16 @@ Doggystyle.Routers.Router = Backbone.Router.extend({
 
     this._swapView(inboxView);
   },
+	
+	userOutbox: function () {
+		var outbox = new Doggystyle.Collections.Outbox();
+		outbox.fetch();
+		var outboxView = new Doggystyle.Views.UserOutboxView({
+			collection: outbox,
+		});
+		
+		this._swapView(outboxView);
+	},
 
   conversationShow: function (id) {
 		var cUser = this.collection.getOrFetch(Doggystyle.currentUserId);

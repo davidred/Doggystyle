@@ -39,9 +39,9 @@ module UsersHelper
   end
 
   def default_preferences(user)
-    user.preferences.create(preference_attribute: "looking_for", value: 1)
-    user.preferences.create(preference_attribute: "looking_for", value: 2)
-    user.preferences.create(preference_attribute: "looking_for", value: 3)
+    user.preferences.create(preference_attribute: "play", value: 1)
+    user.preferences.create(preference_attribute: "play", value: 2)
+    user.preferences.create(preference_attribute: "play", value: 3)
     user.preferences.create(preference_attribute: "gender", value: 1)
     user.preferences.create(preference_attribute: "gender", value: 2)
     user.preferences.create(preference_attribute: "size", value: 1)

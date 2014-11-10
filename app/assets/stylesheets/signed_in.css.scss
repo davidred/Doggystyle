@@ -29,18 +29,14 @@ button {
 
 a {
   text-decoration: none;
-  cursor: pointer;
-}
-
-body {
-  font-family: 'Open Sans', sans-serif;
-	color: #D8DBE2;
+//  cursor: pointer;
 }
 
 html, body {
   height: 100%;
   background: #2855A0;
   color: #474d59;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .group:after {
@@ -82,13 +78,13 @@ html, body {
   cursor: pointer;
 }
 
-.signed-in-nav input {
-	cursor: pointer;
-}
-
-.signed-in-nav button {
-	cursor: pointer;
-}
+//.signed-in-nav input {
+//	cursor: pointer;
+//}
+//
+//.signed-in-nav button {
+//	cursor: pointer;
+//}
 
 .sidebar-logo > img {
   width: 200px;
@@ -195,6 +191,10 @@ main {
   wrap-text: none;
 }
 
+.btn-new-message:hover {
+	background: #abdb65;
+};
+
 .profile-basic-info > h1 {
   font-size: 30px;
   font-weight: 200;
@@ -220,11 +220,10 @@ main {
 }
 
 .content-nav-list {
-  width: 200px;
+  width: 240px;
 }
 
 .content-nav-list > li {
-  width: 80px;
   float: left;
   color: #AFB4B4
 }
@@ -239,6 +238,12 @@ main {
 
 .content-nav-list li a:hover {
   border-bottom: 2px solid #4c7bd9;
+  color: #4c7bd9;
+}
+
+.content-nav-list li a.selected {
+  border-bottom: 2px solid #4c7bd9;
+	cursor: default;
   color: #4c7bd9;
 }
 
@@ -403,11 +408,31 @@ div.Large{
   background-size: cover;
 }
 
+.detailed-info textarea {
+	border: 1px solid #ccc;
+	padding: 5px 10px;
+}
 
-/*.user-size:hover {
-	background: white;
-	cursor: pointer;
-}*/
+.detailed-info input {
+	border: 1px solid #ccc;
+	padding: 5px 10px;
+	width: 20px;
+}
+
+.modal input {
+	border: 1px solid #ccc;
+	padding: 5px 10px;
+	margin-top: 10px;
+}
+
+.modal select {
+	margin-top: 10px;
+}
+
+.modal input[type=checkbox] {
+	display: inline;
+	background: red;
+}
 
 .user-play_style-energy_level {
 }
@@ -418,12 +443,54 @@ div.Large{
   width: 150px;
 }
 
+.detailed-info button {
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+	width: 70px;
+	margin-top: 5px;
+  border-radius: 3px;
+}
+
+.modal-btn {
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+	width: 70px;
+	margin-top: 10px;
+  border-radius: 3px;
+}
+
+button.save {
+  background-color: #2855A0;
+}
+
+button.save:hover {
+	background-color: #4C7BD9;
+}
+
+button.cancel {
+	color: #474d59;
+	border: 1px solid #ccc;
+	background-color:  #EBEEF2;
+}
+
+button.cancel:hover {
+	background-color: #F3F5F9;
+}
+
 /*.user-play_style:hover {
 	background: white;
 	cursor: pointer;
 }*/
 
 .clickable:hover {
+  background: white;
+  cursor: pointer;
+  box-shadow: 3px 3px 1px #eee;
+}
+
+.clicked {
   background: white;
   cursor: pointer;
   box-shadow: 3px 3px 1px #eee;
@@ -553,6 +620,8 @@ div.Large{
 .messagers-list {
 
 }
+
+
 
 .messagers-list > li {
   margin-top: 5px;

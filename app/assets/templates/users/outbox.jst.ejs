@@ -1,18 +1,18 @@
 <header class="inbox-header content-header">
-  <h1>Inbox</h1>
+  <h1>Outbox</h1>
 </header>
 
 <nav class="content-nav matches-nav">
   <ul class="content-nav-list group">
-    <li><a class="selected">Received</a></li>
-    <li><a href='/#users/outbox'>Sent</a></li>
+    <li><a href='/#users/inbox'>Received</a></li>
+    <li><a class="selected">Sent</a></li>
   </ul>
 </nav>
 
 <section class="section-content messages-content">
 
 <ul class="messagers-list">
-  <% inbox.each( function(messager) { %>
+  <% outbox.each( function(messager) { %>
     <li class="messager">
       <div class="user-banner">
         <a class="group" href="/#users/<%= messager.id %>/conversation">

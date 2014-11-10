@@ -11,7 +11,12 @@
 		</li>
 
 	  <li class="form-input">
-			<div class="dropdown">
+			<div class="dropdown gender-dropdown">
+				<!-- <p class="selected-gender">Male</p>
+				<ul class="user[gender]">
+					<li data-gender='1'>Male</li>
+					<li data-gender='2'>Female</li>
+				</ul> -->
 		    <select name="user[gender]" id="gender">
 		      <option value="1">Male</option>
 		      <option value="2">Female</option>
@@ -20,7 +25,10 @@
 	  </li>
 
 		<li>
-			<div class="dropdown">
+			<div class="dropdown breed-dropdown">
+				<!-- <p class='selected-breed'>Female</p>
+				<ul class="user[breed]">
+					<li -->
 			  <select id="breed" name="user[breed]">
 			    <% @user.breeds.each do |breed_id, breed_name| %>
 			      <option value="<%= breed_id %>" <%= "selected" if @user.breed == breed_id %>><%= breed_name %></option>

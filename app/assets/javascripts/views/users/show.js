@@ -8,8 +8,6 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
 	initialize: function(options) {
     this.currentUser = options.currentUser;
 		this.listenTo(this.model, "sync", this.render);
-
-		// this.listenTo(this.collection, "sync", this.render);
 	},
 
 	events: {
@@ -72,23 +70,17 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
 
     message.set(attributes);
     message.save(attributes, { success: function(model) {
-      // view.collection.add(model);
     }});
   },
 
   handlePhoto: function(event) {
     event.preventDefault();
-    // var file = event.currentTarget.files[0];
     $('#profile-picture-modal').removeClass('is-active');
     var file = $('.photo-upload')[0].files[0];
     var view = this;
     var formData = new FormData();
     formData.append('new_photo', file);
-    // var reader = new FileReader();
-    // reader.onload = function(e) {
-    //   view.model.set('new_photo', this.result);
-    // }
-    // reader.readAsDataURL(file);
+
     $.ajax({
       type: 'put',
       url: 'api/users/'+Doggystyle.currentUserId+'/photo',
@@ -126,6 +118,7 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
     event.preventDefault();
     if (this.model.id === Doggystyle.currentUserId) {
       var targetInput = event.currentTarget.dataset.input;
+			$(event.currentTarget).parent().addClass("clicked");
       $('p#'+targetInput).addClass("inactive");
       $('button#'+targetInput).removeClass("inactive");
       $('form#'+targetInput).removeClass("inactive");
@@ -135,6 +128,7 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
   hideInput: function(event) {
     event.preventDefault();
     var targetInput = event.currentTarget.dataset.input;
+		$(event.currentTarget).parent().removeClass("clicked");
     $('p#'+targetInput).removeClass("inactive");
     $('form#'+targetInput).addClass("inactive");
     $('button#'+targetInput).addClass("inactive");

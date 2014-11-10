@@ -75,7 +75,6 @@
             <p id="user-age"><%= user.escape('age') %></p>
             <form id="user-age" class="user-info inactive" action="#" method="post">
               <input type="text" name="user[age]" value="<%= user.escape('age') %>">
-
             </form>
           </a>
           <button id="user-age"
@@ -151,13 +150,14 @@
               <% } %>
               >Not Sure</option>
             </select>
+          </form>
             <button id="user-play_style"
                     class="save inactive save-user-info"
                     data-input="user-play_style">Save</button>
             <button id="user-play_style"
                     class="cancel inactive js-hide-input"
                     data-input="user-play_style">Cancel</button>
-          </form>
+
         </div>
         <div class="user-energy_level">
           <a href="#" class="js-show-input" data-input="user-energy_level">
@@ -187,13 +187,14 @@
                      <% } %>
                      >Wild Beast</option>
                    </select>
-            <button id="user-energy_level"
+          </form>
+			      <button id="user-energy_level"
                     class="save inactive save-user-info"
                     data-input="user-energy_level">Save</button>
             <button id="user-energy_level"
                     class="cancel inactive js-hide-input"
                     data-input="user-energy_level">Cancel</button>
-          </form>
+      
         </div>
       </div>
 
@@ -305,8 +306,6 @@
 				<form class="basic-info-form">
 	        <ul class="basic-info-list">
 	          <li class="breed">
-	            <br>
-	            <br>
 	            <label for="breed">Breed</label>
 	            <select id="breed" name="user[breed]">
 	              <% for(var prop in user.breeds) { %>
@@ -334,8 +333,6 @@
 	            </select>
 	          </li>
 	          <li class="zip">
-	            <br>
-	            <br>
 	            <label for="zip">Zip Code</label>
 	            <input type="text"
 	                   id="zip"
@@ -343,8 +340,6 @@
 	                   value="<%= user.escape('zip') %>">
 	          </li>
 	          <li class="country">
-	            <br>
-	            <br>
 	            <label for="country">Country</label>
 	            <select id="country" name="user[country]">
 								<% for (var prop in user.countries) { %>
@@ -357,9 +352,9 @@
 	            </select>
 	          </li>
 	        </ul>
-					<input type="submit"
-                 class="modal-btn save"
-                 value="Save">
+					<button type="submit"
+                 class="modal-btn save">
+                 Save</button>
 					<button class="modal-btn cancel js-hide-modal"
                   data-modal="basic-info-modal">Cancel</button>
 				</form>
