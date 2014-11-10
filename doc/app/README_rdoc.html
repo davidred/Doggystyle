@@ -71,12 +71,12 @@
 
 <main role="main" aria-label="Page README.rdoc">
 
-<p># Doggystyle - a dating site for pets</p>
+<p>#Doggystyle - a dating site for pets</p>
 
 <p>A joyful app where pet owners can find nearby playmates for their pets, as
 well as meet fellow pet lovers.</p>
 
-<p>## Goals</p>
+<p>##Goals</p>
 <ol><li>
 <p>Create OkCupid clone for pets to allow for profile creation and messaging</p>
 </li><li>
@@ -86,21 +86,21 @@ they&#39;re looking for)</p>
 <p>Seed the database with a lot of cute dog pictures</p>
 </li></ol>
 
-<p>## Todo</p>
+<p>##Todo</p>
 <ul><li>
 <p>Add realtime notifications for messages and profile visits</p>
 </li><li>
 <p>Integrate Google Maps API to find nearby dog parks</p>
 </li></ul>
 
-<p>## Requirements</p>
+<p>##Requirements</p>
 
 <p>The following external web services are used:</p>
 <ul><li>
-<p>Amazon Web Services S3 (<a
+<p>[Amazon Web Services S3](<a
 href="http://aws.amazon.com">aws.amazon.com</a>/)</p>
 </li><li>
-<p>Facebook Omniauth (<a
+<p>[Facebook Omniauth](<a
 href="http://developers.facebook.com">developers.facebook.com</a>/)</p>
 </li></ul>
 
@@ -114,14 +114,12 @@ create a **configapplication.yml** file in your Rails
 
 <p>production:</p>
 
-<pre>AWS_BUCKET: &#39;doggystyle-production&#39;</pre>
+<pre>AWS_BUCKET: &#39;doggystyle-production&#39;
+AWS_ACCESS_KEY_ID: &quot;...&quot;
+AWS_SECRET_ACCESS_KEY: &quot;...&quot;
 
-<p>AWS_ACCESS_KEY_ID: “…” AWS_SECRET_ACCESS_KEY: “…”</p>
-
-<p>FACEBOOK_KEY: &#39;…&#39; FACEBOOK_SECRET: &#39;…&#39;</p>
-
-<p>Please feel free to use a different markup language if you do not plan to
-run <code>rake doc:app</code>.</p>
+FACEBOOK_KEY: &#39;...&#39;
+FACEBOOK_SECRET: &#39;...&#39;</pre>
 </main>
 
 
