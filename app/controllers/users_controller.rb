@@ -108,6 +108,7 @@ class UsersController < ApplicationController
                                  :zip,
                                  :email,
                                  :profile_photo,
+                                 :owner_profile_photo,
                                  :summary,
                                  :age,
                                  :size,

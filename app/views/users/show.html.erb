@@ -3,7 +3,7 @@
 
   <div class="profile-basic-group group">
     <figure class="profile-picture">
-      <%= image_tag @user.profile_photo.url(:big) %>
+      <%= image_tag @user.profile_photo.url %>
     </figure>
     <div class="profile-basic-info">
       <h1><%= @user.username %></h1>
@@ -80,8 +80,8 @@
       <h3>My Person</h3>
       <ul>
         <li>
-          <figure class="owner-photo">
-
+          <figure class="profile-picture owner-profile-picture">
+            <%= image_tag @user.profile_photo.url %>
           </figure>
         </li>
         <li><%= @user.owner_name %></li>

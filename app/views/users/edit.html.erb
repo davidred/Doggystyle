@@ -8,6 +8,13 @@
       <br />
 
     <%= f.submit %>
+
+    <%= form_for @user, :html => { :multipart => true } do |f| %>
+      <%= f.label :owner_profile_photo %>:
+      <%= f.file_field :owner_profile_photo %>
+      <br>
+      <%= f.submit %>
+      <% end %>
     <form action="<%= user_url(@user) %>" method="POST">
       <%= form_auth %>
       <input type="hidden" name="_method" value="patch">
@@ -143,9 +150,7 @@
         <h3>My Person</h3>
         <ul>
           <li>
-            <figure>
 
-            </figure>
           </li>
           <li>
            <br>
