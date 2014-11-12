@@ -6,7 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Doggystyle 
+module Doggystyle
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -19,7 +19,7 @@ module Doggystyle
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-    Paperclip.options[:command_path] = "/usr/local/bin/identify"
+    # Paperclip.options[:command_path] = "/usr/local/bin/identify"
     config.paperclip_defaults = {
       :storage => :s3,
       :s3_protocol => 'http',

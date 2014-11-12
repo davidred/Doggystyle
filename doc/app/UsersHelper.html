@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>module UsersHelper - Rails Application Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-convert_to_integer">#convert_to_integer</a>
+    
+    <li ><a href="#method-i-default_preferences">#default_preferences</a>
+    
+    <li ><a href="#method-i-get_preferences">#get_preferences</a>
+    
+    <li ><a href="#method-i-get_step">#get_step</a>
+    
+    <li ><a href="#method-i-update_preferences">#update_preferences</a>
+    
+    <li ><a href="#method-i-validate_sign_up_2">#validate_sign_up_2</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-UsersHelper">
+  <h1 id="module-UsersHelper" class="module">
+    module UsersHelper
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-convert_to_integer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">convert_to_integer</span><span
+            class="method-args">(val, pref_attr)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="convert_to_integer-source">
+            <pre><span class="ruby-comment"># File app/helpers/users_helper.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">convert_to_integer</span>(<span class="ruby-identifier">val</span>, <span class="ruby-identifier">pref_attr</span>)
+  <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">pref_attr</span>.<span class="ruby-identifier">pluralize</span>).<span class="ruby-identifier">key</span>(<span class="ruby-identifier">val</span>.<span class="ruby-identifier">to_sym</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_preferences" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_preferences</span><span
+            class="method-args">(user)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_preferences-source">
+            <pre><span class="ruby-comment"># File app/helpers/users_helper.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_preferences</span>(<span class="ruby-identifier">user</span>)
+  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">preferences</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">preference_attribute</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;play&quot;</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span>)
+  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">preferences</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">preference_attribute</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;play&quot;</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">:</span> <span class="ruby-value">2</span>)
+  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">preferences</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">preference_attribute</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;play&quot;</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">:</span> <span class="ruby-value">3</span>)
+  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">preferences</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">preference_attribute</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;gender&quot;</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span>)
+  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">preferences</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">preference_attribute</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;gender&quot;</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">:</span> <span class="ruby-value">2</span>)
+  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">preferences</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">preference_attribute</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;size&quot;</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span>)
+  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">preferences</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">preference_attribute</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;size&quot;</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">:</span> <span class="ruby-value">2</span>)
+  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">preferences</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">preference_attribute</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;size&quot;</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">:</span> <span class="ruby-value">3</span>)
+  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">preferences</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">preference_attribute</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;size&quot;</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">:</span> <span class="ruby-value">4</span>)
+  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">preferences</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">preference_attribute</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;breed&quot;</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_preferences" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_preferences</span><span
+            class="method-args">(user)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_preferences-source">
+            <pre><span class="ruby-comment"># File app/helpers/users_helper.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_preferences</span>(<span class="ruby-identifier">user</span>)
+  <span class="ruby-identifier">preferences</span> = <span class="ruby-identifier">user</span>.<span class="ruby-identifier">preferences</span>
+
+  <span class="ruby-identifier">breed_preferences</span> = <span class="ruby-identifier">preferences</span>
+                          .<span class="ruby-identifier">where</span>(<span class="ruby-identifier">preference_attribute</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;breed&quot;</span>)
+                          .<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">preference</span><span class="ruby-operator">|</span> <span class="ruby-identifier">preference</span>.<span class="ruby-identifier">value</span> }
+  <span class="ruby-identifier">gender_preferences</span> = <span class="ruby-identifier">preferences</span>
+                           .<span class="ruby-identifier">where</span>(<span class="ruby-identifier">preference_attribute</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;gender&quot;</span>)
+                           .<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">preference</span><span class="ruby-operator">|</span> <span class="ruby-identifier">preference</span>.<span class="ruby-identifier">value</span> }
+  <span class="ruby-identifier">size_preferences</span> = <span class="ruby-identifier">preferences</span>
+                         .<span class="ruby-identifier">where</span>(<span class="ruby-identifier">preference_attribute</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;size&quot;</span>)
+                         .<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">preference</span><span class="ruby-operator">|</span> <span class="ruby-identifier">preference</span>.<span class="ruby-identifier">value</span> }
+
+  [<span class="ruby-identifier">breed_preferences</span>, <span class="ruby-identifier">gender_preferences</span>, <span class="ruby-identifier">size_preferences</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_step" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_step</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_step-source">
+            <pre><span class="ruby-comment"># File app/helpers/users_helper.rb, line 2</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_step</span>
+  <span class="ruby-identifier">keys</span> = <span class="ruby-identifier">session</span>[<span class="ruby-value">:user</span>].<span class="ruby-identifier">keys</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">keys</span> <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;breed&quot;</span>, <span class="ruby-string">&quot;gender&quot;</span>]
+    <span class="ruby-keyword">return</span> <span class="ruby-value">2</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">keys</span> <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;breed&quot;</span>, <span class="ruby-string">&quot;gender&quot;</span>, <span class="ruby-string">&quot;country&quot;</span>, <span class="ruby-string">&quot;zip&quot;</span>, <span class="ruby-string">&quot;email&quot;</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">validate_sign_up_2</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-value">3</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-value">2</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">keys</span> <span class="ruby-operator">==</span> []
+    <span class="ruby-keyword">return</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-update_preferences" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_preferences</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="update_preferences-source">
+            <pre><span class="ruby-comment"># File app/helpers/users_helper.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update_preferences</span>
+  <span class="ruby-comment"># {&quot;tiny&quot;=&gt;&quot;size&quot;, &quot;small&quot;=&gt;&quot;size&quot;, &quot;medium&quot;=&gt;&quot;size&quot;, &quot;large&quot;=&gt;&quot;size&quot;, &quot;friendship&quot;=&gt;&quot;looking_for&quot;, &quot;casual_play&quot;=&gt;&quot;looking_for&quot;, &quot;breed_partner&quot;=&gt;&quot;looking_for&quot;, &quot;male&quot;=&gt;&quot;gender&quot;, &quot;female&quot;=&gt;&quot;gender&quot;, &quot;near_me&quot;=&gt;&quot;near_me&quot;}</span>
+  <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">preferences</span>.<span class="ruby-identifier">destroy_all</span>
+  <span class="ruby-identifier">preference_params</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">val</span>, <span class="ruby-identifier">pref_attr</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">int_val</span> = (<span class="ruby-identifier">pref_attr</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;near_me&quot;</span>) <span class="ruby-operator">?</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">convert_to_integer</span>(<span class="ruby-identifier">val</span>, <span class="ruby-identifier">pref_attr</span>)
+    <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">preferences</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">preference_attribute</span><span class="ruby-operator">:</span> <span class="ruby-identifier">pref_attr</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">:</span> <span class="ruby-identifier">int_val</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-validate_sign_up_2" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">validate_sign_up_2</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="validate_sign_up_2-source">
+            <pre><span class="ruby-comment"># File app/helpers/users_helper.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">validate_sign_up_2</span>
+  <span class="ruby-identifier">validate</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">flash</span>.<span class="ruby-identifier">now</span>[<span class="ruby-value">:errors</span>] = []
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:user</span>][<span class="ruby-string">&quot;zip&quot;</span>].<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">flash</span>.<span class="ruby-identifier">now</span>[<span class="ruby-value">:errors</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;zip cannot be blank&quot;</span>
+    <span class="ruby-identifier">validate</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:user</span>][<span class="ruby-string">&quot;email&quot;</span>].<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">flash</span>.<span class="ruby-identifier">now</span>[<span class="ruby-value">:errors</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;email cannot be blank&quot;</span>
+    <span class="ruby-identifier">validate</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">validate</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
