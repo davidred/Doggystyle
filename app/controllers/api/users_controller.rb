@@ -83,7 +83,7 @@ module Api
                                    :play_style,
                                    :energy_level,
                                    :owner_age,
-                                   :owner_photo,
+                                   :owner_profile_photo,
                                    :owner_gender)
     end
 
