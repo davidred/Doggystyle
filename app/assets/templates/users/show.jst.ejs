@@ -196,7 +196,7 @@
             <button id="user-energy_level"
                     class="cancel inactive js-hide-input"
                     data-input="user-energy_level">Cancel</button>
-      
+
         </div>
       </div>
 
@@ -243,17 +243,14 @@
     </section>
 
     <section class="owner-info">
-      <a href="javascript.void(0)" class="js-show-modal" data-modal="owner-info-modal">
+      <a href="javascript.void(0)" class="group js-show-modal" data-modal="owner-info-modal">
         <h3>My Person</h3>
-        <ul>
-          <li>
-            <figure class="owner-photo">
-
-            </figure>
-          </li>
+        <figure class="owner-profile-picture">
+          <img src="<%= user.escape('owner_profile_photo')%>">
+        </figure>
+        <ul class="group owner-info-list">
           <li><%= user.escape('owner_name') %></li>
-          <li><%= user.escape('owner_age') %></li>
-          <li><%= user.escape('owner_gender_name') %></li>
+          <li><%= user.escape('owner_age') %>&#8226<%= user.escape('owner_gender_name') %></li>
         </ul>
       </a>
     </section>
@@ -481,7 +478,7 @@
         <form class="owner-info-form">
           <ul class="owner-info-list">
             <li class="owner-name">
-              <br>
+              <input type="file" id="owner-profile-picture" class="photo-upload">
               <br>
               <label for="owner-name">Name</label>
               <input type="text"

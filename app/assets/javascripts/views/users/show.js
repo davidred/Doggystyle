@@ -154,6 +154,18 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
 		this.model.fetch()
   },
 
+  saveOwnerInfo: function(event) {
+    event.preventDefault();
+    attrs = $(event.currentTarget).serializeJSON();
+
+    var file = $('.photo-upload')[0].files[0];
+    var view = this;
+    var formData = new FormData();
+    formData.append('new_photo', file);
+
+    debugger
+  },
+
   saveProfileInfo: function(event) {
     event.preventDefault();
     var input = event.currentTarget.dataset.input;

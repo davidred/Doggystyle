@@ -159,9 +159,7 @@ main {
 	border-radius: 3px;
 }
 
-.owner-profile-picture {
-  float: none;
-}
+
 
 .profile-picture:hover .upload-photo{
 	height: 50px;
@@ -172,6 +170,7 @@ main {
   height: 160px;
   width: auto;
 }
+
 
 .upload-photo {
 	position: absolute;
@@ -464,7 +463,6 @@ div.Large{
 
 .modal input[type=checkbox] {
 	display: inline;
-	background: red;
 }
 
 .user-play_style-energy_level {
@@ -568,10 +566,25 @@ button.cancel:hover {
 	cursor: pointer;
 }*/
 
+.owner-profile-picture {
+  overflow: hidden;
+  float: left;
+  border-radius: 3px;
+  height: 120px;
+  width: 120px;
+  float: left;
+  margin: 0 10px;
+}
+
+.owner-profile-picture > img {
+  margin: 0 auto;
+  height: 120px;
+  width: auto;
+}
+
 .owner-info {
 	padding: 10px;
-  margin-top: 10px;
-	margin-right: 20px;
+  margin: 10px 20px 0px;
 }
 
 /*.owner-info:hover {
@@ -579,9 +592,21 @@ button.cancel:hover {
 	cursor: pointer;
 }*/
 
-.owner-info > ul {
+.owner-info-list {
+  margin-top: 20px;
 	padding: 10px;
+  float: left;
 }
+
+.owner-info-list > li {
+  padding: 0 10px;
+  text-align: center;
+}
+
+.owner-info-list > li:first-child {
+  font-size: 20px;
+}
+
 
 .matches-content h1 {
 
