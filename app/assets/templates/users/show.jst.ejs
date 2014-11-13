@@ -475,9 +475,14 @@
         <span class="modal-close js-hide-modal"
               data-modal="owner-info-modal">&times;</span>
         <h1>Owner Info</h1>
+
         <form class="owner-info-form">
-          <ul class="owner-info-list">
+          <figure class="owner-profile-picture owner-profile-picture-form">
+            <img src="<%= user.escape('owner_profile_photo') %>">
+          </figure>
+          <ul class="owner-info-list-form">
             <li class="owner-name">
+              <label for="owner-profile-picture">Change Photo</label>
               <input type="file" id="owner-profile-picture" class="owner-photo-upload">
               <br>
               <label for="owner-name">Name</label>
@@ -502,8 +507,6 @@
               </select>
             </li>
             <li class="owner-age">
-              <br>
-              <br>
               <label for="owner-age">Age</label>
               <input type="text"
                      id="owner-age"

@@ -24,6 +24,7 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
     "click button#save-profile-picture": "handlePhoto",
     "click li.choose-size": "updateSize",
     "mouseenter li.choose-size": "previewSize",
+    "change .owner-photo-upload": "previewPhoto",
 	},
 
   previewSize: function(event) {
@@ -157,16 +158,31 @@ Doggystyle.Views.UserShowView = Backbone.View.extend({
   saveOwnerInfo: function(event) {
     event.preventDefault();
     attrs = $(event.currentTarget).serializeJSON();
-
     var file = $('.owner-photo-upload')[0].files[0];
-    var view = this;
-    var reader = new FileReader();
-    reader.onload = function(file) {
-      attrs.user.owner_profile_photo = file.currentTarget.result;
-      view.model.save(attrs, {patch: true});
-    }
-    var photo = reader.readAsDataURL(file);
 
+    if (file === undefined) {
+      debugger
+      this.model.save(attrs, {patch: true});
+    } else {
+      var view = this;
+      var reader = new FileReader();
+      reader.onload = function(file) {
+        attrs.user.owner_profile_photo = file.currentTarget.result;
+        view.model.save(attrs, {patch: true});
+      }
+      var photo = reader.readAsDataURL(file);
+    }
+  },
+
+  previewPhoto: function(event) {
+    event.preventDefault();
+    var file = $(event.currentTarget)[0].files[0];
+    var reader = new FileReader();
+    var view = this;
+    reader.onload = function(file) {
+      $('.owner-profile-picture-form > img').attr('src', file.currentTarget.result);
+    };
+    var photo = reader.readAsDataURL(file);
   },
 
   saveProfileInfo: function(event) {

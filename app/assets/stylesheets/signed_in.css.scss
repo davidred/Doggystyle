@@ -584,7 +584,7 @@ button.cancel:hover {
 
 .owner-info {
 	padding: 10px;
-  margin: 10px 20px 0px;
+  // margin: 10px 20px 0px;
 }
 
 /*.owner-info:hover {
@@ -592,15 +592,25 @@ button.cancel:hover {
 	cursor: pointer;
 }*/
 
+.owner-info-form {
+  padding-top: 20px;
+}
+
+.owner-profile-picture-form {
+  float: none;
+  margin: 0 auto;
+}
+
 .owner-info-list {
   margin-top: 20px;
 	padding: 10px;
+  width: 150px;
   float: left;
 }
 
 .owner-info-list > li {
   padding: 0 10px;
-  text-align: center;
+  // text-align: center;
 }
 
 .owner-info-list > li:first-child {
