@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       default_preferences(@user)
       redirect_to user_url(@user)
     else
-      flash[:errors] = @user.errors.full_messages
+      flash.now[:errors] = @user.errors.full_messages
       render :sign_up_3, layout: "sign_up"
     end
   end

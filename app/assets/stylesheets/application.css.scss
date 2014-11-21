@@ -289,6 +289,34 @@ body {
   border-radius: 3px;
 }
 
+.sign-up-2 input {
+  padding: 10px 15px;
+  width: 100px;
+  // margin: 0 10px;
+}
+
+ul.sign-up-2 {
+  width: 650px;
+}
+
+ul.sign-up-3 {
+  width: 450px;
+}
+
+ul.sign-up-2 > li {
+  width: 120px;
+  margin: 0 10px;
+}
+
+ul.sign-up-3 > li {
+  width: 120px;
+  margin: 0 10px;
+}
+
+.error {
+  color: red;
+}
+
 .prefix {
 	padding-top: 5px;
   padding-left: 20px;
@@ -299,7 +327,9 @@ body {
 	padding-top: 5px;
 }
 
-
+ul.sign-up-2 > li.dropdown {
+  margin: 0;
+}
 
 .continue {
   display: block;

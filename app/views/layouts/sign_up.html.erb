@@ -14,7 +14,7 @@
 			<li class="background1"></li>
 			<li class="background2"></li>
 			<li class="background3"></li>
-			<li class="background4"></li> 
+			<li class="background4"></li>
 			<li class="background5"></li>
 		</ul>
 	</div>
@@ -31,7 +31,9 @@
 				</div>
 		  </nav>
 		  <section class="sign-up-content">
-
+          <% flash[:errors].each do |error| %>
+          <p class="error"><%= error %></p>
+          <% end %>
 		      <%= yield %>
 
 		  </section>

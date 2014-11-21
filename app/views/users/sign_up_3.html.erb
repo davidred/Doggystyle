@@ -3,25 +3,27 @@
 
   <h1>Last step! Woof!</h1>
 
-  <ul class="sign-up-content-list group">
-    <li>
-      <div class="text-input">
-      <label for="username">Username</label>
+  <ul class="sign-up-content-list sign-up-3 group">
+    <li class="form-input sign-up-2">
+
+      <!-- <label for="username">Username</label> -->
       <input type="text"
              id="username"
              name="user[username]"
-             value="<%= @user.username %>">
-      </div>
+             value="<%= @user.username %>"
+             placeholder="Username">
+
     </li>
 
-    <li>
-      <div class="text-input">
-      <label for="password">Password</label>
+    <li class="form-input sign-up-2">
+
+      <!-- <label for="password">Password</label> -->
       <input type="password"
              id="password"
     				 value=""
-             name="user[password]">
-      </div>
+             name="user[password]"
+             placeholder="Password">
+
     </li>
 
     <li>
