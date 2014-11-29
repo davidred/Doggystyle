@@ -1,10 +1,10 @@
-#Doggystyle - a dating site for pets
+#WaggingTails - a dating site for pets
 
-A joyful app where pet owners can find nearby playmates for their pets, as well as meet fellow pet lovers.
+A fun to use app allowing pet owners to find nearby playmates for their pets, as well as meet fellow pet lovers.
 
 ##Goals
 
-1. Create OkCupid clone for pets to allow for profile creation and messaging
+1. Create OkCupid clone for pets and allow for profile creation, messaging, and filtered searches
 2. Allow users to search by preference for playmate (breed, size, and what they're looking for)
 3. Seed the database with a lot of cute dog pictures
 
