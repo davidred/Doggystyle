@@ -13,6 +13,11 @@
 require 'rails_helper'
 
 describe Message do
+  it 'has a valid factory' do
+    expect(FactoryGirl.create(:message)).to be_valid
+  end
+
+
   it 'is valid with body from and to' do
     message = Message.new(
       body: 'hey there',
@@ -23,20 +28,14 @@ describe Message do
   end
 
   it 'is invalid without a body' do
-    message = Message.new(body: nil)
-    message.valid?
-    expect(message.errors[:body]).to include("can't be blank")
+    expect(FactoryGirl.build(:message, body: nil)).to_not be_valid
   end
 
   it 'is invalid without a from' do
-    message = Message.new(from: nil)
-    message.valid?
-    expect(message.errors[:from]).to include("can't be blank")
+    expect(FactoryGirl.build(:message, from: nil)).to_not be_valid
   end
 
   it 'is invalid without a to' do
-    message = Message.new(to: nil)
-    message.valid?
-    expect(message.errors[:to]).to include("can't be blank")
+    expect(FactoryGirl.build(:message, to: nil)).to_not be_valid
   end
 end

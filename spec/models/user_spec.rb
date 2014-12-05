@@ -35,10 +35,14 @@
 #
 
 require 'rails_helper'
-
+require 'spec_helper'
 
 # RSpec.describe User, :type => :model do
 describe User do
+  it "has a valid factory" do
+    expect(FactoryGirl.create(:user)).to be_valid
+  end
+
   it "is valid with a username, password, gender, breed, email, country, zip" do
     user = User.new(
       username: "David",
@@ -53,45 +57,35 @@ describe User do
   end
 
   it "is invalid without a username" do
-    user = User.new(username: nil)
-    user.valid?
-    expect(user.errors[:username]).to include("can't be blank")
+    expect(FactoryGirl.build(:user, username: nil)).to_not be_valid
   end
 
   it "is invalid without a password" do
-    user = User.new(password: "")
+    user = FactoryGirl.build(:user, password: "")
     user.valid?
     expect(user.errors[:password]).to include("is too short (minimum is 6 characters)")
   end
 
   it "is invalid with a password under 6 characters" do
-    user = User.new(password: '12345')
+    user = FactoryGirl.build(:user, password: '12345')
     user.valid?
     expect(user.errors[:password]).to include("is too short (minimum is 6 characters)")
   end
 
   it "is invalid without a gender" do
-    user = User.new(gender: nil)
-    user.valid?
-    expect(user.errors[:gender]).to include("can't be blank")
+    expect(FactoryGirl.build(:user, gender: nil)).to_not be_valid
   end
 
   it "is invalid without a breed" do
-    user = User.new(breed: nil)
-    user.valid?
-    expect(user.errors[:breed]).to include("can't be blank")
+    expect(FactoryGirl.build(:user, breed: nil)).to_not be_valid
   end
 
   it "is invalid without an email" do
-    user = User.new(email: nil)
-    user.valid?
-    expect(user.errors[:email]).to include("can't be blank")
+    expect(FactoryGirl.build(:user, email: nil)).to_not be_valid
   end
 
   it "is invalid without a country" do
-    user = User.new(country: nil)
-    user.valid?
-    expect(user.errors[:country]).to include("can't be blank")
+    expect(FactoryGirl.build(:user, country: nil)).to_not be_valid
   end
 
 end
