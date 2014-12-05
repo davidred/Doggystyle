@@ -51,3 +51,9 @@ end
 group :production do
   gem 'rails_12factor'
 end
+
+group :development, :test do
+  gem 'capybara'
+  gem 'launchy'
+  gem 'rspec-rails'
+end
