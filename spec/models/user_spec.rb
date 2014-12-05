@@ -1,3 +1,39 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                               :integer          not null, primary key
+#  username                         :string(255)      not null
+#  password_digest                  :string(255)      not null
+#  omniauthid                       :string(255)
+#  session_token                    :string(255)
+#  created_at                       :datetime
+#  updated_at                       :datetime
+#  gender                           :integer          not null
+#  breed                            :integer          not null
+#  email                            :string(255)      not null
+#  country                          :integer          not null
+#  zip                              :integer          not null
+#  summary                          :text
+#  photo                            :string(255)
+#  age                              :integer
+#  size                             :integer
+#  play_style                       :integer
+#  energy_level                     :integer
+#  owner_name                       :string(255)
+#  owner_photo                      :string(255)
+#  owner_gender                     :integer
+#  owner_age                        :integer
+#  profile_photo_file_name          :string(255)
+#  profile_photo_content_type       :string(255)
+#  profile_photo_file_size          :integer
+#  profile_photo_updated_at         :datetime
+#  owner_profile_photo_file_name    :string(255)
+#  owner_profile_photo_content_type :string(255)
+#  owner_profile_photo_file_size    :integer
+#  owner_profile_photo_updated_at   :datetime
+#
+
 require 'rails_helper'
 
 
@@ -34,8 +70,28 @@ describe User do
     expect(user.errors[:password]).to include("is too short (minimum is 6 characters)")
   end
 
-  it "is invalid without a gender"
-  it "is invalid without a breed"
-  it "is invalid without an email"
-  it "is invalid without a country"
+  it "is invalid without a gender" do
+    user = User.new(gender: nil)
+    user.valid?
+    expect(user.errors[:gender]).to include("can't be blank")
+  end
+
+  it "is invalid without a breed" do
+    user = User.new(breed: nil)
+    user.valid?
+    expect(user.errors[:breed]).to include("can't be blank")
+  end
+
+  it "is invalid without an email" do
+    user = User.new(email: nil)
+    user.valid?
+    expect(user.errors[:email]).to include("can't be blank")
+  end
+
+  it "is invalid without a country" do
+    user = User.new(country: nil)
+    user.valid?
+    expect(user.errors[:country]).to include("can't be blank")
+  end
+
 end
